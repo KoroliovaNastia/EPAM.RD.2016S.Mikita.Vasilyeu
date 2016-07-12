@@ -1,0 +1,8 @@
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleUI\bin\Debug\ConsoleUI.exe.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleUI\bin\Debug\ConsoleUI.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleUI\bin\Debug\ConsoleUI.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleUI\bin\Debug\Heap.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleUI\bin\Debug\Heap.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleUI\obj\Debug\ConsoleUI.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleUI\obj\Debug\ConsoleUI.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleUI\obj\Debug\ConsoleUI.csprojResolveAssemblyReference.cache
