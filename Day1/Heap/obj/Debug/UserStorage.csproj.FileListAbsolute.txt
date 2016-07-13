@@ -1,5 +1,0 @@
-D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Heap\bin\Debug\Heap.dll
-D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Heap\bin\Debug\Heap.pdb
-D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Heap\obj\Debug\UserStorage.csprojResolveAssemblyReference.cache
-D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Heap\obj\Debug\Heap.dll
-D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Heap\obj\Debug\Heap.pdb
