@@ -89,5 +89,21 @@ namespace Storage
                 }
             }
         }
+
+        public static int GetSeed()
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
+            List<User> us = new List<User>();
+            using (StreamReader sr = new StreamReader(ConfigurationManager.AppSettings["Path"]))
+            {
+                List<User> users = (List<User>)formatter.Deserialize(sr);
+                foreach (var user in users)
+                {
+                    us.Add(user);
+                }
+            }
+            int lastId = us.OrderByDescending(u => u.Id).FirstOrDefault().Id;
+            return lastId;
+        }
     }
 }

@@ -10,13 +10,14 @@ namespace Storage
 {
     public class EvenEnumerator : ICustomerEnumerator
     {
-        private int next = -2;
+        private int next;
 
-        public int Current
+        public EvenEnumerator(int seed = -2)
         {
-            get { return next; } 
-            set { next = value; }        
+            next = seed;
         }
+
+        public int Current => next;
 
         public bool MoveNext()
         {
