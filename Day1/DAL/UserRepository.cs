@@ -58,6 +58,8 @@ namespace DAL
             return ids;
         }
 
+
+
         public void WriteToXmlFile()
         {
             XmlSerializer formatter = new XmlSerializer(typeof(List<User>));

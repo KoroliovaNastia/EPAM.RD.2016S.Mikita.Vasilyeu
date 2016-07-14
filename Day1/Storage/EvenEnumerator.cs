@@ -14,7 +14,8 @@ namespace Storage
 
         public int Current
         {
-            get { return next; }         
+            get { return next; } 
+            set { next = value; }        
         }
 
         public bool MoveNext()

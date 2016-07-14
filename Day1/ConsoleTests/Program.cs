@@ -19,11 +19,13 @@ namespace ConsoleTests
             repository.Add(user_1);
             repository.Add(user_2);
             repository.WriteToXmlFile();
-            UserRepository rep_2 = new UserRepository(new UserStorage());
+            //UserRepository rep_2 = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()));
+            UserRepository rep_2 = new UserRepository(new UserStorage(new EvenEnumerator {Current = repository.GetAllUsers().OrderByDescending(u=>u.Id).FirstOrDefault().Id }, new SimpleUserValidator()));
             rep_2.ReadFromXmlFile();
+            rep_2.Add(user_2);
             foreach (var item in rep_2.GetAllUsers())
             {
-                Console.WriteLine(item.FirstName + " " + item.LastName);
+                Console.WriteLine(item);
             }
         }
     }
