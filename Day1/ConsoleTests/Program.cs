@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.Models;
 
 namespace ConsoleTests
 {
@@ -13,15 +14,15 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
-            UserRepository repository = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()));
-            User user_1 = new User { FirstName = "Mike", LastName = "Jones", Cards = { new VisaRecord {Country = "USA"}, new VisaRecord {Country = "China"} }};
-            User user_2 = new User { FirstName = "Mike", LastName = "Smith" };
+            UserRepository repository = new UserRepository(new Storage.UserStorage(new EvenEnumerator(), new SimpleUserValidator()));
+            UserEntity user_1 = new UserEntity { FirstName = "Mike", LastName = "Jones", Cards = { new VisaRecordEntity() {Country = "USA"}, new VisaRecordEntity { Country = "China"} }};
+            UserEntity user_2 = new UserEntity { FirstName = "Mike", LastName = "Smith" };
             repository.Add(user_1);
             repository.Add(user_2);
-            repository.WriteToXmlFile();
-            //UserRepository rep_2 = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()));
-            UserRepository rep_2 = new UserRepository(new UserStorage(new EvenEnumerator {Current = repository.GetAllUsers().OrderByDescending(u=>u.Id).FirstOrDefault().Id }, new SimpleUserValidator()));
-            rep_2.ReadFromXmlFile();
+            repository.Save();
+            //UserRepository rep_2 = new UserRepository(new Storage(new EvenEnumerator(), new SimpleUserValidator()));
+            UserRepository rep_2 = new UserRepository(new Storage.UserStorage(new EvenEnumerator {Current = repository.GetAllUsers().OrderByDescending(u=>u.Id).FirstOrDefault().Id }, new SimpleUserValidator()));
+            rep_2.Load();
             rep_2.Add(user_2);
             foreach (var item in rep_2.GetAllUsers())
             {

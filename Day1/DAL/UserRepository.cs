@@ -1,4 +1,5 @@
 ﻿using DAL.Interface;
+using DAL.Models;
 using Storage;
 using Storage.Interface;
 using Storage.Models;
@@ -10,82 +11,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using DAL.Mappers;
 
 namespace DAL
 {
     public class UserRepository : IUserRepository
     {
-        private readonly AbstractUserStorage storage;
+        private readonly IUserStorage storage;
 
-        public UserRepository(AbstractUserStorage storage)
+        public UserRepository(IUserStorage storage)
         {
             this.storage = storage;
         }
 
-        public int Add(User user)
+        public int Add(UserEntity user)
         {
-            return storage.Add(user);
+            return storage.Add(user.ToUser());
         }
 
-        public void Delete(User user)
+        public void Delete(UserEntity user)
         {
-            if (user == null)
-                throw new ArgumentNullException();
-            User userToDelete = storage.Users.SingleOrDefault(u => u.Id == user.Id);
-            if (userToDelete != null)
-                storage.Users.Remove(userToDelete);
+            storage.Delete(user.ToUser());
         }
 
-        public IEnumerable<User> GetAllUsers()
+        public IEnumerable<UserEntity> GetAllUsers()
         {
-            return storage.Users.ToList();
+            return storage.GetAll().Select(user=>user.ToUserEntity());
         }
 
-        public int[] SearchForUsers(Func<User, bool> criteria)
+        public int[] SearchForUsers(Func<UserEntity, bool> criteria)
         {
-            if (criteria == null)
-                throw new ArgumentNullException();
-            List<User> foundUsers = storage.Users.Where(criteria).ToList();
-            int[] ids = null;
-            if (foundUsers != null && foundUsers.Count != 0)
-            {
-                ids = new int[foundUsers.Count];
-                for (int i = 0; i < ids.Length; i++)
-                {
-                    ids[i] = foundUsers[i].Id;
-                }
-            }
-            return ids;
+            Func<User, bool> predicate = user => criteria.Invoke(user.ToUserEntity());
+            return storage.GetByPredicate(predicate);
         }
 
-
-
-        public void WriteToXmlFile()
+        public void Save()
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
-            //XmlSerializer formatter = new XmlSerializer(typeof(User[]));
-            using (FileStream fs = new FileStream(ConfigurationManager.AppSettings["Path"], FileMode.Create))
-            {
-                formatter.Serialize(fs, storage.Users);
-            }
+            storage.Save();
         }
 
-        public void ReadFromXmlFile()
+        public void Load()
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
-            //XmlSerializer formatter = new XmlSerializer(typeof(User[]));
-
-            using (StreamReader sr = new StreamReader(ConfigurationManager.AppSettings["Path"]))
-            {
-                List<User> users = (List<User>)formatter.Deserialize(sr);
-                //User[] users = (User[])formatter.Deserialize(fs);
-
-                foreach (var user in users)
-                {
-                    storage.Users.Add(user);
-                }
-            }
-
+            storage.Load();
         }
     }
 }

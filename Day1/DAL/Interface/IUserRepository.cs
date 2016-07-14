@@ -4,14 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.Models;
 
 namespace DAL.Interface
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository<UserEntity>
     {
-        int Add(User user);
-        int[] SearchForUsers(Func<User, bool> criteria);
-        void Delete(User user);
-        IEnumerable<User> GetAllUsers();
+
     }
 }

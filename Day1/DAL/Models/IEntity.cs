@@ -1,13 +1,13 @@
-﻿using Storage.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Storage.Interface
+namespace DAL.Models
 {
-    public interface IUserStorage : IStorage<User>
+    public interface IEntity
     {
+        int Id { get; }
     }
 }

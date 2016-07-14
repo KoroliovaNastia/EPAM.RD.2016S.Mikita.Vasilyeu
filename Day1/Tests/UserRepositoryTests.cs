@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Storage;
+using DAL.Models;
 
 namespace Tests
 {
@@ -16,8 +17,9 @@ namespace Tests
         public void AddValidUser_ReturnsUserId()
         {
             User user = new User { FirstName = "Mike", LastName = "Jones" };
-            UserRepository repository = new UserRepository(new UserStorage());
-            int id = repository.Add(user);
+            UserStorage st = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
+            int id = st.Add(user);
+            Assert.AreEqual(id, 0);
         }
 
         [TestMethod]
@@ -25,8 +27,8 @@ namespace Tests
         public void AddNullUser_ThrowsException()
         {
             User user = null;
-            UserRepository repository = new UserRepository(new UserStorage());
-            int id = repository.Add(user);
+            UserStorage st = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
+            int id = st.Add(user);
         }
 
         [TestMethod]
@@ -34,18 +36,18 @@ namespace Tests
         public void AddInValidUser_ThrowsException()
         {
             User user = new User { FirstName = "Mike" };
-            UserRepository repository = new UserRepository(new UserStorage());
-            int id = repository.Add(user);
+            UserStorage st = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
+            int id = st.Add(user);
         }
 
         [TestMethod]
         public void DeleteUser_()
         {
             User user = new User { FirstName = "Mike", LastName = "Jones" };
-            UserRepository repository = new UserRepository(new UserStorage());
-            int id = repository.Add(user);
-            repository.Delete(user);
-            var ids = repository.SearchForUsers(u => u.Id == id);
+            UserStorage st = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
+            int id = st.Add(user);
+            st.Delete(user);
+            var ids = st.GetByPredicate(u => u.Id == id);
             Assert.AreEqual(ids, null);
         }
 
@@ -53,17 +55,17 @@ namespace Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void DeleteNullUser_ThrowsException()
         {
-            UserRepository repository = new UserRepository(new UserStorage());
-            repository.Delete(null);
+            UserStorage st = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
+            st.Delete(null);
         }
 
         [TestMethod]
         public void GetAllUsers_ReturnsAllUsers()
         {
-            UserRepository repository = new UserRepository(new UserStorage());
+            UserStorage st = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
             User user = new User { FirstName = "Mike", LastName = "Jones" };
-            int id = repository.Add(user);
-            var users = repository.GetAllUsers();
+            int id = st.Add(user);
+            var users = st.GetAll();
             int count = users.Count();
             Assert.AreEqual(count, 1);
         }
@@ -71,10 +73,10 @@ namespace Tests
         [TestMethod]
         public void SearchForUsers_ReturnsSingleUserId()
         {
-            UserRepository repository = new UserRepository(new UserStorage());
+            UserStorage st = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
             User user = new User { FirstName = "Mike", LastName = "Jones" };
-            int id = repository.Add(user);
-            int[] ids = repository.SearchForUsers(u => u.Id == id);
+            int id = st.Add(user);
+            int[] ids = st.GetByPredicate(u => u.Id == id);
             //Assert.AreEqual(ids[0], 0);
             Assert.AreEqual(ids.Count(), 1);
         }
@@ -82,12 +84,12 @@ namespace Tests
         [TestMethod]
         public void SearchForUsers_ReturnsMultipleUserId()
         {
-            UserRepository repository = new UserRepository(new UserStorage());
+            UserStorage st = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
             User user_1 = new User { FirstName = "Mike", LastName = "Jones" };
             User user_2 = new User { FirstName = "Mike", LastName = "Smith" };
-            repository.Add(user_1);
-            repository.Add(user_2);
-            int[] ids = repository.SearchForUsers(u => u.FirstName == "Mike");
+            st.Add(user_1);
+            st.Add(user_2);
+            int[] ids = st.GetByPredicate(u => u.FirstName == "Mike");
             Assert.AreEqual(ids.Count(), 2);
         }
     }

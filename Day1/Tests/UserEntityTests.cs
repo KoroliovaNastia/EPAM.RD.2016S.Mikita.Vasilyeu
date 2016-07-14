@@ -26,7 +26,7 @@ namespace Tests
         [TestMethod]
         public void UserHashCode_ReturnsSameValuesForSameUsers()
         {
-            User one = new User { FirstName = "Mike", LastName = "Jones" };
+            User one = new User { Id = 0, FirstName = "Mike", LastName = "Jones" };
             User two = one;
             Assert.AreEqual(one.GetHashCode(), two.GetHashCode());
         }
@@ -34,8 +34,8 @@ namespace Tests
         [TestMethod]
         public void UserHashCode_ReturnsDifferentValuesForDifferentUsers()
         {
-            User one = new User { FirstName = "Mike", LastName = "Jones" };
-            User two = new User { FirstName = "Mike", LastName = "Jones" };
+            User one = new User { Id = 0, FirstName = "Mike", LastName = "Jones" };
+            User two = new User { Id = 2, FirstName = "Mike", LastName = "Jones" };
             Assert.AreNotEqual(one.GetHashCode(), two.GetHashCode());
         }
     }
