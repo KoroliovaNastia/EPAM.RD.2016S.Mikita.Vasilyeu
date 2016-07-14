@@ -24,13 +24,7 @@ namespace DAL
 
         public int Add(User user)
         {
-            if (user == null)
-                throw new ArgumentNullException();
-            if (!User.validator.Validate(user))
-                throw new ArgumentException();
-            user.Id = User.iterator.GetNext();
-            storage.Users.Add(user);
-            return user.Id;
+            return storage.Add(user);
         }
 
         public void Delete(User user)

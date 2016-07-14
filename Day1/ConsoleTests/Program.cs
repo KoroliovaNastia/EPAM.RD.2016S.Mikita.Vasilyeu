@@ -13,8 +13,8 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
-            UserRepository repository = new UserRepository(new UserStorage());
-            User user_1 = new User { FirstName = "Mike", LastName = "Jones" };
+            UserRepository repository = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()));
+            User user_1 = new User { FirstName = "Mike", LastName = "Jones", Cards = { new VisaRecord {Country = "USA"}, new VisaRecord {Country = "China"} }};
             User user_2 = new User { FirstName = "Mike", LastName = "Smith" };
             repository.Add(user_1);
             repository.Add(user_2);

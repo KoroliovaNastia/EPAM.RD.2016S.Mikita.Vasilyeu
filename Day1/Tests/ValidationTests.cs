@@ -1,6 +1,8 @@
 ﻿using System;
+using DAL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Storage.Models;
+using Storage;
 
 namespace Tests
 {
@@ -10,16 +12,18 @@ namespace Tests
         [TestMethod]
         public void UserSimpleValidation_ReturnsTrueForValidUser()
         {
+            UserStorage storage = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
             User user = new User { FirstName = "Mike" };
-            bool isValid = User.validator.Validate(user);
+            bool isValid = storage.validator.Validate(user);
             Assert.IsFalse(isValid);
         }
 
         [TestMethod]
         public void UserSimpleValidation_ReturnsFalseForInvalidUser()
         {
-            User user = new User { FirstName = "Mike", LastName = "Jones" };
-            bool isValid = User.validator.Validate(user);
+            UserStorage storage = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
+            User user = new User { FirstName = "Mike", LastName = "Jones"};
+            bool isValid = storage.validator.Validate(user);
             Assert.IsTrue(isValid);
         }
     }

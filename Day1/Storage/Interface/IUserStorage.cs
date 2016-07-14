@@ -15,5 +15,7 @@ namespace Storage.Interface
         {
             Users = new List<User>();
         }
+
+        public abstract int Add(User user);
     }
 }

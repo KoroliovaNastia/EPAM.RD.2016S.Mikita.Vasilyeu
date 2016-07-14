@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Storage.Models
 {
+    [Serializable]
     public struct VisaRecord
     {
         public string Country { get; set; }

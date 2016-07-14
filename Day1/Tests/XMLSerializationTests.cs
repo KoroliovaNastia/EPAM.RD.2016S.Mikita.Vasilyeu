@@ -15,7 +15,7 @@ namespace Tests
         [TestMethod]
         public void WriteToXml_()
         {
-            UserRepository repository = new UserRepository(new UserStorage());
+            UserRepository repository = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()));
             User user_1 = new User { FirstName = "Mike", LastName = "Jones" };
             User user_2 = new User { FirstName = "Mike", LastName = "Smith" };
             repository.Add(user_1);

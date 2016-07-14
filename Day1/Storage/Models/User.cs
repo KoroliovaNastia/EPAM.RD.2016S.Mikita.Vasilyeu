@@ -11,35 +11,16 @@ namespace Storage.Models
     [Serializable]
     public class User : IEquatable<User>
     {
-        public static ICustomerEnumerator iterator { get; set; }
-        public static IUserValidator validator { get; set; }
-
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; }
-        public IEnumerable<VisaRecord> Cards { get; }
-
-        static User()
-        {
-            iterator = new EvenEnumerator();
-            validator = new SimpleUserValidator();
-        }
-
-        public User(ICustomerEnumerator iterator = null, IUserValidator validator = null)
-        {
-            if (iterator != null)
-                User.iterator = iterator;
-            if (validator != null)
-                User.validator = validator;
-            Cards = new List<VisaRecord>();
-            Id = User.iterator.GetNext();
-        }
+        public List<VisaRecord> Cards { get; }
 
         public User()
         {
-                
+            Cards = new List<VisaRecord>();
         }
 
         public bool Equals(User other)
