@@ -1,0 +1,16 @@
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\ConsoleTests\bin\Debug\ConsoleTests.exe.config
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\ConsoleTests\bin\Debug\ConsoleTests.exe
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\ConsoleTests\bin\Debug\ConsoleTests.pdb
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\ConsoleTests\bin\Debug\Attributes.dll
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\ConsoleTests\bin\Debug\Attributes.pdb
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\ConsoleTests\obj\Debug\ConsoleTests.csprojResolveAssemblyReference.cache
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\ConsoleTests\obj\Debug\ConsoleTests.exe
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\ConsoleTests\obj\Debug\ConsoleTests.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\bin\Debug\ConsoleTests.exe.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\obj\Debug\ConsoleTests.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\obj\Debug\ConsoleTests.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\bin\Debug\ConsoleTests.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\bin\Debug\ConsoleTests.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\bin\Debug\Attributes.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\bin\Debug\Attributes.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\obj\Debug\ConsoleTests.csprojResolveAssemblyReference.cache

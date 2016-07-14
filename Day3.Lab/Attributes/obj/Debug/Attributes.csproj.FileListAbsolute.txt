@@ -1,0 +1,5 @@
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\Attributes\obj\Debug\Attributes.csprojResolveAssemblyReference.cache
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\Attributes\bin\Debug\Attributes.dll
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\Attributes\bin\Debug\Attributes.pdb
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\Attributes\obj\Debug\Attributes.dll
+C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\Attributes\obj\Debug\Attributes.pdb
