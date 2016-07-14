@@ -16,18 +16,4 @@
     <Gender>None</Gender>
     <Cards />
   </User>
-</ArrayOfUser>na</Country>
-        <StartDate>0001-01-01T00:00:00</StartDate>
-        <ExpiryDate>0001-01-01T00:00:00</ExpiryDate>
-      </VisaRecord>
-    </Cards>
-  </User>
-  <User>
-    <Id>2</Id>
-    <FirstName>Mike</FirstName>
-    <LastName>Smith</LastName>
-    <BirthDate>0001-01-01T00:00:00</BirthDate>
-    <Gender>None</Gender>
-    <Cards />
-  </User>
 </ArrayOfUser>

@@ -62,7 +62,7 @@ namespace DAL
         {
             XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
             //XmlSerializer formatter = new XmlSerializer(typeof(User[]));
-            using (FileStream fs = new FileStream(ConfigurationManager.AppSettings["Path"], FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(ConfigurationManager.AppSettings["Path"], FileMode.Create))
             {
                 formatter.Serialize(fs, storage.Users);
             }
@@ -73,9 +73,9 @@ namespace DAL
             XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
             //XmlSerializer formatter = new XmlSerializer(typeof(User[]));
 
-            using (FileStream fs = new FileStream(ConfigurationManager.AppSettings["Path"], FileMode.OpenOrCreate))
+            using (StreamReader sr = new StreamReader(ConfigurationManager.AppSettings["Path"]))
             {
-                List<User> users = (List<User>)formatter.Deserialize(fs);
+                List<User> users = (List<User>)formatter.Deserialize(sr);
                 //User[] users = (User[])formatter.Deserialize(fs);
 
                 foreach (var user in users)
