@@ -29,7 +29,7 @@ namespace Storage
         {
             if (MoveNext())
                 return Current;
-            return -2;
+            return 0;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Storage.Models;
+﻿using Storage.Interface;
+using Storage.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,11 @@ using System.Threading.Tasks;
 
 namespace Storage
 {
-    public class UserStorage
+    public class UserStorage : AbstractUserStorage
     {
-        public List<User> Users { get; private set; }
-
-        public UserStorage()
+        public UserStorage() : base()
         {
-            Users = new List<User>();
+
         }
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="UserEntityTests.cs" />
     <Compile Include="UserRepositoryTests.cs" />
     <Compile Include="ValidationTests.cs" />
+    <Compile Include="XMLSerializationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

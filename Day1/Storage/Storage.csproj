@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EvenEnumerator.cs" />
+    <Compile Include="Interface\IUserStorage.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Interface\ICustomerEnumerator.cs" />
     <Compile Include="Interface\IUserValidator.cs" />

@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Storage.Models
 {
+    [Serializable]
     public class User : IEquatable<User>
     {
         public static ICustomerEnumerator iterator { get; set; }
         public static IUserValidator validator { get; set; }
 
-        public int Id { get; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
@@ -33,6 +35,11 @@ namespace Storage.Models
                 User.validator = validator;
             Cards = new List<VisaRecord>();
             Id = User.iterator.GetNext();
+        }
+
+        public User()
+        {
+                
         }
 
         public bool Equals(User other)
@@ -61,6 +68,7 @@ namespace Storage.Models
         {
             return $"{Id} {FirstName} {LastName}";
         }
+
     }
 
 }

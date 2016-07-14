@@ -5,6 +5,7 @@ using DAL;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Storage;
 
 namespace Tests
 {
@@ -15,7 +16,7 @@ namespace Tests
         public void AddValidUser_ReturnsUserId()
         {
             User user = new User { FirstName = "Mike", LastName = "Jones" };
-            UserRepository repository = new UserRepository();
+            UserRepository repository = new UserRepository(new UserStorage());
             int id = repository.Add(user);
         }
 
@@ -24,7 +25,7 @@ namespace Tests
         public void AddNullUser_ThrowsException()
         {
             User user = null;
-            UserRepository repository = new UserRepository();
+            UserRepository repository = new UserRepository(new UserStorage());
             int id = repository.Add(user);
         }
 
@@ -33,7 +34,7 @@ namespace Tests
         public void AddInValidUser_ThrowsException()
         {
             User user = new User { FirstName = "Mike" };
-            UserRepository repository = new UserRepository();
+            UserRepository repository = new UserRepository(new UserStorage());
             int id = repository.Add(user);
         }
 
@@ -41,7 +42,7 @@ namespace Tests
         public void DeleteUser_()
         {
             User user = new User { FirstName = "Mike", LastName = "Jones" };
-            UserRepository repository = new UserRepository();
+            UserRepository repository = new UserRepository(new UserStorage());
             int id = repository.Add(user);
             repository.Delete(user);
             var ids = repository.SearchForUsers(u => u.Id == id);
@@ -52,14 +53,14 @@ namespace Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void DeleteNullUser_ThrowsException()
         {
-            UserRepository repository = new UserRepository();
+            UserRepository repository = new UserRepository(new UserStorage());
             repository.Delete(null);
         }
 
         [TestMethod]
         public void GetAllUsers_ReturnsAllUsers()
         {
-            UserRepository repository = new UserRepository();
+            UserRepository repository = new UserRepository(new UserStorage());
             User user = new User { FirstName = "Mike", LastName = "Jones" };
             int id = repository.Add(user);
             var users = repository.GetAllUsers();
@@ -70,17 +71,18 @@ namespace Tests
         [TestMethod]
         public void SearchForUsers_ReturnsSingleUserId()
         {
-            UserRepository repository = new UserRepository();
+            UserRepository repository = new UserRepository(new UserStorage());
             User user = new User { FirstName = "Mike", LastName = "Jones" };
             int id = repository.Add(user);
             int[] ids = repository.SearchForUsers(u => u.Id == id);
-            Assert.AreEqual(ids[0], 0);
+            //Assert.AreEqual(ids[0], 0);
+            Assert.AreEqual(ids.Count(), 1);
         }
 
         [TestMethod]
         public void SearchForUsers_ReturnsMultipleUserId()
         {
-            UserRepository repository = new UserRepository();
+            UserRepository repository = new UserRepository(new UserStorage());
             User user_1 = new User { FirstName = "Mike", LastName = "Jones" };
             User user_2 = new User { FirstName = "Mike", LastName = "Smith" };
             repository.Add(user_1);

@@ -1,21 +1,25 @@
 ﻿using DAL.Interface;
 using Storage;
+using Storage.Interface;
 using Storage.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace DAL
 {
     public class UserRepository : IUserRepository
     {
-        private readonly UserStorage storage;
+        private readonly AbstractUserStorage storage;
 
-        public UserRepository()
+        public UserRepository(AbstractUserStorage storage)
         {
-            storage = new UserStorage();
+            this.storage = storage;
         }
 
         public int Add(User user)
@@ -24,6 +28,7 @@ namespace DAL
                 throw new ArgumentNullException();
             if (!User.validator.Validate(user))
                 throw new ArgumentException();
+            user.Id = User.iterator.GetNext();
             storage.Users.Add(user);
             return user.Id;
         }
@@ -57,6 +62,34 @@ namespace DAL
                 }
             }
             return ids;
+        }
+
+        public void WriteToXmlFile()
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
+            //XmlSerializer formatter = new XmlSerializer(typeof(User[]));
+            using (FileStream fs = new FileStream(ConfigurationManager.AppSettings["Path"], FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, storage.Users);
+            }
+        }
+
+        public void ReadFromXmlFile()
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
+            //XmlSerializer formatter = new XmlSerializer(typeof(User[]));
+
+            using (FileStream fs = new FileStream(ConfigurationManager.AppSettings["Path"], FileMode.OpenOrCreate))
+            {
+                List<User> users = (List<User>)formatter.Deserialize(fs);
+                //User[] users = (User[])formatter.Deserialize(fs);
+
+                foreach (var user in users)
+                {
+                    storage.Users.Add(user);
+                }
+            }
+
         }
     }
 }
