@@ -48,3 +48,4 @@ Parameter name: user is null
 15:48:17 (INFO): User 2 Mike Smith Added!
 15:48:17 (INFO): User storage saved to XML!
 15:48:17 (INFO): User storage loaded from XML!
+16:20:59 (INFO): User 0 Mike Jones Added!

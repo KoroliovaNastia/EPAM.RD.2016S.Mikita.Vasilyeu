@@ -11,6 +11,6 @@ namespace DAL.Interface
         bool IsActivated { get; }
         void Add();
         void Delete();
-        void Register();
+        void Activate();
     }
 }

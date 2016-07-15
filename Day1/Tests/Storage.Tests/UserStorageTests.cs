@@ -11,7 +11,7 @@ using DAL.Models;
 namespace Tests
 {
     [TestClass]
-    public class UserRepositoryTests
+    public class UserStorageTests
     {
         [TestMethod]
         public void AddValidUser_ReturnsUserId()

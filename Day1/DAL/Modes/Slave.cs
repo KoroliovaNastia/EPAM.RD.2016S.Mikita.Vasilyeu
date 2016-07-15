@@ -37,7 +37,7 @@ namespace DAL.Modes
             Console.WriteLine(e.Message);
         }
 
-        public void Register()
+        public void Activate()
         {
             IsActivated = true;
         }

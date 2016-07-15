@@ -12,7 +12,7 @@ namespace Tests
         [TestMethod]
         public void UserSimpleValidation_ReturnsTrueForValidUser()
         {
-            Storage.UserStorage storage = new Storage.UserStorage(new EvenEnumerator(), new SimpleUserValidator());
+            UserStorage storage = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
             User user = new User { FirstName = "Mike" };
             bool isValid = storage.Validator.Validate(user);
             Assert.IsFalse(isValid);
@@ -21,7 +21,7 @@ namespace Tests
         [TestMethod]
         public void UserSimpleValidation_ReturnsFalseForInvalidUser()
         {
-            Storage.UserStorage storage = new Storage.UserStorage(new EvenEnumerator(), new SimpleUserValidator());
+            UserStorage storage = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
             User user = new User { FirstName = "Mike", LastName = "Jones"};
             bool isValid = storage.Validator.Validate(user);
             Assert.IsTrue(isValid);

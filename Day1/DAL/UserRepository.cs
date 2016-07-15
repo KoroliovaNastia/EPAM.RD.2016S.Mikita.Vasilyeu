@@ -25,6 +25,7 @@ namespace DAL
         {
             if(mode.IsActivated)
                 throw new ArgumentException();
+            mode.Activate();
             this.mode = mode;
             this.storage = storage;
         }

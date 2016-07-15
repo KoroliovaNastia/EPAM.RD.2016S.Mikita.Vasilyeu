@@ -43,7 +43,7 @@ namespace DAL.Modes
             Deleted?.Invoke(this, new MasterEventArgs("Deleted!"));
         }
 
-        public void Register()
+        public void Activate()
         {
             IsActivated = true;
         }
