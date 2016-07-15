@@ -14,7 +14,7 @@ namespace Tests
         {
             Storage.UserStorage storage = new Storage.UserStorage(new EvenEnumerator(), new SimpleUserValidator());
             User user = new User { FirstName = "Mike" };
-            bool isValid = storage.validator.Validate(user);
+            bool isValid = storage.Validator.Validate(user);
             Assert.IsFalse(isValid);
         }
 
@@ -23,7 +23,7 @@ namespace Tests
         {
             Storage.UserStorage storage = new Storage.UserStorage(new EvenEnumerator(), new SimpleUserValidator());
             User user = new User { FirstName = "Mike", LastName = "Jones"};
-            bool isValid = storage.validator.Validate(user);
+            bool isValid = storage.Validator.Validate(user);
             Assert.IsTrue(isValid);
         }
     }

@@ -8,7 +8,7 @@ namespace Storage.Interface
 {
     public interface ICustomerEnumerator
     {
-        int Current { get; }
+        int Current { get; set; }
         bool MoveNext();
         int GetNext();
     }

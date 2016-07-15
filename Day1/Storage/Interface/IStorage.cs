@@ -10,7 +10,7 @@ namespace Storage.Interface
     public interface IStorage<T>
     {
         int Add(T entity);
-        void Delete(T entity);
+        void Delete(T user);
         int[] GetByPredicate(Func<T, bool> predicate);
         IEnumerable<T> GetAll();
         void Save();

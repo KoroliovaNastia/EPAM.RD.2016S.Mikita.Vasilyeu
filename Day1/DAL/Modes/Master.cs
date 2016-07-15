@@ -13,9 +13,13 @@ namespace DAL.Modes
         public event EventHandler<MasterEventArgs> Added;
         public event EventHandler<MasterEventArgs> Deleted;
 
+        public bool IsActivated { get; set; } = false;
+
         private static Master instance;
 
-        private Master() { }
+        private Master()
+        {
+        }
 
         public static Master Instance
         {

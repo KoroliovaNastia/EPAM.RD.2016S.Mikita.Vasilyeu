@@ -1,0 +1,8 @@
+14:42:23 (INFO): User 0 Mike Jones Added
+14:42:23 (INFO): User 2 Mike Smith Added
+14:42:23 (INFO): User 4 Mike Smith Added
+15:23:32 (INFO): User 0 Mike Jones Added!
+15:23:32 (INFO): User 2 Mike Smith Added!
+15:23:32 (INFO): User storage saved to XML!
+15:23:32 (INFO): User storage loaded from XML!
+15:23:32 (INFO): User 4 Mike Smith Added!

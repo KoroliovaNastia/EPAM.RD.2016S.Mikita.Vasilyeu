@@ -2,8 +2,8 @@ D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Storage\bin\Debug\Storage.
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Storage\bin\Debug\Storage.pdb
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Storage\obj\Debug\Storage.dll
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Storage\obj\Debug\Storage.pdb
-D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Storage\obj\Debug\Storage.csprojResolveAssemblyReference.cache
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Storage\bin\Debug\NLog.config
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Storage\bin\Debug\NLog.dll
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Storage\bin\Debug\NLogger.dll
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Storage\bin\Debug\NLog.xml
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Storage\obj\Debug\Storage.csprojResolveAssemblyReference.cache

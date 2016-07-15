@@ -8,3 +8,6 @@ D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\Storage.dl
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\DAL.pdb
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\Storage.pdb
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\Tests.dll.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\NLog.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\NLog.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\NLog.xml

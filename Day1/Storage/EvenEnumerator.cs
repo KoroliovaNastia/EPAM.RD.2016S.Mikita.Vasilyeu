@@ -17,7 +17,11 @@ namespace Storage
             next = seed;
         }
 
-        public int Current => next;
+        public int Current
+        {
+            get { return next; }
+            set { next = value; }
+        }
 
         public bool MoveNext()
         {
