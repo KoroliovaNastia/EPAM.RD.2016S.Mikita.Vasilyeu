@@ -23,6 +23,8 @@ namespace DAL
 
         public UserRepository(IUserStorage storage, IMode mode)
         {
+            if(mode.IsActivated)
+                throw new ArgumentException();
             this.mode = mode;
             this.storage = storage;
         }

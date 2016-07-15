@@ -13,7 +13,7 @@ namespace DAL.Modes
         public event EventHandler<MasterEventArgs> Added;
         public event EventHandler<MasterEventArgs> Deleted;
 
-        public bool IsActivated { get; set; } = false;
+        public bool IsActivated { get; private set; } = false;
 
         private static Master instance;
 
@@ -43,6 +43,9 @@ namespace DAL.Modes
             Deleted?.Invoke(this, new MasterEventArgs("Deleted!"));
         }
 
-        
+        public void Register()
+        {
+            IsActivated = true;
+        }
     }
 }

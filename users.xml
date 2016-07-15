@@ -6,18 +6,7 @@
     <LastName>Jones</LastName>
     <BirthDate>0001-01-01T00:00:00</BirthDate>
     <Gender>None</Gender>
-    <Cards>
-      <VisaRecord>
-        <Country>USA</Country>
-        <StartDate>0001-01-01T00:00:00</StartDate>
-        <ExpiryDate>0001-01-01T00:00:00</ExpiryDate>
-      </VisaRecord>
-      <VisaRecord>
-        <Country>China</Country>
-        <StartDate>0001-01-01T00:00:00</StartDate>
-        <ExpiryDate>0001-01-01T00:00:00</ExpiryDate>
-      </VisaRecord>
-    </Cards>
+    <Cards />
   </User>
   <User>
     <Id>2</Id>

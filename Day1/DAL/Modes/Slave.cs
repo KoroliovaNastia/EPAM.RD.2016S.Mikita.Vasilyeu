@@ -12,6 +12,7 @@ namespace DAL.Modes
     public class Slave : IMode
     {
         public static int Counter { get; private set; }
+        public bool IsActivated { get; private set; } = false;
 
         public Slave()
         {
@@ -36,5 +37,9 @@ namespace DAL.Modes
             Console.WriteLine(e.Message);
         }
 
+        public void Register()
+        {
+            IsActivated = true;
+        }
     }
 }

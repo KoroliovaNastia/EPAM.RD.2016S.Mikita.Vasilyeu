@@ -8,8 +8,9 @@ namespace DAL.Interface
 {
     public interface IMode
     {
-        //bool IsActivated { get; set; }
+        bool IsActivated { get; }
         void Add();
         void Delete();
+        void Register();
     }
 }

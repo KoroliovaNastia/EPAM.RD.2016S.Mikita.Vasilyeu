@@ -1,0 +1,50 @@
+15:47:07 (INFO): User 0 Mike Jones Added!
+15:47:07 (ERROR): Value cannot be null.
+Parameter name: user is null
+15:47:07 (ERROR): user is invalid
+15:47:07 (INFO): User 0 Mike Jones Added!
+15:47:07 (INFO): User 0 Mike Jones Removed!
+15:47:07 (ERROR): Value cannot be null.
+Parameter name: user is null
+15:47:07 (INFO): User 0 Mike Jones Added!
+15:47:07 (INFO): User 0 Mike Jones Added!
+15:47:07 (INFO): User 0 Mike Jones Added!
+15:47:07 (INFO): User 2 Mike Smith Added!
+15:47:32 (INFO): User 0 Mike Jones Added!
+15:47:32 (ERROR): Value cannot be null.
+Parameter name: user is null
+15:47:32 (ERROR): user is invalid
+15:47:32 (INFO): User 0 Mike Jones Added!
+15:47:32 (INFO): User 0 Mike Jones Removed!
+15:47:32 (ERROR): Value cannot be null.
+Parameter name: user is null
+15:47:32 (INFO): User 0 Mike Jones Added!
+15:47:32 (INFO): User 0 Mike Jones Added!
+15:47:32 (INFO): User 0 Mike Jones Added!
+15:47:32 (INFO): User 2 Mike Smith Added!
+15:47:32 (INFO): User 0 Mike Jones Added!
+15:47:32 (INFO): User 2 Mike Smith Added!
+15:47:32 (INFO): User storage saved to XML!
+15:47:32 (INFO): User 0 Mike Jones Added!
+15:47:32 (INFO): User 2 Mike Smith Added!
+15:47:32 (INFO): User storage saved to XML!
+15:47:32 (INFO): User storage loaded from XML!
+15:48:17 (INFO): User 0 Mike Jones Added!
+15:48:17 (ERROR): Value cannot be null.
+Parameter name: user is null
+15:48:17 (ERROR): user is invalid
+15:48:17 (INFO): User 0 Mike Jones Added!
+15:48:17 (INFO): User 0 Mike Jones Removed!
+15:48:17 (ERROR): Value cannot be null.
+Parameter name: user is null
+15:48:17 (INFO): User 0 Mike Jones Added!
+15:48:17 (INFO): User 0 Mike Jones Added!
+15:48:17 (INFO): User 0 Mike Jones Added!
+15:48:17 (INFO): User 2 Mike Smith Added!
+15:48:17 (INFO): User 0 Mike Jones Added!
+15:48:17 (INFO): User 2 Mike Smith Added!
+15:48:17 (INFO): User storage saved to XML!
+15:48:17 (INFO): User 0 Mike Jones Added!
+15:48:17 (INFO): User 2 Mike Smith Added!
+15:48:17 (INFO): User storage saved to XML!
+15:48:17 (INFO): User storage loaded from XML!
