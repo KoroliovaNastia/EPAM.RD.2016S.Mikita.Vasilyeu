@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Configuration;
+using NLog;
+using System.Diagnostics;
 
 namespace Storage
 {
@@ -17,6 +19,9 @@ namespace Storage
         public IUserValidator validator { get; private set; }
         public List<User> Users { get; set; }
 
+        public static BooleanSwitch DataSwitch { get; private set; } 
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         public UserStorage(ICustomerEnumerator iterator = null, IUserValidator validator = null) : base()
         {
             if (iterator != null)
@@ -24,16 +29,29 @@ namespace Storage
             if (validator != null)
                 this.validator = validator;
             Users = new List<User>();
+            DataSwitch = new BooleanSwitch("Data", "DataAccess module");
         }
 
         public int Add(User user)
         {
             if (user == null)
-                throw new ArgumentNullException();
+            {
+                ArgumentNullException exeption = new ArgumentNullException(nameof(user) + " is null");
+                if (DataSwitch.Enabled)
+                    Logger.Error(exeption.Message);
+                throw exeption;
+            }
             if (!validator.Validate(user))
-                throw new ArgumentException();
+            {
+                ArgumentException exeption = new ArgumentNullException(nameof(user) + " is invalid");
+                if (DataSwitch.Enabled)
+                    Logger.Error(exeption.Message);
+                throw exeption;
+            }
             user.Id = iterator.GetNext();
             Users.Add(user);
+            if(DataSwitch.Enabled)
+                Logger.Info("User Added");
             return user.Id;
         }
 
