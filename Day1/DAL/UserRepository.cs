@@ -12,25 +12,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using DAL.Mappers;
+using DAL.Modes;
 
 namespace DAL
 {
     public class UserRepository : IUserRepository
     {
         private readonly IUserStorage storage;
+        private readonly IMode mode;
 
-        public UserRepository(IUserStorage storage)
+        public UserRepository(IUserStorage storage, IMode mode)
         {
+            this.mode = mode;
             this.storage = storage;
         }
 
         public int Add(UserEntity user)
         {
+            mode.Add();
             return storage.Add(user.ToUser());
         }
 
         public void Delete(UserEntity user)
         {
+            mode.Delete();
             storage.Delete(user.ToUser());
         }
 

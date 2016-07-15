@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IMode.cs" />
     <Compile Include="Interface\IRepository.cs" />
     <Compile Include="Interface\IUserRepository.cs" />
     <Compile Include="Mappers\UserMappers.cs" />
@@ -48,7 +49,10 @@
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\UserEntity.cs" />
     <Compile Include="Models\VisaRecordEntity.cs" />
+    <Compile Include="Modes\Master.cs" />
+    <Compile Include="Modes\Slave.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MasterEventArgs.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

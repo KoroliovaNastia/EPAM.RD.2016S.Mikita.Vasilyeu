@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Models;
+using DAL.Modes;
 
 namespace ConsoleTests
 {
@@ -14,20 +15,20 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
-            UserRepository repository = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()));
+            UserRepository repository = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
             UserEntity user_1 = new UserEntity { FirstName = "Mike", LastName = "Jones", Cards = { new VisaRecordEntity() {Country = "USA"}, new VisaRecordEntity { Country = "China"} }};
+            UserRepository rep_2 = new UserRepository(new Storage.UserStorage(new EvenEnumerator(UserStorage.GetSeed()), new SimpleUserValidator()), new Slave());
             UserEntity user_2 = new UserEntity { FirstName = "Mike", LastName = "Smith" };
             repository.Add(user_1);
             repository.Add(user_2);
             repository.Save();
             //UserRepository rep_2 = new UserRepository(new Storage(new EvenEnumerator(), new SimpleUserValidator()));
-            UserRepository rep_2 = new UserRepository(new Storage.UserStorage(new EvenEnumerator(UserStorage.GetSeed()), new SimpleUserValidator()));
-            rep_2.Load();
-            rep_2.Add(user_2);
-            foreach (var item in rep_2.GetAllUsers())
-            {
-                Console.WriteLine(item);
-            }
+            //rep_2.Load();
+            //rep_2.Add(user_2);
+            //foreach (var item in rep_2.GetAllUsers())
+            //{
+            //    Console.WriteLine(item);
+            //}
         }
     }
 }
