@@ -3,3 +3,7 @@ C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\Attributes\bin\Debug\A
 C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\Attributes\bin\Debug\Attributes.pdb
 C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\Attributes\obj\Debug\Attributes.dll
 C:\Users\Mikita_Vasilyeu\Downloads\dotnetcore-master\Day3\Attributes\obj\Debug\Attributes.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\Attributes\bin\Debug\Attributes.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\Attributes\bin\Debug\Attributes.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\Attributes\obj\Debug\Attributes.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\Attributes\obj\Debug\Attributes.pdb

@@ -6,16 +6,12 @@ namespace Attributes
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
     public class InstantiateAdvancedUserAttribute : InstantiateUserAttribute
     {
-        private int id;
-        private int guid;
-        private string firstName;
-        private string lastName;
+        public int externalId { get; set; }
 
-
-        public InstantiateAdvancedUserAttribute(int id, string firstName, string lastName, int guid) 
+        public InstantiateAdvancedUserAttribute(int id, string firstName, string lastName, int externalId) 
             : base(id, firstName, lastName)
         {
-            this.guid = guid;
+            this.externalId = externalId;
         }
 
     }

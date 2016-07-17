@@ -13,6 +13,33 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
+            var advUserType = typeof(AdvancedUser);
+            var instantiateAdvancedUserAttributes =
+                (InstantiateAdvancedUserAttribute)Assembly.GetAssembly(advUserType).GetCustomAttribute(typeof(InstantiateAdvancedUserAttribute));
+
+            var matchParameterAdvUser =
+                (MatchParameterWithPropertyAttribute[])Attribute.GetCustomAttributes(advUserType.GetConstructors()[0], typeof(MatchParameterWithPropertyAttribute));
+
+            var proper_1 = advUserType.GetProperty(matchParameterAdvUser[0].Property);
+            var proper_2 = advUserType.GetProperty(matchParameterAdvUser[1].Property);
+
+            var propertyAttributes_1 =
+                 (DefaultValueAttribute[])Attribute.GetCustomAttributes(proper_1, typeof(DefaultValueAttribute));
+            var propertyAttributes_2 =
+                (DefaultValueAttribute[])Attribute.GetCustomAttributes(proper_2, typeof(DefaultValueAttribute));
+
+            int defaultValue_1 = (int)propertyAttributes_1[0].Value;
+            int defaultValue_2 = (int)propertyAttributes_2[0].Value;
+
+            int externalId = instantiateAdvancedUserAttributes.externalId;
+            AdvancedUser advUser = new AdvancedUser(instantiateAdvancedUserAttributes.id, externalId == 0 ? defaultValue_2 : externalId);
+            if (advUser.Id == 0)
+                advUser.Id = defaultValue_1;
+            advUser.FirstName = instantiateAdvancedUserAttributes.firstName;
+            advUser.LastName = instantiateAdvancedUserAttributes.lastName;
+            Console.WriteLine(advUser);
+
+
             var type = typeof(User);
             InstantiateUserAttribute[] instantiateUserAttributes =
                 (InstantiateUserAttribute[])Attribute.GetCustomAttributes(type, typeof(InstantiateUserAttribute));
@@ -60,7 +87,7 @@ namespace ConsoleTests
                     Console.WriteLine("Wrong FirstName!");
                 if (users[i].LastName.Length > maxLastNameLenght)
                     Console.WriteLine("Wrong LastName!");
-                if(users[i].Id<min|| users[i].Id>max)
+                if (users[i].Id < min || users[i].Id > max)
                     Console.WriteLine("Wrong Id!");
             }
 

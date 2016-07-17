@@ -21,5 +21,10 @@ namespace Attributes
         {
             _externalId = externalId;
         }
+
+        public override string ToString()
+        {
+            return $"{Id} {FirstName} {LastName} {ExternalId}";
+        }
     }
 }

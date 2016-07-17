@@ -17,3 +17,8 @@ D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\obj\Debug
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\bin\Debug\ConsoleTests.exe.config
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\obj\Debug\ConsoleTests.exe
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\obj\Debug\ConsoleTests.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\bin\Debug\ConsoleTests.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\bin\Debug\ConsoleTests.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\bin\Debug\Attributes.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\bin\Debug\Attributes.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3.Lab\ConsoleTests\obj\Debug\ConsoleTests.csprojResolveAssemblyReference.cache
