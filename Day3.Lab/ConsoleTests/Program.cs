@@ -13,71 +13,61 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
+            var type = typeof(User);
+            var instantiateUserAttributes =
+                (InstantiateUserAttribute[])Attribute.GetCustomAttributes(type, typeof(InstantiateUserAttribute));
+            var matchParameter =
+                 (MatchParameterWithPropertyAttribute[])Attribute.GetCustomAttributes(type.GetConstructors()[0], typeof(MatchParameterWithPropertyAttribute));
+            var proper = type.GetProperty(matchParameter[0].Property);
+            var propertyAttributes =
+                (DefaultValueAttribute[])Attribute.GetCustomAttributes(proper, typeof(DefaultValueAttribute));
+            int defaultValue = (int)propertyAttributes[0].Value;
+
             var advUserType = typeof(AdvancedUser);
             var instantiateAdvancedUserAttributes =
                 (InstantiateAdvancedUserAttribute)Assembly.GetAssembly(advUserType).GetCustomAttribute(typeof(InstantiateAdvancedUserAttribute));
-
             var matchParameterAdvUser =
                 (MatchParameterWithPropertyAttribute[])Attribute.GetCustomAttributes(advUserType.GetConstructors()[0], typeof(MatchParameterWithPropertyAttribute));
-
-            var proper_1 = advUserType.GetProperty(matchParameterAdvUser[0].Property);
-            var proper_2 = advUserType.GetProperty(matchParameterAdvUser[1].Property);
-
-            var propertyAttributes_1 =
-                 (DefaultValueAttribute[])Attribute.GetCustomAttributes(proper_1, typeof(DefaultValueAttribute));
-            var propertyAttributes_2 =
-                (DefaultValueAttribute[])Attribute.GetCustomAttributes(proper_2, typeof(DefaultValueAttribute));
-
-            int defaultValue_1 = (int)propertyAttributes_1[0].Value;
-            int defaultValue_2 = (int)propertyAttributes_2[0].Value;
-
-            int externalId = instantiateAdvancedUserAttributes.externalId;
-            AdvancedUser advUser = new AdvancedUser(instantiateAdvancedUserAttributes.id, externalId == 0 ? defaultValue_2 : externalId);
-            if (advUser.Id == 0)
-                advUser.Id = defaultValue_1;
-            advUser.FirstName = instantiateAdvancedUserAttributes.firstName;
-            advUser.LastName = instantiateAdvancedUserAttributes.lastName;
-            Console.WriteLine(advUser);
+            var properAdv = advUserType.GetProperty(matchParameterAdvUser[1].Property);
+            var propertyAttributesAdv =
+                (DefaultValueAttribute[])Attribute.GetCustomAttributes(properAdv, typeof(DefaultValueAttribute));
+            int defaultValueAdv = (int)propertyAttributesAdv[0].Value;
 
 
-            var type = typeof(User);
-            InstantiateUserAttribute[] instantiateUserAttributes =
-                (InstantiateUserAttribute[])Attribute.GetCustomAttributes(type, typeof(InstantiateUserAttribute));
-
-            MatchParameterWithPropertyAttribute[] matchParameter =
-                (MatchParameterWithPropertyAttribute[])Attribute.GetCustomAttributes(type.GetConstructors()[0], typeof(MatchParameterWithPropertyAttribute));
-
-            var proper = type.GetProperty(matchParameter[0].Property);
-
-            DefaultValueAttribute[] propertyAttributes =
-                (DefaultValueAttribute[])Attribute.GetCustomAttributes(proper, typeof(DefaultValueAttribute));
-
-            int defaultValue = (int)propertyAttributes[0].Value;
-
-            User[] users = new User[3];
+            var users = new User[4];
             for (int i = 0; i < users.Length; i++)
             {
-                users[i] = new User(instantiateUserAttributes[i].id);
+                if (i == 3)
+                {
+                    int externalId = instantiateAdvancedUserAttributes.externalId;
+                    users[i] = new AdvancedUser(instantiateAdvancedUserAttributes.id, externalId == 0 ? defaultValueAdv : externalId);
+                    users[i].FirstName = instantiateAdvancedUserAttributes.firstName;
+                    users[i].LastName = instantiateAdvancedUserAttributes.lastName;
+                }
+                else
+                {
+                    users[i] = new User(instantiateUserAttributes[i].id);
+                    users[i].FirstName = instantiateUserAttributes[i].firstName;
+                    users[i].LastName = instantiateUserAttributes[i].lastName;
+                }
                 if (users[i].Id == 0)
                     users[i].Id = defaultValue;
-                users[i].FirstName = instantiateUserAttributes[i].firstName;
-                users[i].LastName = instantiateUserAttributes[i].lastName;
                 Console.WriteLine(users[i]);
             }
 
             var field = type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance)[0];
-            IntValidatorAttribute[] idAttributes =
+            var idAttributes =
                 (IntValidatorAttribute[])Attribute.GetCustomAttributes(field, typeof(IntValidatorAttribute));
             int min = idAttributes[0].Min;
             int max = idAttributes[0].Max;
 
             var firstName = type.GetProperty("FirstName");
-            StringValidatorAttribute[] firstNamePropertyAttr =
+            var firstNamePropertyAttr =
                (StringValidatorAttribute[])Attribute.GetCustomAttributes(firstName, typeof(StringValidatorAttribute));
             int maxFirstNameLenght = firstNamePropertyAttr[0].Lenght;
 
             var lastName = type.GetProperty("LastName");
-            StringValidatorAttribute[] lastNamePropertyAttr =
+            var lastNamePropertyAttr =
                (StringValidatorAttribute[])Attribute.GetCustomAttributes(lastName, typeof(StringValidatorAttribute));
             int maxLastNameLenght = lastNamePropertyAttr[0].Lenght;
 
@@ -90,8 +80,6 @@ namespace ConsoleTests
                 if (users[i].Id < min || users[i].Id > max)
                     Console.WriteLine("Wrong Id!");
             }
-
-
         }
     }
 }

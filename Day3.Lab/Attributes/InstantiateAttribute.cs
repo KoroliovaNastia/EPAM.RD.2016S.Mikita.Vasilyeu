@@ -6,9 +6,6 @@ namespace Attributes
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public class InstantiateUserAttribute : Attribute
     {
-        //private int id;
-        //private string firstName;
-        //private string lastName;
         public int id { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }

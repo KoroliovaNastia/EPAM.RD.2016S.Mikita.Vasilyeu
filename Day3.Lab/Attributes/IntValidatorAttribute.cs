@@ -9,10 +9,10 @@ namespace Attributes
         public int Min { get; set; }
         public int Max { get; set; }
 
-        public IntValidatorAttribute(int first, int last)
+        public IntValidatorAttribute(int min, int max)
         {
-            Min = first;
-            Max = last;
+            Min = min;
+            Max = max;
         }
     }
 }
