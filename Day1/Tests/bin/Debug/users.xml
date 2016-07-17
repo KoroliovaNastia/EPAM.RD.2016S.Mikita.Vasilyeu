@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ArrayOfDalUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DalUser>
+    <Id>0</Id>
+    <FirstName>Mike</FirstName>
+    <LastName>Jones</LastName>
+    <BirthDate>0001-01-01T00:00:00</BirthDate>
+    <Gender>None</Gender>
+    <Cards />
+  </DalUser>
+  <DalUser>
+    <Id>2</Id>
+    <FirstName>Mike</FirstName>
+    <LastName>Smith</LastName>
+    <BirthDate>0001-01-01T00:00:00</BirthDate>
+    <Gender>None</Gender>
+    <Cards />
+  </DalUser>
+</ArrayOfDalUser>

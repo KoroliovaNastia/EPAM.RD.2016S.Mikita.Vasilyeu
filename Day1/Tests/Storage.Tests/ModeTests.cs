@@ -1,9 +1,9 @@
 ﻿using System;
-using DAL;
-using DAL.Models;
-using DAL.Modes;
+using BLL;
+using BLL.Models;
+using BLL.Modes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Storage;
+using DAL;
 
 namespace Tests.Storage.Tests
 {
@@ -20,17 +20,17 @@ namespace Tests.Storage.Tests
         [ExpectedException(typeof(NotImplementedException))]
         public void SlaveTriesToAdd_ThrowsException()
         {
-            var slaveRepository = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
-            slaveRepository.Add(new UserEntity {FirstName = "Mike", LastName = "Jones"});
+            var slaveRepository = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
+            slaveRepository.Add(new BllUser {FirstName = "Mike", LastName = "Jones"});
         }
 
         [TestMethod]
         [ExpectedException(typeof(NotImplementedException))]
         public void SlaveTriesToDelete_ThrowsException()
         {
-            var masterRepository = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
-            var slaveRepository = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
-            UserEntity user = new UserEntity { FirstName = "Mike", LastName = "Jones" };
+            var masterRepository = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
+            var slaveRepository = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
+            BllUser user = new BllUser { FirstName = "Mike", LastName = "Jones" };
             int id = masterRepository.Add(user);
             user.Id = id;
             slaveRepository.Delete(user);
@@ -40,17 +40,17 @@ namespace Tests.Storage.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void CreateMoreThanOneMaster_ThrowsException()
         {
-            var masterRepository_1 = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
-            var masterRepository_2 = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
+            var masterRepository_1 = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
+            var masterRepository_2 = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void CreateMoreThanMaxNumberOfSlaves_ThrowsException()
         {
-            var slaveRepository_1 = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
-            var slaveRepository_2 = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
-            var slaveRepository_3 = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
+            var slaveRepository_1 = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
+            var slaveRepository_2 = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
+            var slaveRepository_3 = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Storage.Models;
+using DAL.DTO;
 
 namespace Tests
 {
@@ -10,32 +10,32 @@ namespace Tests
         [TestMethod]
         public void UserEqualityForEqualUsers_ReturnsTrue()
         {
-            User one = new User { FirstName = "Mike", LastName = "Jones" };
-            User two = new User { FirstName = "Mike", LastName = "Jones" };
+            DalUser one = new DalUser { FirstName = "Mike", LastName = "Jones" };
+            DalUser two = new DalUser { FirstName = "Mike", LastName = "Jones" };
             Assert.IsTrue(one.Equals(two));
         }
 
         [TestMethod]
         public void UserEqualityForNonEqualUsers_ReturnsFalse()
         {
-            User one = new User { FirstName = "Mike", LastName = "Jones" };
-            User two = new User { FirstName = "Mike", LastName = "White" };
+            DalUser one = new DalUser { FirstName = "Mike", LastName = "Jones" };
+            DalUser two = new DalUser { FirstName = "Mike", LastName = "White" };
             Assert.IsFalse(one.Equals(two));
         }
 
         [TestMethod]
         public void UserHashCode_ReturnsSameValuesForSameUsers()
         {
-            User one = new User { Id = 0, FirstName = "Mike", LastName = "Jones" };
-            User two = one;
+            DalUser one = new DalUser { Id = 0, FirstName = "Mike", LastName = "Jones" };
+            DalUser two = one;
             Assert.AreEqual(one.GetHashCode(), two.GetHashCode());
         }
 
         [TestMethod]
         public void UserHashCode_ReturnsDifferentValuesForDifferentUsers()
         {
-            User one = new User { Id = 0, FirstName = "Mike", LastName = "Jones" };
-            User two = new User { Id = 2, FirstName = "Mike", LastName = "Jones" };
+            DalUser one = new DalUser { Id = 0, FirstName = "Mike", LastName = "Jones" };
+            DalUser two = new DalUser { Id = 2, FirstName = "Mike", LastName = "Jones" };
             Assert.AreNotEqual(one.GetHashCode(), two.GetHashCode());
         }
     }

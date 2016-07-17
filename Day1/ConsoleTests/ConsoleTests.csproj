@@ -50,13 +50,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
+    <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{baa3b695-d6e3-47fd-b9ec-62c289180be7}</Project>
-      <Name>DAL</Name>
+      <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Storage\Storage.csproj">
+    <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{258f5af4-74d0-4c27-8133-3c4e891c2c1a}</Project>
-      <Name>Storage</Name>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

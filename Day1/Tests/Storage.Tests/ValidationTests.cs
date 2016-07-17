@@ -1,8 +1,8 @@
 ﻿using System;
-using DAL;
+using BLL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Storage.Models;
-using Storage;
+using DAL.DTO;
+using DAL;
 
 namespace Tests
 {
@@ -12,8 +12,8 @@ namespace Tests
         [TestMethod]
         public void UserSimpleValidation_ReturnsTrueForValidUser()
         {
-            UserStorage storage = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
-            User user = new User { FirstName = "Mike" };
+            UserRepository storage = new UserRepository(new EvenEnumerator(), new SimpleUserValidator());
+            DalUser user = new DalUser { FirstName = "Mike" };
             bool isValid = storage.Validator.Validate(user);
             Assert.IsFalse(isValid);
         }
@@ -21,8 +21,8 @@ namespace Tests
         [TestMethod]
         public void UserSimpleValidation_ReturnsFalseForInvalidUser()
         {
-            UserStorage storage = new UserStorage(new EvenEnumerator(), new SimpleUserValidator());
-            User user = new User { FirstName = "Mike", LastName = "Jones"};
+            UserRepository storage = new UserRepository(new EvenEnumerator(), new SimpleUserValidator());
+            DalUser user = new DalUser { FirstName = "Mike", LastName = "Jones"};
             bool isValid = storage.Validator.Validate(user);
             Assert.IsTrue(isValid);
         }

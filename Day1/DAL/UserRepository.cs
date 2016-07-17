@@ -1,66 +1,168 @@
 ﻿using DAL.Interface;
-using DAL.Models;
-using Storage;
-using Storage.Interface;
-using Storage.Models;
+using DAL.DTO;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using DAL.Mappers;
-using DAL.Modes;
+using System.Configuration;
+using NLog;
+using System.Diagnostics;
 
 namespace DAL
 {
     public class UserRepository : IUserRepository
     {
-        private readonly IUserStorage storage;
-        private readonly IMode mode;
+        public ICustomerEnumerator Iterator { get; }
+        public IUserValidator Validator { get; }
+        public List<DalUser> Users { get; set; }
 
-        public UserRepository(IUserStorage storage, IMode mode)
+        public static BooleanSwitch LoggerSwitch { get; private set; } 
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+        public UserRepository(ICustomerEnumerator iterator, IUserValidator validator)
         {
-            if(mode.IsActivated)
-                throw new ArgumentException();
-            mode.Activate();
-            this.mode = mode;
-            this.storage = storage;
+            if (iterator == null)
+            {
+                ArgumentNullException exeption = new ArgumentNullException(nameof(iterator) + " is null");
+                if (LoggerSwitch.Enabled)
+                    Logger.Error(exeption.Message);
+                throw exeption;
+            }
+            if (validator == null)
+            {
+                ArgumentNullException exeption = new ArgumentNullException(nameof(validator) + " is null");
+                if (LoggerSwitch.Enabled)
+                    Logger.Error(exeption.Message);
+                throw exeption;
+            }
+            Iterator = iterator;
+            Validator = validator;
+            Users = new List<DalUser>();
+            LoggerSwitch = new BooleanSwitch("Data", "DataAccess module");
         }
 
-        public int Add(UserEntity user)
+        public int Add(DalUser user)
         {
-            mode.Add();
-            return storage.Add(user.ToUser());
+            if (user == null)
+            {
+                ArgumentNullException exeption = new ArgumentNullException(nameof(user) + " is null");
+                if (LoggerSwitch.Enabled)
+                    Logger.Error(exeption.Message);
+                throw exeption;
+            }
+            if (!Validator.Validate(user))
+            {
+                ArgumentException exeption = new ArgumentException(nameof(user) + " is invalid");
+                if (LoggerSwitch.Enabled)
+                    Logger.Error(exeption.Message);
+                throw exeption;
+            }
+            user.Id = Iterator.GetNext();
+            Users.Add(user);
+            if(LoggerSwitch.Enabled)
+                Logger.Info($"User {user} Added!");
+            return user.Id;
         }
 
-        public void Delete(UserEntity user)
+        public void Delete(DalUser user)
         {
-            mode.Delete();
-            storage.Delete(user.ToUser());
+            if (user == null)
+            {
+                ArgumentNullException exeption = new ArgumentNullException(nameof(user) + " is null");
+                if (LoggerSwitch.Enabled)
+                    Logger.Error(exeption.Message);
+                throw exeption;
+            }
+            DalUser userToDelete = Users.SingleOrDefault(u => u.Id == user.Id);
+            if (userToDelete == null)
+            {
+                ArgumentException exeption = new ArgumentException(nameof(user) + " doesn't exist");
+                if (LoggerSwitch.Enabled)
+                    Logger.Error(exeption.Message);
+                throw exeption;
+            }
+            Users.Remove(userToDelete);
+            if (LoggerSwitch.Enabled)
+                Logger.Info($"User {user} Removed!");
         }
 
-        public IEnumerable<UserEntity> GetAllUsers()
+        public IEnumerable<DalUser> GetAll()
         {
-            return storage.GetAll().Select(user=>user.ToUserEntity());
+            return Users.ToList();
         }
 
-        public int[] SearchForUsers(Func<UserEntity, bool> criteria)
+        public int[] GetByPredicate(Func<DalUser, bool> predicate)
         {
-            Func<User, bool> predicate = user => criteria.Invoke(user.ToUserEntity());
-            return storage.GetByPredicate(predicate);
+            if (predicate == null)
+            {
+                ArgumentNullException exeption = new ArgumentNullException(nameof(predicate) + " is null");
+                if (LoggerSwitch.Enabled)
+                    Logger.Error(exeption.Message);
+                throw exeption;
+            }
+            List<DalUser> foundUsers = Users.Where(predicate).ToList();
+            int[] ids = null;
+            if (foundUsers.Count != 0)
+            {
+                ids = new int[foundUsers.Count];
+                for (int i = 0; i < ids.Length; i++)
+                {
+                    ids[i] = foundUsers[i].Id;
+                }
+            }
+            return ids;
         }
 
         public void Save()
         {
-            storage.Save();
+            XmlSerializer formatter = new XmlSerializer(typeof(List<DalUser>));
+            string path;
+            try
+            {
+                path = ConfigurationManager.AppSettings["Path"];
+            }
+            catch (ConfigurationErrorsException ex)
+            {
+                if (LoggerSwitch.Enabled)
+                    Logger.Error($"App.Config exception! " + ex.Message);
+                throw;
+            }
+            using (FileStream fs = new FileStream(path, FileMode.Create))
+            {
+                formatter.Serialize(fs, Users);
+            }
+            if (LoggerSwitch.Enabled)
+                Logger.Info($"User storage saved to XML!");
         }
 
         public void Load()
         {
-            storage.Load();
+            XmlSerializer formatter = new XmlSerializer(typeof(List<DalUser>));
+            string path;
+            try
+            {
+                path = ConfigurationManager.AppSettings["Path"];
+            }
+            catch (ConfigurationErrorsException ex)
+            {
+                if (LoggerSwitch.Enabled)
+                    Logger.Error($"App.Config exception! " + ex.Message);
+                throw;
+            }
+            using (StreamReader sr = new StreamReader(path))
+            {
+                List<DalUser> users = (List<DalUser>)formatter.Deserialize(sr);
+                foreach (var user in users)
+                {
+                    Users.Add(user);
+                }
+                Iterator.Current = users.Last().Id;
+            }
+            if (LoggerSwitch.Enabled)
+                Logger.Info($"User storage loaded from XML!");
         }
     }
 }

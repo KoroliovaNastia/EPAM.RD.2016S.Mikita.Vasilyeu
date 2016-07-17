@@ -1,18 +1,18 @@
-﻿using System;
+﻿using DAL.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Models;
 
 namespace DAL.Interface
 {
     public interface IRepository<T> where T : IEntity
     {
-        int Add(T user);
-        int[] SearchForUsers(Func<T, bool> criteria);
+        int Add(T entity);
         void Delete(T user);
-        IEnumerable<T> GetAllUsers();
+        int[] GetByPredicate(Func<T, bool> predicate);
+        IEnumerable<T> GetAll();
         void Save();
         void Load();
     }

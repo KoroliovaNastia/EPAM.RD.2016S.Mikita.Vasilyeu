@@ -1,0 +1,55 @@
+20:49:56 (INFO): User 0 Mike Jones Added!
+20:49:56 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+20:49:56 (ERROR): user is invalid
+20:49:56 (INFO): User 0 Mike Jones Added!
+20:49:56 (INFO): User 0 Mike Jones Removed!
+20:49:56 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+20:49:56 (INFO): User 0 Mike Jones Added!
+20:49:56 (INFO): User 0 Mike Jones Added!
+20:49:56 (INFO): User 0 Mike Jones Added!
+20:49:56 (INFO): User 2 Mike Smith Added!
+20:49:56 (INFO): User 0 Mike Jones Added!
+20:49:56 (INFO): User 2 Mike Smith Added!
+20:49:56 (INFO): User 0 Mike Jones Added!
+20:49:56 (INFO): User 2 Mike Smith Added!
+20:49:56 (INFO): User 0 Mike Jones Added!
+20:51:33 (INFO): User 0 Mike Jones Added!
+20:51:33 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+20:51:33 (ERROR): user is invalid
+20:51:33 (INFO): User 0 Mike Jones Added!
+20:51:33 (INFO): User 0 Mike Jones Removed!
+20:51:33 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+20:51:33 (INFO): User 0 Mike Jones Added!
+20:51:33 (INFO): User 0 Mike Jones Added!
+20:51:33 (INFO): User 0 Mike Jones Added!
+20:51:33 (INFO): User 2 Mike Smith Added!
+20:51:33 (INFO): User 0 Mike Jones Added!
+20:51:33 (INFO): User 2 Mike Smith Added!
+20:51:33 (INFO): User storage saved to XML!
+20:51:33 (INFO): User 0 Mike Jones Added!
+20:51:33 (INFO): User 2 Mike Smith Added!
+20:51:33 (INFO): User storage saved to XML!
+20:51:33 (INFO): User 0 Mike Jones Added!
+20:52:44 (INFO): User 0 Mike Jones Added!
+20:52:44 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+20:52:44 (ERROR): user is invalid
+20:52:44 (INFO): User 0 Mike Jones Added!
+20:52:44 (INFO): User 0 Mike Jones Removed!
+20:52:44 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+20:52:44 (INFO): User 0 Mike Jones Added!
+20:52:44 (INFO): User 0 Mike Jones Added!
+20:52:44 (INFO): User 0 Mike Jones Added!
+20:52:44 (INFO): User 2 Mike Smith Added!
+20:52:44 (INFO): User 0 Mike Jones Added!
+20:52:44 (INFO): User 2 Mike Smith Added!
+20:52:45 (INFO): User storage saved to XML!
+20:52:45 (INFO): User 0 Mike Jones Added!
+20:52:45 (INFO): User 2 Mike Smith Added!
+20:52:45 (INFO): User storage saved to XML!
+20:52:45 (INFO): User 0 Mike Jones Added!

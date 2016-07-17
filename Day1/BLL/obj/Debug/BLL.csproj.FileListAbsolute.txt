@@ -1,0 +1,10 @@
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\BLL\bin\Debug\NLog.config
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\BLL\bin\Debug\DAL.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\BLL\bin\Debug\DAL.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\BLL\bin\Debug\Storage.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\BLL\bin\Debug\NLog.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\BLL\bin\Debug\Storage.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\BLL\bin\Debug\NLog.xml
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\BLL\obj\Debug\DAL.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\BLL\obj\Debug\DAL.pdb

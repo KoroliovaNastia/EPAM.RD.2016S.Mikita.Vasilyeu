@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Storage.Models;
-using DAL;
+using DAL.DTO;
+using BLL;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Storage;
-using DAL.Models;
-using DAL.Modes;
+using DAL;
+using BLL.Models;
+using BLL.Modes;
 
 namespace Tests
 {
@@ -24,9 +24,9 @@ namespace Tests
         [TestMethod]
         public void WriteToXml_()
         {
-            UserRepository repository = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
-            UserEntity user_1 = new UserEntity { FirstName = "Mike", LastName = "Jones" };
-            UserEntity user_2 = new UserEntity { FirstName = "Mike", LastName = "Smith" };
+            UserService repository = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
+            BllUser user_1 = new BllUser { FirstName = "Mike", LastName = "Jones" };
+            BllUser user_2 = new BllUser { FirstName = "Mike", LastName = "Smith" };
             repository.Add(user_1);
             repository.Add(user_2);
             repository.Save();
@@ -35,13 +35,13 @@ namespace Tests
         [TestMethod]
         public void ReadFromXml_()
         {
-            UserRepository repository = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
-            UserEntity user_1 = new UserEntity { FirstName = "Mike", LastName = "Jones" };
-            UserEntity user_2 = new UserEntity { FirstName = "Mike", LastName = "Smith" };
+            UserService repository = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
+            BllUser user_1 = new BllUser { FirstName = "Mike", LastName = "Jones" };
+            BllUser user_2 = new BllUser { FirstName = "Mike", LastName = "Smith" };
             repository.Add(user_1);
             repository.Add(user_2);
             repository.Save();
-            UserRepository repository_1 = new UserRepository(new UserStorage(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
+            UserService repository_1 = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
             repository_1.Load();
             Assert.AreEqual(repository_1.GetAllUsers().Count(), 2);
         }

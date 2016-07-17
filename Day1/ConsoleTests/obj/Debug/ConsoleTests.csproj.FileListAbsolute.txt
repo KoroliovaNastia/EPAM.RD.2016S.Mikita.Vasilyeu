@@ -11,3 +11,16 @@ D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\obj\Debug\Con
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\NLog.config
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\NLog.dll
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\NLog.xml
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\ConsoleTests.exe.config
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\obj\Debug\ConsoleTests.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\obj\Debug\ConsoleTests.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\NLog.config
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\ConsoleTests.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\ConsoleTests.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\DAL.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\Storage.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\NLog.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\DAL.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\Storage.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\NLog.xml
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\obj\Debug\ConsoleTests.csprojResolveAssemblyReference.cache
