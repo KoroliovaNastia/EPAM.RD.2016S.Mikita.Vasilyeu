@@ -25,19 +25,25 @@ namespace DAL.DTO
 
         public bool Equals(DalUser other)
         {
+            if (ReferenceEquals(other, null))
+                return false;
             return Equals(this, other);
         }
 
         public override bool Equals(object obj)
         {
             DalUser other = obj as DalUser;
+            if (ReferenceEquals(other, null))
+                return false;
             return Equals(this, other);
         }
 
         public static bool Equals(DalUser first, DalUser second)
         {
-            return first?.FirstName == second?.FirstName
-                && first?.LastName == second?.LastName;
+            if (ReferenceEquals(first, null)|| ReferenceEquals(second, null))
+                return false;
+            return string.Equals(first.FirstName, second.FirstName, StringComparison.OrdinalIgnoreCase)
+                && string.Equals(first.LastName, second.LastName, StringComparison.OrdinalIgnoreCase);
         }
 
         public override int GetHashCode()

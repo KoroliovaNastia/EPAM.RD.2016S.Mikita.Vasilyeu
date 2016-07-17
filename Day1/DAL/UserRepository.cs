@@ -15,33 +15,27 @@ namespace DAL
 {
     public class UserRepository : IUserRepository
     {
-        public ICustomerEnumerator Iterator { get; }
-        public IUserValidator Validator { get; }
-        public List<DalUser> Users { get; set; }
+        private static readonly Logger logger;
+        private static readonly BooleanSwitch loggerSwitch;
 
-        public static BooleanSwitch LoggerSwitch { get; private set; } 
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private ICustomerEnumerator iterator;
+        private IUserValidator validator;
+        private List<DalUser> users;
+
+        static UserRepository()
+        {
+            loggerSwitch = new BooleanSwitch("Data", "DataAccess module");
+            logger = LogManager.GetCurrentClassLogger();
+        }
+
+        public UserRepository()
+        {
+            InitializeRepository(new EvenEnumerator(), new SimpleUserValidator());
+        }
 
         public UserRepository(ICustomerEnumerator iterator, IUserValidator validator)
         {
-            if (iterator == null)
-            {
-                ArgumentNullException exeption = new ArgumentNullException(nameof(iterator) + " is null");
-                if (LoggerSwitch.Enabled)
-                    Logger.Error(exeption.Message);
-                throw exeption;
-            }
-            if (validator == null)
-            {
-                ArgumentNullException exeption = new ArgumentNullException(nameof(validator) + " is null");
-                if (LoggerSwitch.Enabled)
-                    Logger.Error(exeption.Message);
-                throw exeption;
-            }
-            Iterator = iterator;
-            Validator = validator;
-            Users = new List<DalUser>();
-            LoggerSwitch = new BooleanSwitch("Data", "DataAccess module");
+            InitializeRepository(iterator, validator);
         }
 
         public int Add(DalUser user)
@@ -49,21 +43,21 @@ namespace DAL
             if (user == null)
             {
                 ArgumentNullException exeption = new ArgumentNullException(nameof(user) + " is null");
-                if (LoggerSwitch.Enabled)
-                    Logger.Error(exeption.Message);
+                if (loggerSwitch.Enabled)
+                    logger.Error(exeption.Message);
                 throw exeption;
             }
-            if (!Validator.Validate(user))
+            if (!validator.Validate(user))
             {
                 ArgumentException exeption = new ArgumentException(nameof(user) + " is invalid");
-                if (LoggerSwitch.Enabled)
-                    Logger.Error(exeption.Message);
+                if (loggerSwitch.Enabled)
+                    logger.Error(exeption.Message);
                 throw exeption;
             }
-            user.Id = Iterator.GetNext();
-            Users.Add(user);
-            if(LoggerSwitch.Enabled)
-                Logger.Info($"User {user} Added!");
+            user.Id = iterator.GetNext();
+            users.Add(user);
+            if(loggerSwitch.Enabled)
+                logger.Info($"User {user} Added!");
             return user.Id;
         }
 
@@ -72,26 +66,26 @@ namespace DAL
             if (user == null)
             {
                 ArgumentNullException exeption = new ArgumentNullException(nameof(user) + " is null");
-                if (LoggerSwitch.Enabled)
-                    Logger.Error(exeption.Message);
+                if (loggerSwitch.Enabled)
+                    logger.Error(exeption.Message);
                 throw exeption;
             }
-            DalUser userToDelete = Users.SingleOrDefault(u => u.Id == user.Id);
+            DalUser userToDelete = users.SingleOrDefault(u => u.Id == user.Id);
             if (userToDelete == null)
             {
                 ArgumentException exeption = new ArgumentException(nameof(user) + " doesn't exist");
-                if (LoggerSwitch.Enabled)
-                    Logger.Error(exeption.Message);
+                if (loggerSwitch.Enabled)
+                    logger.Error(exeption.Message);
                 throw exeption;
             }
-            Users.Remove(userToDelete);
-            if (LoggerSwitch.Enabled)
-                Logger.Info($"User {user} Removed!");
+            users.Remove(userToDelete);
+            if (loggerSwitch.Enabled)
+                logger.Info($"User {user} Removed!");
         }
 
         public IEnumerable<DalUser> GetAll()
         {
-            return Users.ToList();
+            return users.ToList();
         }
 
         public int[] GetByPredicate(Func<DalUser, bool> predicate)
@@ -99,11 +93,11 @@ namespace DAL
             if (predicate == null)
             {
                 ArgumentNullException exeption = new ArgumentNullException(nameof(predicate) + " is null");
-                if (LoggerSwitch.Enabled)
-                    Logger.Error(exeption.Message);
+                if (loggerSwitch.Enabled)
+                    logger.Error(exeption.Message);
                 throw exeption;
             }
-            List<DalUser> foundUsers = Users.Where(predicate).ToList();
+            List<DalUser> foundUsers = users.Where(predicate).ToList();
             int[] ids = null;
             if (foundUsers.Count != 0)
             {
@@ -126,16 +120,16 @@ namespace DAL
             }
             catch (ConfigurationErrorsException ex)
             {
-                if (LoggerSwitch.Enabled)
-                    Logger.Error($"App.Config exception! " + ex.Message);
+                if (loggerSwitch.Enabled)
+                    logger.Error($"App.Config exception! " + ex.Message);
                 throw;
             }
             using (FileStream fs = new FileStream(path, FileMode.Create))
             {
-                formatter.Serialize(fs, Users);
+                formatter.Serialize(fs, users);
             }
-            if (LoggerSwitch.Enabled)
-                Logger.Info($"User storage saved to XML!");
+            if (loggerSwitch.Enabled)
+                logger.Info($"User storage saved to XML!");
         }
 
         public void Load()
@@ -148,8 +142,8 @@ namespace DAL
             }
             catch (ConfigurationErrorsException ex)
             {
-                if (LoggerSwitch.Enabled)
-                    Logger.Error($"App.Config exception! " + ex.Message);
+                if (loggerSwitch.Enabled)
+                    logger.Error($"App.Config exception! " + ex.Message);
                 throw;
             }
             using (StreamReader sr = new StreamReader(path))
@@ -157,12 +151,34 @@ namespace DAL
                 List<DalUser> users = (List<DalUser>)formatter.Deserialize(sr);
                 foreach (var user in users)
                 {
-                    Users.Add(user);
+                    this.users.Add(user);
                 }
-                Iterator.Current = users.Last().Id;
+                iterator.SetCurrent(users.Last().Id);
             }
-            if (LoggerSwitch.Enabled)
-                Logger.Info($"User storage loaded from XML!");
+            if (loggerSwitch.Enabled)
+                logger.Info($"User storage loaded from XML!");
+        }
+
+
+        private void InitializeRepository(ICustomerEnumerator iterator, IUserValidator validator)
+        {
+            if (iterator == null)
+            {
+                ArgumentNullException exeption = new ArgumentNullException(nameof(iterator) + " is null");
+                if (loggerSwitch.Enabled)
+                    logger.Error(exeption.Message);
+                throw exeption;
+            }
+            if (validator == null)
+            {
+                ArgumentNullException exeption = new ArgumentNullException(nameof(validator) + " is null");
+                if (loggerSwitch.Enabled)
+                    logger.Error(exeption.Message);
+                throw exeption;
+            }
+            this.iterator = iterator;
+            this.validator = validator;
+            users = new List<DalUser>();
         }
     }
 }

@@ -10,15 +10,19 @@ namespace BLL.Modes
 {
     public class Master : IMode
     {
+        private static Master instance;
+        private static object syncRoot = new object();
+
         public event EventHandler<MasterEventArgs> Added;
         public event EventHandler<MasterEventArgs> Deleted;
+        public event EventHandler<MasterEventArgs> Saved;
 
-        public bool IsActivated { get; private set; } = false;
-
-        private static Master instance;
+        public bool IsActivated { get; private set; }
 
         private Master()
         {
+            IsActivated = false;
+            instance = null;
         }
 
         public static Master Instance
@@ -27,20 +31,31 @@ namespace BLL.Modes
             {
                 if (instance == null)
                 {
-                    instance = new Master();
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new Master();
+                        }
+                    }
                 }
                 return instance;
             }
         }
 
-        public void Add()
+        public void AddNotify()
         {
             Added?.Invoke(this, new MasterEventArgs("Added!"));
         }
 
-        public void Delete()
+        public void DeleteNotify()
         {
             Deleted?.Invoke(this, new MasterEventArgs("Deleted!"));
+        }
+
+        public void SaveNotify()
+        {
+            Saved?.Invoke(this, new MasterEventArgs("Saved!"));
         }
 
         public void Activate()

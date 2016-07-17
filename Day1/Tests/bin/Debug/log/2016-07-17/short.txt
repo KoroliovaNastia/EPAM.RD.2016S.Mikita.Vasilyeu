@@ -53,3 +53,160 @@
 20:52:45 (INFO): User 2 Mike Smith Added!
 20:52:45 (INFO): User storage saved to XML!
 20:52:45 (INFO): User 0 Mike Jones Added!
+21:16:20 (INFO): User 0 Mike Jones Added!
+21:16:20 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+21:16:20 (ERROR): user is invalid
+21:16:20 (INFO): User 0 Mike Jones Added!
+21:16:20 (INFO): User 0 Mike Jones Removed!
+21:16:20 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+21:16:20 (INFO): User 0 Mike Jones Added!
+21:16:20 (INFO): User 0 Mike Jones Added!
+21:16:20 (INFO): User 0 Mike Jones Added!
+21:16:20 (INFO): User 2 Mike Smith Added!
+21:16:20 (INFO): User 0 Mike Jones Added!
+21:16:20 (INFO): User 2 Mike Smith Added!
+21:16:20 (INFO): User storage saved to XML!
+21:16:20 (INFO): User 0 Mike Jones Added!
+21:16:20 (INFO): User 2 Mike Smith Added!
+21:16:20 (INFO): User storage saved to XML!
+21:16:20 (INFO): User 0 Mike Jones Added!
+21:38:50 (INFO): User 0 Mike Jones Added!
+21:38:50 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+21:38:50 (ERROR): user is invalid
+21:38:50 (INFO): User 0 Mike Jones Added!
+21:38:50 (INFO): User 0 Mike Jones Removed!
+21:38:50 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+21:38:50 (INFO): User 0 Mike Jones Added!
+21:38:50 (INFO): User 0 Mike Jones Added!
+21:38:50 (INFO): User 0 Mike Jones Added!
+21:38:50 (INFO): User 2 Mike Smith Added!
+21:38:50 (INFO): User 0 Mike Jones Added!
+21:38:50 (INFO): User 2 Mike Smith Added!
+21:38:50 (INFO): User storage saved to XML!
+21:38:50 (INFO): User 0 Mike Jones Added!
+21:38:50 (INFO): User 2 Mike Smith Added!
+21:38:50 (INFO): User storage saved to XML!
+21:38:50 (INFO): User 0 Mike Jones Added!
+21:58:50 (INFO): User 0 Mike Jones Added!
+21:58:51 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+21:58:51 (ERROR): user is invalid
+21:58:51 (INFO): User 0 Mike Jones Added!
+21:58:51 (INFO): User 0 Mike Jones Removed!
+21:58:51 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+21:58:51 (INFO): User 0 Mike Jones Added!
+21:58:51 (INFO): User 0 Mike Jones Added!
+21:58:51 (INFO): User 0 Mike Jones Added!
+21:58:51 (INFO): User 2 Mike Smith Added!
+21:58:51 (INFO): User 0 Mike Jones Added!
+21:58:51 (INFO): User 2 Mike Smith Added!
+21:58:51 (INFO): User storage saved to XML!
+21:58:51 (INFO): User 0 Mike Jones Added!
+21:58:51 (INFO): User 2 Mike Smith Added!
+21:58:51 (INFO): User storage saved to XML!
+21:58:51 (INFO): User 0 Mike Jones Added!
+22:39:50 (INFO): User 0 Mike Jones Added!
+22:39:50 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+22:39:50 (ERROR): user is invalid
+22:39:50 (INFO): User 0 Mike Jones Added!
+22:39:50 (INFO): User 0 Mike Jones Removed!
+22:39:50 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+22:39:50 (INFO): User 0 Mike Jones Added!
+22:39:50 (INFO): User 0 Mike Jones Added!
+22:39:50 (INFO): User 0 Mike Jones Added!
+22:39:50 (INFO): User 2 Mike Smith Added!
+22:39:50 (INFO): User 0 Mike Jones Added!
+22:39:50 (INFO): User 2 Mike Smith Added!
+22:39:50 (INFO): User storage saved to XML!
+22:39:50 (INFO): User 0 Mike Jones Added!
+22:39:50 (INFO): User 2 Mike Smith Added!
+22:39:50 (INFO): User storage saved to XML!
+22:39:50 (INFO): User 0 Mike Jones Added!
+23:19:30 (INFO): User 0 Mike Jones Added!
+23:19:30 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+23:19:30 (ERROR): user is invalid
+23:19:30 (INFO): User 0 Mike Jones Added!
+23:19:30 (INFO): User 0 Mike Jones Removed!
+23:19:30 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+23:19:30 (INFO): User 0 Mike Jones Added!
+23:19:30 (INFO): User 0 Mike Jones Added!
+23:19:30 (INFO): User 0 Mike Jones Added!
+23:19:30 (INFO): User 2 Mike Smith Added!
+23:19:30 (INFO): User 0 Mike Jones Added!
+23:19:30 (INFO): User 2 Mike Smith Added!
+23:19:30 (INFO): User storage saved to XML!
+23:19:30 (INFO): User 0 Mike Jones Added!
+23:19:30 (INFO): User 2 Mike Smith Added!
+23:19:30 (INFO): User storage saved to XML!
+23:19:30 (ERROR): mode can be activate only once
+23:19:30 (INFO): User 0 Mike Jones Added!
+23:19:30 (ERROR): mode can be activate only once
+23:28:06 (INFO): User 0 Mike Jones Added!
+23:28:06 (ERROR): mode can be activate only once
+23:28:14 (INFO): User 0 Mike Jones Added!
+23:28:14 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+23:28:14 (ERROR): user is invalid
+23:28:14 (INFO): User 0 Mike Jones Added!
+23:28:14 (INFO): User 0 Mike Jones Removed!
+23:28:14 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+23:28:14 (INFO): User 0 Mike Jones Added!
+23:28:14 (INFO): User 0 Mike Jones Added!
+23:28:14 (INFO): User 0 Mike Jones Added!
+23:28:14 (INFO): User 2 Mike Smith Added!
+23:28:14 (INFO): User 0 Mike Jones Added!
+23:28:14 (INFO): User 2 Mike Smith Added!
+23:28:15 (INFO): User storage saved to XML!
+23:28:15 (INFO): User storage loaded from XML!
+23:28:51 (INFO): User 0 Mike Jones Added!
+23:28:51 (ERROR): mode can be activate only once
+23:29:00 (INFO): User 0 Mike Jones Added!
+23:29:00 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+23:29:00 (ERROR): user is invalid
+23:29:00 (INFO): User 0 Mike Jones Added!
+23:29:00 (INFO): User 0 Mike Jones Removed!
+23:29:00 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+23:29:00 (INFO): User 0 Mike Jones Added!
+23:29:00 (INFO): User 0 Mike Jones Added!
+23:29:00 (INFO): User 0 Mike Jones Added!
+23:29:00 (INFO): User 2 Mike Smith Added!
+23:29:00 (INFO): User 0 Mike Jones Added!
+23:29:00 (INFO): User 2 Mike Smith Added!
+23:29:00 (INFO): User storage saved to XML!
+23:29:00 (INFO): User 0 Mike Jones Added!
+23:29:00 (INFO): User 2 Mike Smith Added!
+23:29:00 (INFO): User storage saved to XML!
+23:29:00 (INFO): User storage loaded from XML!
+23:43:20 (INFO): User 0 Mike Jones Added!
+23:43:20 (ERROR): mode can be activate only once
+23:43:30 (INFO): User 0 Mike Jones Added!
+23:43:30 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+23:43:30 (ERROR): user is invalid
+23:43:31 (INFO): User 0 Mike Jones Added!
+23:43:31 (INFO): User 0 Mike Jones Removed!
+23:43:31 (ERROR): Значение не может быть неопределенным.
+Имя параметра: user is null
+23:43:31 (INFO): User 0 Mike Jones Added!
+23:43:31 (INFO): User 0 Mike Jones Added!
+23:43:31 (INFO): User 0 Mike Jones Added!
+23:43:31 (INFO): User 2 Mike Smith Added!
+23:43:31 (INFO): User 0 Mike Jones Added!
+23:43:31 (INFO): User 2 Mike Smith Added!
+23:43:31 (INFO): User storage saved to XML!
+23:43:31 (INFO): User 0 Mike Jones Added!
+23:43:31 (INFO): User 2 Mike Smith Added!
+23:43:31 (INFO): User storage saved to XML!
+23:43:31 (INFO): User storage loaded from XML!

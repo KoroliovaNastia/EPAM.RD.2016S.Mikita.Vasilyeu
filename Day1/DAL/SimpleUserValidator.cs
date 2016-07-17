@@ -12,7 +12,7 @@ namespace DAL
     {
         public bool Validate(DalUser user)
         {
-            if (user == null)
+            if (ReferenceEquals(user, null))
                 throw new ArgumentNullException();
             if (user.FirstName == null || user.LastName == null)
                 return false;

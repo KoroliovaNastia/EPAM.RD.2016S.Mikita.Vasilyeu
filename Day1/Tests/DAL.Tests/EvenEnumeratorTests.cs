@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DAL;
 
-namespace Tests
+namespace Tests.DAL
 {
     [TestClass]
     public class EvenEnumeratorTests
@@ -10,24 +10,24 @@ namespace Tests
         [TestMethod]
         public void GetDefaultState_ReturnMinusTwo()
         {
-            EvenEnumerator it = new EvenEnumerator();
-            Assert.AreEqual(it.Current, -2);
+            EvenEnumerator iterator = new EvenEnumerator();
+            Assert.AreEqual(iterator.Current, -2);
         }
 
         [TestMethod]
         public void GetFirstEvenNumber_ReturnZero()
         {
-            EvenEnumerator it = new EvenEnumerator();
-            it.MoveNext();
-            Assert.AreEqual(it.Current, 0);
+            EvenEnumerator iterator = new EvenEnumerator();
+            iterator.MoveNext();
+            Assert.AreEqual(iterator.Current, 0);
         }
 
         [TestMethod]
         public void GetLastEvenNumber_ReturnIntMaxValueMinusOne()
         {
-            EvenEnumerator it = new EvenEnumerator();
-            while (it.MoveNext()) ;
-            Assert.AreEqual(it.Current, int.MaxValue - 1);
+            EvenEnumerator iterator = new EvenEnumerator();
+            while (iterator.MoveNext()) ;
+            Assert.AreEqual(iterator.Current, int.MaxValue - 1);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace BLL
 {
     public class MasterEventArgs : EventArgs
     {
-        public string Message { get; set; }
+        public string Message { get; }
 
         public MasterEventArgs(string message)
         {
@@ -17,6 +17,5 @@ namespace BLL
                 throw new ArgumentException(nameof(message));
             Message = message;
         }
-
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DAL.DTO;
 using DAL;
 
-namespace Tests
+namespace Tests.DAL
 {
     [TestClass]
     public class ValidationTests
@@ -12,18 +12,18 @@ namespace Tests
         [TestMethod]
         public void UserSimpleValidation_ReturnsTrueForValidUser()
         {
-            UserRepository storage = new UserRepository(new EvenEnumerator(), new SimpleUserValidator());
             DalUser user = new DalUser { FirstName = "Mike" };
-            bool isValid = storage.Validator.Validate(user);
+            SimpleUserValidator validator = new SimpleUserValidator();
+            bool isValid = validator.Validate(user);
             Assert.IsFalse(isValid);
         }
 
         [TestMethod]
         public void UserSimpleValidation_ReturnsFalseForInvalidUser()
         {
-            UserRepository storage = new UserRepository(new EvenEnumerator(), new SimpleUserValidator());
             DalUser user = new DalUser { FirstName = "Mike", LastName = "Jones"};
-            bool isValid = storage.Validator.Validate(user);
+            SimpleUserValidator validator = new SimpleUserValidator();
+            bool isValid = validator.Validate(user);
             Assert.IsTrue(isValid);
         }
     }

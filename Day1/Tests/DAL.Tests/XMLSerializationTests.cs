@@ -9,12 +9,11 @@ using DAL;
 using BLL.Models;
 using BLL.Modes;
 
-namespace Tests
+namespace Tests.DAL
 {
     [TestClass]
     public class XMLSerializationTests
     {
-
         [TestInitialize]
         public void ResetStatic()
         {
@@ -24,7 +23,7 @@ namespace Tests
         [TestMethod]
         public void WriteToXml_()
         {
-            UserService repository = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
+            UserService repository = new UserService();
             BllUser user_1 = new BllUser { FirstName = "Mike", LastName = "Jones" };
             BllUser user_2 = new BllUser { FirstName = "Mike", LastName = "Smith" };
             repository.Add(user_1);
@@ -35,15 +34,16 @@ namespace Tests
         [TestMethod]
         public void ReadFromXml_()
         {
-            UserService repository = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
+            UserService repository_1 = new UserService();
             BllUser user_1 = new BllUser { FirstName = "Mike", LastName = "Jones" };
             BllUser user_2 = new BllUser { FirstName = "Mike", LastName = "Smith" };
-            repository.Add(user_1);
-            repository.Add(user_2);
-            repository.Save();
-            UserService repository_1 = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
-            repository_1.Load();
-            Assert.AreEqual(repository_1.GetAllUsers().Count(), 2);
+            repository_1.Add(user_1);
+            repository_1.Add(user_2);
+            repository_1.Save();
+            typeof(Master).GetProperty("IsActivated").SetValue(Master.Instance, false);
+            UserService repository_2 = new UserService();
+            repository_2.Load();
+            Assert.AreEqual(repository_2.GetAllUsers().Count(), 2);
         }
     }
 }

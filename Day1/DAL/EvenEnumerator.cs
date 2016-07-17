@@ -14,13 +14,12 @@ namespace DAL
 
         public EvenEnumerator(int seed = -2)
         {
-            next = seed;
+            SetCurrent(seed);
         }
 
         public int Current
         {
             get { return next; }
-            set { next = value; }
         }
 
         public bool MoveNext()
@@ -36,6 +35,28 @@ namespace DAL
             if (MoveNext())
                 return Current;
             return 0;
+        }
+
+        public void SetCurrent(int seed)
+        {
+            if (seed < -2 || seed % 2 != 0)
+                throw new ArgumentException();
+            next = seed;
+        }
+
+        public void Reset()
+        {
+            next = -2;
+        }
+
+        object IEnumerator.Current
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }

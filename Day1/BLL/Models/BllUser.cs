@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL.Mappers;
+using DAL.DTO;
 
 namespace BLL.Models
 {
@@ -22,19 +24,18 @@ namespace BLL.Models
 
         public bool Equals(BllUser other)
         {
-            return Equals(this, other);
+            return Equals(this.ToDalUser(), other?.ToDalUser());
         }
 
         public override bool Equals(object obj)
         {
             BllUser other = obj as BllUser;
-            return Equals(this, other);
+            return Equals(this.ToDalUser(), other?.ToDalUser());
         }
 
         public static bool Equals(BllUser first, BllUser second)
         {
-            return first?.FirstName == second?.FirstName
-                && first?.LastName == second?.LastName;
+            return (DalUser.Equals(first?.ToDalUser(), second.ToDalUser()));
         }
 
         public override int GetHashCode()
@@ -46,6 +47,5 @@ namespace BLL.Models
         {
             return $"{Id} {FirstName} {LastName}";
         }
-
     }
 }

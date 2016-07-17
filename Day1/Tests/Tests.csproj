@@ -52,13 +52,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Storage.Tests\EvenEnumeratorTests.cs" />
+    <Compile Include="DAL.Tests\EvenEnumeratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Storage.Tests\ModeTests.cs" />
-    <Compile Include="Storage.Tests\UserEntityTests.cs" />
-    <Compile Include="Storage.Tests\UserStorageTests.cs" />
-    <Compile Include="Storage.Tests\ValidationTests.cs" />
-    <Compile Include="Storage.Tests\XMLSerializationTests.cs" />
+    <Compile Include="BLL\ModeTests.cs" />
+    <Compile Include="DAL.Tests\DalUserTests.cs" />
+    <Compile Include="DAL.Tests\UserRepositoryTests.cs" />
+    <Compile Include="DAL.Tests\ValidationTests.cs" />
+    <Compile Include="DAL.Tests\XMLSerializationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
@@ -73,9 +73,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL.Tests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

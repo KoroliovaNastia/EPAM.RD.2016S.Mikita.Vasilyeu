@@ -9,8 +9,9 @@ namespace BLL.Interface
     public interface IMode
     {
         bool IsActivated { get; }
-        void Add();
-        void Delete();
+        void AddNotify();
+        void DeleteNotify();
+        void SaveNotify();
         void Activate();
     }
 }

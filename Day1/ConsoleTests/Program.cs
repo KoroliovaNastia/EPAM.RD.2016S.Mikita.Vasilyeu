@@ -15,22 +15,27 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
-            UserService repository = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
-            BllUser user_1 = new BllUser { FirstName = "Mike", LastName = "Jones", Cards = { new BllVisaRecord() {Country = "USA"}, new BllVisaRecord { Country = "China"} }};
-            UserService rep_2 = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
-            UserService rep_3 = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), new Slave());
-            //UserRepository rep_4 = new UserRepository(new Storage.UserStorage(new EvenEnumerator(UserStorage.GetSeed()), new SimpleUserValidator()), new Slave());
+            UserService repositoryMaster = new UserService();
+            UserService repositorySlave = new UserService(new Slave());
+            BllUser user_1 = new BllUser
+            {
+                FirstName = "Mike",
+                LastName = "Jones",
+                Cards =
+                {
+                    new BllVisaRecord { Country = "USA" },
+                    new BllVisaRecord { Country = "China" }
+                }
+            };
             BllUser user_2 = new BllUser { FirstName = "Mike", LastName = "Smith" };
-            repository.Add(user_1);
-            repository.Add(user_2);
-            repository.Save();
-            //UserService rep = new UserService(new UserRepository(new EvenEnumerator(), new SimpleUserValidator()), Master.Instance);
-            //rep.Load();
-            //rep.Add(user_2);
-            //foreach (var item in rep.GetAllUsers())
-            //{
-            //    Console.WriteLine(item);
-            //}
+            repositoryMaster.Add(user_1);
+            repositoryMaster.Add(user_2);
+            repositoryMaster.Save();
+            repositorySlave.Load();
+            foreach (var item in repositorySlave.GetAllUsers())
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

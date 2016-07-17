@@ -12,22 +12,29 @@ namespace BLL.Modes
     public class Slave : IMode
     {
         public static int Counter { get; private set; }
-        public bool IsActivated { get; private set; } = false;
+        public bool IsActivated { get; private set; }
 
         public Slave()
         {
-            if(++Counter> int.Parse(ConfigurationManager.AppSettings["SlavesNumber"]))
+            if (++Counter > int.Parse(ConfigurationManager.AppSettings["SlavesNumber"]))
                 throw new ArgumentException();
             Master.Instance.Added += OnChange;
             Master.Instance.Deleted += OnChange;
+            Master.Instance.Saved += OnChange;
+            IsActivated = false;
         }
 
-        public void Add()
+        public void AddNotify()
         {
             throw new NotImplementedException();
         }
 
-        public void Delete()
+        public void DeleteNotify()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveNotify()
         {
             throw new NotImplementedException();
         }

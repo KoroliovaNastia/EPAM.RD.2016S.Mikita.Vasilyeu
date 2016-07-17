@@ -8,17 +8,17 @@ using System.Linq;
 using DAL;
 using BLL.Models;
 
-namespace Tests
+namespace Tests.DAL
 {
     [TestClass]
-    public class UserStorageTests
+    public class UserRepositoryTests
     {
         [TestMethod]
         public void AddValidUser_ReturnsUserId()
         {
             DalUser user = new DalUser { FirstName = "Mike", LastName = "Jones" };
-            UserRepository st = new UserRepository(new EvenEnumerator(), new SimpleUserValidator());
-            int id = st.Add(user);
+            UserRepository repository = new UserRepository();
+            int id = repository.Add(user);
             Assert.AreEqual(id, 0);
         }
 
@@ -27,8 +27,8 @@ namespace Tests
         public void AddNullUser_ThrowsException()
         {
             DalUser user = null;
-            UserRepository st = new UserRepository(new EvenEnumerator(), new SimpleUserValidator());
-            int id = st.Add(user);
+            UserRepository repository = new UserRepository();
+            int id = repository.Add(user);
         }
 
         [TestMethod]
@@ -36,18 +36,18 @@ namespace Tests
         public void AddInValidUser_ThrowsException()
         {
             DalUser user = new DalUser { FirstName = "Mike" };
-            UserRepository st = new UserRepository(new EvenEnumerator(), new SimpleUserValidator());
-            int id = st.Add(user);
+            UserRepository repository = new UserRepository();
+            int id = repository.Add(user);
         }
 
         [TestMethod]
         public void DeleteUser_()
         {
             DalUser user = new DalUser { FirstName = "Mike", LastName = "Jones" };
-            UserRepository st = new UserRepository(new EvenEnumerator(), new SimpleUserValidator());
-            int id = st.Add(user);
-            st.Delete(user);
-            var ids = st.GetByPredicate(u => u.Id == id);
+            UserRepository repository = new UserRepository();
+            int id = repository.Add(user);
+            repository.Delete(user);
+            var ids = repository.GetByPredicate(u => u.Id == id);
             Assert.AreEqual(ids, null);
         }
 
@@ -55,17 +55,17 @@ namespace Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void DeleteNullUser_ThrowsException()
         {
-            UserRepository st = new UserRepository(new EvenEnumerator(), new SimpleUserValidator());
-            st.Delete(null);
+            UserRepository repository = new UserRepository();
+            repository.Delete(null);
         }
 
         [TestMethod]
         public void GetAllUsers_ReturnsAllUsers()
         {
-            UserRepository st = new UserRepository(new EvenEnumerator(), new SimpleUserValidator());
+            UserRepository repository = new UserRepository();
             DalUser user = new DalUser { FirstName = "Mike", LastName = "Jones" };
-            int id = st.Add(user);
-            var users = st.GetAll();
+            int id = repository.Add(user);
+            var users = repository.GetAll();
             int count = users.Count();
             Assert.AreEqual(count, 1);
         }
