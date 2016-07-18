@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using MyInterfaces;
+using System.Linq;
 
 namespace DoSomethingClient
 {
@@ -42,11 +43,19 @@ namespace DoSomethingClient
         {
             // TODO: Create a domain with name MyDomain.
             AppDomain domain = null;
+            domain = AppDomain.CreateDomain("MyDomain");
             var loader = (DomainAssemblyLoader)domain.CreateInstanceAndUnwrap(Assembly.GetExecutingAssembly().FullName, typeof(DomainAssemblyLoader).FullName);
 
             try
             {
                 Result result = null; // TODO: Use loader here.
+                //result = loader.Load("MyLibrary, Version=1.2.3.4, Culture=neutral, PublicKeyToken=f46a87b3d9a80705", input);
+
+                //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"MyDomain\MyLibrary.dll");
+                //result = loader.LoadFile(path, input);
+
+                var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"MyDomain\MyLibrary.dll");
+                result = loader.LoadFrom(path, input);
 
                 Console.WriteLine("Method1: {0}", result.Value);
             }
@@ -56,6 +65,7 @@ namespace DoSomethingClient
             }
 
             // TODO: Unload domain
+            AppDomain.Unload(domain);
         }
 
         private static void Method2(Input input)
@@ -68,12 +78,14 @@ namespace DoSomethingClient
 
             // TODO: Create a domain with name MyDomain and setup from appDomainSetup.
             AppDomain domain = null;
+            domain = AppDomain.CreateDomain("MyDomain", null, appDomainSetup);
 
             var loader = (DomainAssemblyLoader)domain.CreateInstanceAndUnwrap(Assembly.GetExecutingAssembly().FullName, typeof(DomainAssemblyLoader).FullName);
 
             try
             {
                 Result result = null; // TODO: Use loader here.
+                result = result = loader.Load("MyLibrary, Version=1.2.3.4, Culture=neutral, PublicKeyToken=f46a87b3d9a80705", input);
 
                 Console.WriteLine("Method2: {0}", result.Value);
             }
@@ -83,6 +95,7 @@ namespace DoSomethingClient
             }
 
             // TODO: Unload domain
+            AppDomain.Unload(domain);
         }
     }
 }

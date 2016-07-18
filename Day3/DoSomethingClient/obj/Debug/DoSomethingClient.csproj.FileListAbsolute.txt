@@ -1,0 +1,8 @@
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\bin\Debug\DoSomethingClient.exe.config
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\bin\Debug\DoSomethingClient.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\bin\Debug\DoSomethingClient.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\bin\Debug\MyInterfaces.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\bin\Debug\MyInterfaces.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\obj\Debug\DoSomethingClient.csprojResolveAssemblyReference.cache
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\obj\Debug\DoSomethingClient.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\obj\Debug\DoSomethingClient.pdb

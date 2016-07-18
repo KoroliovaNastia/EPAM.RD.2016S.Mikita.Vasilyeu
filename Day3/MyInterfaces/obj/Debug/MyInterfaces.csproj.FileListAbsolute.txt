@@ -1,0 +1,5 @@
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\MyInterfaces\bin\Debug\MyInterfaces.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\MyInterfaces\bin\Debug\MyInterfaces.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\MyInterfaces\obj\Debug\MyInterfaces.csprojResolveAssemblyReference.cache
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\MyInterfaces\obj\Debug\MyInterfaces.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\MyInterfaces\obj\Debug\MyInterfaces.pdb
