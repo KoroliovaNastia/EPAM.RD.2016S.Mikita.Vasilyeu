@@ -1,0 +1,7 @@
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day4_Streams\CopyFiles\bin\Debug\CopyFiles.exe.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day4_Streams\CopyFiles\bin\Debug\TextFile.txt
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day4_Streams\CopyFiles\bin\Debug\CopyFiles.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day4_Streams\CopyFiles\bin\Debug\CopyFiles.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day4_Streams\CopyFiles\obj\Debug\CopyFiles.csprojResolveAssemblyReference.cache
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day4_Streams\CopyFiles\obj\Debug\CopyFiles.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day4_Streams\CopyFiles\obj\Debug\CopyFiles.pdb

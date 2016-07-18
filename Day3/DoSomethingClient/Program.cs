@@ -48,10 +48,10 @@ namespace DoSomethingClient
             try
             {
                 // TODO: Use loader here.
-                Result result = loader.Load("MyLibrary, Version=1.2.3.4, Culture=neutral, PublicKeyToken=f46a87b3d9a80705", input);
+                //Result result = loader.Load("MyLibrary, Version=1.2.3.4, Culture=neutral, PublicKeyToken=f46a87b3d9a80705", input);
 
-                //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"MyDomain\MyLibrary.dll");
-                //Result result = loader.LoadFile(path, input);
+                var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"MyDomain\MyLibrary.dll");
+                Result result = loader.LoadFile(path, input);
 
                 //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"MyDomain\MyLibrary.dll");
                 //Result result = loader.LoadFrom(path, input);
