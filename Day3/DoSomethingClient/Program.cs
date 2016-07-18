@@ -49,13 +49,13 @@ namespace DoSomethingClient
             try
             {
                 Result result = null; // TODO: Use loader here.
-                //result = loader.Load("MyLibrary, Version=1.2.3.4, Culture=neutral, PublicKeyToken=f46a87b3d9a80705", input);
+                result = loader.Load("MyLibrary, Version=1.2.3.4, Culture=neutral, PublicKeyToken=f46a87b3d9a80705", input);
 
                 //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"MyDomain\MyLibrary.dll");
                 //result = loader.LoadFile(path, input);
 
-                var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"MyDomain\MyLibrary.dll");
-                result = loader.LoadFrom(path, input);
+                //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"MyDomain\MyLibrary.dll");
+                //result = loader.LoadFrom(path, input);
 
                 Console.WriteLine("Method1: {0}", result.Value);
             }
