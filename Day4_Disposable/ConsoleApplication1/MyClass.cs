@@ -37,7 +37,7 @@ namespace ConsoleApplication1
             {
                 if (disposing)
                 {
-                    _resource.Dispose();
+                    _resource?.Dispose();
                 }
                 Helper.DeallocateBuffer(_buffer);
                 _disposed = true;
@@ -46,6 +46,8 @@ namespace ConsoleApplication1
 
         public void DoSomething()
         {
+            Console.WriteLine(_buffer.ToString());
+            Console.WriteLine(_resource.IsClosed);
             // NOTE: Manupulation with _buffer and _resource in this line.
         }
     }
