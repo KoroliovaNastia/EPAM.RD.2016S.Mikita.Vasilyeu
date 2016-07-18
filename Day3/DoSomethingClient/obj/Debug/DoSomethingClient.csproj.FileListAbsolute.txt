@@ -6,3 +6,11 @@ C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingCli
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\obj\Debug\DoSomethingClient.csprojResolveAssemblyReference.cache
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\obj\Debug\DoSomethingClient.exe
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\obj\Debug\DoSomethingClient.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\bin\Debug\DoSomethingClient.exe.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\obj\Debug\DoSomethingClient.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\obj\Debug\DoSomethingClient.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\bin\Debug\DoSomethingClient.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\bin\Debug\DoSomethingClient.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\bin\Debug\MyInterfaces.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\bin\Debug\MyInterfaces.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day3\DoSomethingClient\obj\Debug\DoSomethingClient.csprojResolveAssemblyReference.cache

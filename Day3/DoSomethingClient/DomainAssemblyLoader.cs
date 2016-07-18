@@ -34,8 +34,7 @@ namespace DoSomethingClient
             }
             var instance = Activator.CreateInstance(foundType);
             IDoSomething doSomethingService = (IDoSomething)instance;
-
-            //IDoSomething doSomethingService = null; // TODO Save instance to variable.
+            // TODO Save instance to variable.
 
             return doSomethingService.DoSomething(data);
         }
@@ -66,10 +65,9 @@ namespace DoSomethingClient
 
             MethodInfo mi = foundType.GetMethod("DoSomething");
 
-            Result result = null;
             // TODO: result = mi.Invoke();
 
-            result = (Result)mi.Invoke(Activator.CreateInstance(foundType), new object[] { data });
+            Result result = (Result)mi.Invoke(Activator.CreateInstance(foundType), new object[] { data });
 
             return result;
         }
@@ -96,7 +94,7 @@ namespace DoSomethingClient
 
             var instance = Activator.CreateInstance(foundType);
 
-            //IDoSomething doSomethingService = null; // TODO Save instance to variable.
+            // TODO Save instance to variable.
             IDoSomething doSomethingService = (IDoSomething)instance;
 
             return doSomethingService.DoSomething(data);
