@@ -1,0 +1,5 @@
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\bin\Debug\MutexClient.exe.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\bin\Debug\MutexClient.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\bin\Debug\MutexClient.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\obj\Debug\MutexClient.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\obj\Debug\MutexClient.pdb

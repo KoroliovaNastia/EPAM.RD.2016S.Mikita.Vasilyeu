@@ -1,0 +1,5 @@
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\bin\Debug\ReadWrite.exe.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\bin\Debug\ReadWrite.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\bin\Debug\ReadWrite.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\obj\Debug\ReadWrite.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\obj\Debug\ReadWrite.pdb

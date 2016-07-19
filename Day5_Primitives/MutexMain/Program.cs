@@ -14,13 +14,14 @@ namespace MutexMain
         {
             bool createdNew = false;
             Mutex mutex = null;
+            mutex = new Mutex(true, "MyMutex", out createdNew);
 
             // TODO: mutex = new Mutex(..., "MyMutex", ...);
 
             Console.WriteLine("MutexMain. Is the mutex new? " + createdNew);
             Console.WriteLine("Press any key to release mutex.");
             Console.ReadLine();
-
+            mutex.ReleaseMutex();
             // TODO: Release mutex.
 
             Console.WriteLine("Mutex is release. Press any key to exit.");
