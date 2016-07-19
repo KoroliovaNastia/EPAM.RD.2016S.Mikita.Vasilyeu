@@ -24,7 +24,11 @@ namespace ConsoleTests
                 Console.WriteLine(section.ServicesItems[0].Path);
             }
 
-            //UserService repositoryMaster = new UserService();
+            //AppDomain ad = AppDomain.CreateDomain("New domain");
+            //UserService repositoryMaster =
+            //    (UserService) ad.CreateInstanceAndUnwrap(typeof(UserService).Assembly.FullName, "UserService");
+
+            ////UserService repositoryMaster = new UserService();
             //UserService repositorySlave = new UserService(new Slave());
             //BllUser user_1 = new BllUser
             //{
