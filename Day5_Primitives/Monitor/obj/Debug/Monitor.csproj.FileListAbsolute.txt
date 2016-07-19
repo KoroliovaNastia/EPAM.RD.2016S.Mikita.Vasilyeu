@@ -1,1 +1,6 @@
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\Monitor\bin\Debug\Monitor.exe.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\Monitor\bin\Debug\Monitor.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\Monitor\bin\Debug\Monitor.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\Monitor\obj\Debug\Monitor.csprojResolveAssemblyReference.cache
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\Monitor\obj\Debug\Monitor.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\Monitor\obj\Debug\Monitor.pdb

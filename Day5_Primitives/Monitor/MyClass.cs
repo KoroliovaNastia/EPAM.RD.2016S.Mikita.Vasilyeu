@@ -1,9 +1,13 @@
-﻿namespace Monitor
+﻿using System;
+using System.Threading;
+
+namespace Monitor
 {
     // TODO: Use Monitor (not lock) to protect this structure.
     public class MyClass
     {
         private int _value;
+        private object locker = new object();
 
         public int Counter
         {
@@ -19,12 +23,29 @@
 
         public void Increase()
         {
-            _value++;
+            System.Threading.Monitor.Enter(locker);
+            try
+            {
+                _value++;
+            }
+            finally
+            {
+                System.Threading.Monitor.Exit(locker);
+            }
+            
         }
 
         public void Decrease()
         {
-            _value--;
+            System.Threading.Monitor.Enter(locker);
+            try
+            {
+                _value--;
+            }
+            finally
+            {
+                System.Threading.Monitor.Exit(locker);
+            }
         }
     }
 }
