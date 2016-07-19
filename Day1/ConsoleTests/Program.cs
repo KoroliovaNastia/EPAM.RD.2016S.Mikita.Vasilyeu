@@ -1,6 +1,4 @@
 ﻿using BLL;
-using DAL;
-using DAL.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using BLL.Models;
 using BLL.Modes;
+using BLL.Config;
+using System.Configuration;
 
 namespace ConsoleTests
 {
@@ -15,6 +15,15 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
+            //StartupFoldersConfigSection section =
+            //    (StartupFoldersConfigSection)ConfigurationManager.GetSection("StartupFolders");
+
+            //if (section != null)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(section.FolderItems[0].FolderType);
+            //    System.Diagnostics.Debug.WriteLine(section.FolderItems[0].Path);
+            //}
+
             UserService repositoryMaster = new UserService();
             UserService repositorySlave = new UserService(new Slave());
             BllUser user_1 = new BllUser

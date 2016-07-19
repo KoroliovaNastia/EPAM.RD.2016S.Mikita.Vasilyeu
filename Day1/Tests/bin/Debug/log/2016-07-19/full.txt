@@ -1,0 +1,6 @@
+19.07.2016 15:12:50 (ERROR): mode can be activate only once. 
+19.07.2016 15:12:56 (ERROR): Value cannot be null.
+Parameter name: user is null. 
+19.07.2016 15:12:56 (ERROR): user is invalid. 
+19.07.2016 15:12:56 (ERROR): Value cannot be null.
+Parameter name: user is null. 

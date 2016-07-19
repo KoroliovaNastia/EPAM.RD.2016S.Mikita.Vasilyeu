@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{258F5AF4-74D0-4C27-8133-3C4E891C2C1A}</ProjectGuid>
+    <ProjectGuid>{87489762-440A-4A6E-87FC-07888F0296C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Storage</RootNamespace>
-    <AssemblyName>Storage</AssemblyName>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,10 +34,6 @@
       <HintPath>..\packages\NLog.4.3.5\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NLogger, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLogger.dll.1.0.4\lib\NLogger.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -49,18 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\IEntity.cs" />
-    <Compile Include="EvenEnumerator.cs" />
-    <Compile Include="Interface\IRepository.cs" />
-    <Compile Include="Interface\IUserRepository.cs" />
     <Compile Include="DTO\DalGender.cs" />
-    <Compile Include="Interface\ICustomerEnumerator.cs" />
-    <Compile Include="Interface\IUserValidator.cs" />
     <Compile Include="DTO\DalUser.cs" />
     <Compile Include="DTO\DalVisaRecord.cs" />
+    <Compile Include="EvenEnumerator.cs" />
+    <Compile Include="Interface\ICustomerEnumerator.cs" />
+    <Compile Include="Interface\IEntity.cs" />
+    <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="Interface\IUserRepository.cs" />
+    <Compile Include="Interface\IUserValidator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleUserValidator.cs" />
     <Compile Include="UserRepository.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">

@@ -23,8 +23,8 @@ namespace FileStreams
             //ByteCopy(source, destin);
             //BlockCopy(source, destin);
             //LineCopy(source, destin);
-            //MemoryBufferCopy(source, destin);
-            WebClient();
+            MemoryBufferCopy(source, destin);
+            //WebClient();
         }
 
         public static void ByteCopy(string source, string destin)

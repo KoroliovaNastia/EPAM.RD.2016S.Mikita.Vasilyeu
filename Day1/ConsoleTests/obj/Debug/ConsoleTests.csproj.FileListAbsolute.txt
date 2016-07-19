@@ -2,9 +2,7 @@ D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\Con
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\ConsoleTests.exe
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\ConsoleTests.pdb
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\DAL.dll
-D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\Storage.dll
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\DAL.pdb
-D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\Storage.pdb
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\obj\Debug\ConsoleTests.csprojResolveAssemblyReference.cache
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\obj\Debug\ConsoleTests.exe
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\obj\Debug\ConsoleTests.pdb
@@ -24,3 +22,5 @@ C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\b
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\Storage.pdb
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\NLog.xml
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\obj\Debug\ConsoleTests.csprojResolveAssemblyReference.cache
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\BLL.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\BLL.pdb

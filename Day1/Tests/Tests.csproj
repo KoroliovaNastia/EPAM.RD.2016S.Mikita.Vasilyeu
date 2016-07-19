@@ -52,28 +52,27 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DAL.Tests\EvenEnumeratorTests.cs" />
+    <Compile Include="DAL\EvenEnumeratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BLL\ModeTests.cs" />
-    <Compile Include="DAL.Tests\DalUserTests.cs" />
-    <Compile Include="DAL.Tests\UserRepositoryTests.cs" />
-    <Compile Include="DAL.Tests\ValidationTests.cs" />
-    <Compile Include="DAL.Tests\XMLSerializationTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{baa3b695-d6e3-47fd-b9ec-62c289180be7}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{258f5af4-74d0-4c27-8133-3c4e891c2c1a}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
+    <Compile Include="DAL\DalUserTests.cs" />
+    <Compile Include="DAL\UserRepositoryTests.cs" />
+    <Compile Include="DAL\ValidationTests.cs" />
+    <Compile Include="DAL\XMLSerializationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{2fc8eb7d-0f5d-4189-b671-28db490f67e8}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{87489762-440a-4a6e-87fc-07888f0296c4}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
