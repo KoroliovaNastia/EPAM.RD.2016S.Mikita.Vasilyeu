@@ -45,9 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\FolderElement .cs" />
-    <Compile Include="Config\FoldersCollection .cs" />
-    <Compile Include="Config\StartupFoldersConfigSection .cs" />
+    <Compile Include="Config\ServiceElement.cs" />
+    <Compile Include="Config\ServiceCollection .cs" />
+    <Compile Include="Config\RegisterServices .cs" />
     <Compile Include="Interface\IMode.cs" />
     <Compile Include="Interface\IUserService.cs" />
     <Compile Include="Mappers\UserMappers.cs" />

@@ -7,22 +7,19 @@ using System.Threading.Tasks;
 
 namespace BLL.Config
 {
-    [ConfigurationCollection(typeof(FolderElement))]
-    public class FoldersCollection : ConfigurationElementCollection
+    [ConfigurationCollection(typeof(ServiceElement))]
+    public class ServiceCollection : ConfigurationElementCollection
     {
         protected override ConfigurationElement CreateNewElement()
         {
-            return new FolderElement();
+            return new ServiceElement();
         }
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return ((FolderElement)(element)).FolderType;
+            return ((ServiceElement)(element)).ServiceType;
         }
 
-        public FolderElement this[int idx]
-        {
-            get { return (FolderElement)BaseGet(idx); }
-        }
+        public ServiceElement this[int idx] => (ServiceElement)BaseGet(idx);
     }
 }

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BLL.Config
 {
-    public class FolderElement : ConfigurationElement
+    public class ServiceElement : ConfigurationElement
     {
-        [ConfigurationProperty("folderType", DefaultValue = "", IsKey = true, IsRequired = true)]
-        public string FolderType
+        [ConfigurationProperty("serviceType", DefaultValue = "", IsKey = true, IsRequired = true)]
+        public string ServiceType
         {
-            get { return ((string)(base["folderType"])); }
-            set { base["folderType"] = value; }
+            get { return ((string)(base["serviceType"])); }
+            set { base["serviceType"] = value; }
         }
 
         [ConfigurationProperty("path", DefaultValue = "", IsKey = false, IsRequired = false)]
