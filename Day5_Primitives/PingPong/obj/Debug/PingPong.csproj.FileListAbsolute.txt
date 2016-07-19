@@ -1,0 +1,6 @@
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\PingPong\bin\Debug\PingPong.exe.config
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\PingPong\bin\Debug\PingPong.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\PingPong\bin\Debug\PingPong.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\PingPong\obj\Debug\PingPong.csprojResolveAssemblyReference.cache
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\PingPong\obj\Debug\PingPong.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\PingPong\obj\Debug\PingPong.pdb

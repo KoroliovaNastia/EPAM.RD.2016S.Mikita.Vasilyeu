@@ -3,3 +3,8 @@ D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\bin
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\bin\Debug\MutexClient.pdb
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\obj\Debug\MutexClient.exe
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\obj\Debug\MutexClient.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\bin\Debug\MutexClient.exe.config
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\obj\Debug\MutexClient.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\obj\Debug\MutexClient.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\bin\Debug\MutexClient.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexClient\bin\Debug\MutexClient.pdb

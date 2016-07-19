@@ -3,3 +3,9 @@ D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\bin\D
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\bin\Debug\ReadWrite.pdb
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\obj\Debug\ReadWrite.exe
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\obj\Debug\ReadWrite.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\bin\Debug\ReadWrite.exe.config
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\obj\Debug\ReadWrite.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\obj\Debug\ReadWrite.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\bin\Debug\ReadWrite.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\bin\Debug\ReadWrite.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\obj\Debug\ReadWrite.csprojResolveAssemblyReference.cache

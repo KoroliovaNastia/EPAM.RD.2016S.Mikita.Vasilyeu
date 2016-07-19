@@ -16,15 +16,15 @@ namespace ReadWrite
                 Action d = () =>
                 {
                     // TODO: Wait for signal.
-
+                    ((ManualResetEventSlim)mres).Wait();
                     for (int j = 0; j < cycles; j++)
                     {
                         action();
                     }
                 };
 
-                Thread thread = null; // TODO: Create a new thread that will run the delegate above here.
-
+                //Thread thread = null; // TODO: Create a new thread that will run the delegate above here.
+                Thread thread = new Thread(new ThreadStart(d));
                 threads[i] = thread;
             }
 
@@ -36,7 +36,8 @@ namespace ReadWrite
             var list = new MyList();
 
             // TODO: Replace Object type with slim version of manual reset event here.
-            Object mres = null;
+            //Object mres = null;
+            Object mres = new ManualResetEventSlim();
 
             var threads = new List<Thread>();
 
@@ -46,6 +47,7 @@ namespace ReadWrite
 
             foreach (var thread in threads)
             {
+                thread.Start();
                 // TODO: Start all threads.
             }
 
@@ -55,8 +57,11 @@ namespace ReadWrite
             // NOTE: When an user presses the key all waiting worker threads should begin their work.
             // TODO: Send a signal to all worker threads that they can run.
 
+            ((ManualResetEventSlim)mres).Set();
+
             foreach (var thread in threads)
             {
+                thread.Join();
                 // TODO: Wait for all working threads
             }
 

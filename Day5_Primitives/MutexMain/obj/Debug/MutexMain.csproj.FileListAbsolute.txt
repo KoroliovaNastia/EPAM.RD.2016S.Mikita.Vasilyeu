@@ -3,3 +3,9 @@ D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexMain\bin\D
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexMain\bin\Debug\MutexMain.pdb
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexMain\obj\Debug\MutexMain.exe
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexMain\obj\Debug\MutexMain.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexMain\bin\Debug\MutexMain.exe.config
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexMain\obj\Debug\MutexMain.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexMain\obj\Debug\MutexMain.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexMain\bin\Debug\MutexMain.exe
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexMain\bin\Debug\MutexMain.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\MutexMain\obj\Debug\MutexMain.csprojResolveAssemblyReference.cache
