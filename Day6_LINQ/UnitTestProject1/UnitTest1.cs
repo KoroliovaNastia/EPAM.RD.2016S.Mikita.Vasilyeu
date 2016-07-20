@@ -202,6 +202,7 @@ namespace UnitTestProject1
             {
                 //ToDo Add code for second list
                 actualData = userListSecond.Single(u => u.Name == "Max");
+                Assert.Fail();
                 //name Max
             }
             catch (InvalidOperationException ie)
@@ -212,6 +213,7 @@ namespace UnitTestProject1
             {
                 Assert.Fail("Unexpected exception of type {0} caught: {1}", e.GetType(), e.Message);
             }
+
         }
 
         [TestMethod]
@@ -224,6 +226,7 @@ namespace UnitTestProject1
                 actualData = userListSecond.Single(u => u.Name == "Ldfsdfsfd");
                 //ToDo Add code for second list
                 //name Ldfsdfsfd
+                Assert.Fail();
             }
             catch (InvalidOperationException ie)
             {
@@ -233,6 +236,7 @@ namespace UnitTestProject1
             {
                 Assert.Fail("Unexpected exception of type {0} caught: {1}", e.GetType(), e.Message);
             }
+
         }
 
         [TestMethod]
@@ -260,6 +264,7 @@ namespace UnitTestProject1
                 actualData = userListSecond.First(u => u.Name == "Ldfsdfsfd");
                 //ToDo Add code for second list
                 //name Ldfsdfsfd
+                Assert.Fail();
             }
             catch (InvalidOperationException ie)
             {
@@ -269,6 +274,7 @@ namespace UnitTestProject1
             {
                 Assert.Fail("Unexpected exception of type {0} caught: {1}", e.GetType(), e.Message);
             }
+
         }
 
         [TestMethod]

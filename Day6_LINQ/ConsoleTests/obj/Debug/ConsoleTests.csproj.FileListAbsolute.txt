@@ -1,0 +1,6 @@
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day6_LINQ\ConsoleTests\bin\Debug\ConsoleTests.exe.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day6_LINQ\ConsoleTests\bin\Debug\ConsoleTests.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day6_LINQ\ConsoleTests\bin\Debug\ConsoleTests.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day6_LINQ\ConsoleTests\obj\Debug\ConsoleTests.csprojResolveAssemblyReference.cache
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day6_LINQ\ConsoleTests\obj\Debug\ConsoleTests.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day6_LINQ\ConsoleTests\obj\Debug\ConsoleTests.pdb
