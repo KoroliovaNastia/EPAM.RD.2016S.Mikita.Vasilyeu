@@ -9,3 +9,4 @@ C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\Rea
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\bin\Debug\ReadWrite.exe
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\bin\Debug\ReadWrite.pdb
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\obj\Debug\ReadWrite.csprojResolveAssemblyReference.cache
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day5_Primitives\ReadWrite\obj\Debug\ReadWrite.csprojResolveAssemblyReference.cache

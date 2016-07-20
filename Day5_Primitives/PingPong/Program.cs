@@ -30,6 +30,7 @@ namespace PingPong
 
                     // TODO: write ping-pong functionality here using pingEvent and pongEvent here.
                     pingEvent.Set();
+                    pongEvent.WaitOne();
 
                     Thread.Sleep(1000);
 
@@ -38,7 +39,7 @@ namespace PingPong
                 }
 
                 // TODO: Fix issue with blocked pong task.
-
+                pongEvent.Reset();
                 Console.WriteLine("ping: done");
             };
 
@@ -51,12 +52,11 @@ namespace PingPong
 
                 while (continueRunning)
                 {
-                    Console.WriteLine("pong!");
-
                     // TODO: write ping-pong functionality here using pingEvent or pongEvent here.
-                    pongEvent.Set();
-
+                    pingEvent.WaitOne();
                     Thread.Sleep(1000);
+                    Console.WriteLine("pong!");
+                    pongEvent.Set();
 
                     // TODO: write ping-pong functionality here using pingEvent or pongEvent here.
 
@@ -65,6 +65,7 @@ namespace PingPong
                 }
 
                 // TODO: Fix issue with blocked ping task.
+                pingEvent.Reset();
                 Console.WriteLine("pong: done");
             };
 
