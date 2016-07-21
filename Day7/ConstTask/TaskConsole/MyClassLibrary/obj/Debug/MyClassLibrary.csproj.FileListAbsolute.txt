@@ -1,0 +1,5 @@
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\MyClassLibrary\bin\Debug\MyClassLibrary.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\MyClassLibrary\bin\Debug\MyClassLibrary.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\MyClassLibrary\obj\Debug\MyClassLibrary.csprojResolveAssemblyReference.cache
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\MyClassLibrary\obj\Debug\MyClassLibrary.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\MyClassLibrary\obj\Debug\MyClassLibrary.pdb

@@ -1,1 +1,8 @@
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\TaskConsole\bin\Debug\TaskConsole.exe.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\TaskConsole\bin\Debug\TaskConsole.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\TaskConsole\bin\Debug\TaskConsole.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\TaskConsole\bin\Debug\MyClassLibrary.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\TaskConsole\bin\Debug\MyClassLibrary.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\TaskConsole\obj\Debug\TaskConsole.csprojResolveAssemblyReference.cache
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\TaskConsole\obj\Debug\TaskConsole.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\ConstTask\TaskConsole\TaskConsole\obj\Debug\TaskConsole.pdb
