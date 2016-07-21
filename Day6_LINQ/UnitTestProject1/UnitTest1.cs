@@ -323,13 +323,28 @@ namespace UnitTestProject1
                 new {name = "Alex", Info = "About Alex"}
             }.ToList();
 
-            var expectedData = 3;
-            var actualData = -1;
+            //var expectedData = 3;
+            //var actualData = -1;
 
-            actualData = userListSecond.Join(NameInfo, u => u.Name, user => user.name, (u, user) => u.Name == user.name).Count();
+            var actualData = userListSecond.Join(NameInfo, u => u.Name, user => user.name, (u, user) => new
+            {
+                Name=  u.Name,
+                Age = u.Age,
+                Salary = (decimal)u.Salary,
+                Gender = u.Gender,
+                Info = user.Info
+            }).ToList();
+
+            var expectedData = new[]
+            {
+                new {Name = "Max", Age = 23, Salary = 24000m, Gender = Gender.Man, Info = "info about Max"},
+                new {Name = "Max", Age = 23, Salary = 24000m, Gender = Gender.Man, Info = "info about Max"},
+                new {Name = "Alex", Age = 45, Salary = 54000m, Gender = Gender.Man, Info = "About Alex"},
+
+            }.ToList();
             //ToDo Add code for second list
 
-            Assert.IsTrue(expectedData == actualData);
+            CollectionAssert.AreEqual(actualData, expectedData);
         }
     }
 }
