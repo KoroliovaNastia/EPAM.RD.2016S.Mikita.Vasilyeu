@@ -1,0 +1,6 @@
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\Expressions\Expressions\bin\Debug\Expressions.exe.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\Expressions\Expressions\bin\Debug\Expressions.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\Expressions\Expressions\bin\Debug\Expressions.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\Expressions\Expressions\obj\Debug\Expressions.csprojResolveAssemblyReference.cache
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\Expressions\Expressions\obj\Debug\Expressions.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\Expressions\Expressions\obj\Debug\Expressions.pdb

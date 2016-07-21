@@ -1,0 +1,6 @@
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\UnitTestProjectCollection\UnitTestProjectCollection\bin\Debug\UnitTestProjectCollection.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\UnitTestProjectCollection\UnitTestProjectCollection\bin\Debug\UnitTestProjectCollection.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\UnitTestProjectCollection\UnitTestProjectCollection\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\UnitTestProjectCollection\UnitTestProjectCollection\obj\Debug\UnitTestProjectCollection.csprojResolveAssemblyReference.cache
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\UnitTestProjectCollection\UnitTestProjectCollection\obj\Debug\UnitTestProjectCollection.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day7\UnitTestProjectCollection\UnitTestProjectCollection\obj\Debug\UnitTestProjectCollection.pdb

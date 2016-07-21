@@ -6,46 +6,46 @@ using System.Threading.Tasks;
 
 namespace UnitTestProjectCollection
 {
-  public class BlockCollClass
-  {
-    protected List<int> bc;
-
-    private void producer()
+    public class BlockCollClass
     {
-      for (int i = 0; i < 100; i++)
-      {
-        bc.Add(i * i);
-        Debug.WriteLine("Create " + i * i);
-      }
+        protected BlockingCollection<int> bc;
+
+        private void producer()
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                bc.TryAdd(i * i);
+                Debug.WriteLine("Create " + i * i);
+            }
+        }
+
+        private void consumer()
+        {
+            foreach (var i1 in bc)
+            {
+                Debug.WriteLine("Take: " + i1);
+            }
+        }
+
+        public void Start()
+        {
+            bc = new BlockingCollection<int>();
+
+            Task Pr = new Task(producer);
+            Task Cn = new Task(consumer);
+
+            Pr.Start();
+            Cn.Start();
+
+            try
+            {
+                Task.WaitAll(Cn, Pr);
+            }
+            finally
+            {
+                Cn.Dispose();
+                Pr.Dispose();
+            }
+        }
     }
-
-    private void consumer()
-    {
-      foreach (var i1 in bc)
-      {
-        Debug.WriteLine("Take: " + i1);
-      }
-    }
-
-    public void Start()
-    {
-      bc = new List<int>();
-
-      Task Pr = new Task(producer);
-      Task Cn = new Task(consumer);
-
-      Pr.Start();
-      Cn.Start();
-
-      try
-      {
-        Task.WaitAll(Cn, Pr);
-      }
-      finally
-      {
-        Cn.Dispose();
-        Pr.Dispose();
-      }
-    }
-  }
 }
