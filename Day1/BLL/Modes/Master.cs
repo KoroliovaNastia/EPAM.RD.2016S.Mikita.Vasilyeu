@@ -12,7 +12,7 @@ namespace BLL.Modes
     public class Master : MarshalByRefObject, IMode
     {
         private static Master instance;
-        private static object syncRoot = new object();
+        private static readonly object syncRoot = new object();
 
         public event EventHandler<MasterEventArgs> Added;
         public event EventHandler<MasterEventArgs> Deleted;
@@ -46,8 +46,6 @@ namespace BLL.Modes
 
         public void AddNotify()
         {
-            if (Added == null)
-                return;
             Added?.Invoke(this, new MasterEventArgs("Added!"));
         }
 
@@ -64,6 +62,11 @@ namespace BLL.Modes
         public void Activate()
         {
             IsActivated = true;
+        }
+
+        public void Subscribe(IMode mode)
+        {
+            throw new NotSupportedException();
         }
     }
 }

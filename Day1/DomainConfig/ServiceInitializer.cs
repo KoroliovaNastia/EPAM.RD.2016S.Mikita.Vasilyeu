@@ -17,7 +17,7 @@ namespace DomainConfig
         public static IEnumerable<UserService> InitializeServices()
         {
             var serviceSection = RegisterServices.GetConfig();
-            Dictionary<string, string> serviceConfigurations = 
+            Dictionary<string, string> serviceConfigurations =
                 new Dictionary<string, string>(serviceSection.ServicesItems.Count);
 
             for (int i = 0; i < serviceSection.ServicesItems.Count; i++)
@@ -37,9 +37,12 @@ namespace DomainConfig
                 services.Add(service);
             }
 
-            for (int i = 1; i < services.Count; ++i)
+            var master = services.Single(s => s.Mode is Master).Mode;
+            var slaves = services.Where(s => s.Mode is Slave).Select(s => s.Mode);
+
+            foreach (var slave in slaves)
             {
-                ((Slave)services[i].mode).Subscribe((Master)services[0].mode);
+                slave.Subscribe(master);
             }
 
             return services;

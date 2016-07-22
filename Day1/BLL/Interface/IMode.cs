@@ -13,5 +13,6 @@ namespace BLL.Interface
         void DeleteNotify();
         void SaveNotify();
         void Activate();
+        void Subscribe(IMode mode);
     }
 }

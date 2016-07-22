@@ -12,36 +12,33 @@ namespace BLL.Modes
     [Serializable]
     public class Slave : MarshalByRefObject, IMode
     {
-        public static int Counter { get; private set; }
         public bool IsActivated { get; private set; }
 
         public Slave()
         {
-            if (++Counter > int.Parse(ConfigurationManager.AppSettings["SlavesNumber"]))
-                throw new ArgumentException();
-            //Master.Instance.Added += OnChange;
-            //Master.Instance.Deleted += OnChange;
-            //Master.Instance.Saved += OnChange;
             IsActivated = false;
         }
 
         public void AddNotify()
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public void DeleteNotify()
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public void SaveNotify()
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
-        public void Subscribe(Master master)
+        public void Subscribe(IMode mode)
         {
+            Master master = mode as Master;
+            if (master == null)
+                throw new InvalidOperationException("Mode must be master");
             master.Added += OnChange;
             master.Deleted += OnChange;
             master.Saved += OnChange;

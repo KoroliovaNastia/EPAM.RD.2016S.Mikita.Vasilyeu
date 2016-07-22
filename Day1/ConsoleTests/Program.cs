@@ -18,29 +18,6 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
-            //UserService repositoryMaster = new UserService();
-            //UserService repositorySlave = new UserService(new Slave());
-            //BllUser user_1 = new BllUser
-            //{
-            //    FirstName = "Mike",
-            //    LastName = "Jones",
-            //    Cards =
-            //    {
-            //        new BllVisaRecord { Country = "USA" },
-            //        new BllVisaRecord { Country = "China" }
-            //    }
-            //};
-            //BllUser user_2 = new BllUser { FirstName = "Mike", LastName = "Smith" };
-            //repositoryMaster.Add(user_1);
-            //repositoryMaster.Add(user_2);
-            //repositoryMaster.Save();
-            //repositorySlave.Load();
-            //foreach (var item in repositorySlave.GetAllUsers())
-            //{
-            //    Console.WriteLine(item);
-            //}
-
-
             BllUser user_1 = new BllUser
             {
                 FirstName = "Mike",
@@ -69,18 +46,39 @@ namespace ConsoleTests
                 Console.WriteLine(item);
             }
 
-            //for (int i = 0; i < services.Count; ++i)
+            for (int i = 0; i < services.Count; ++i)
+            {
+                var service = services[i];
+                Console.Write($"Service {i} : type = ");
+                Console.WriteLine("Current Domain: " + AppDomain.CurrentDomain.FriendlyName);
+                Console.WriteLine("IsProxy: " + RemotingServices.IsTransparentProxy(service));
+                RealProxy rp = RemotingServices.GetRealProxy(services[i]);
+                int id = (int)rp.GetType().GetField("_domainID", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(rp);
+                Console.WriteLine($"Id = {id}");
+            }
+
+
+            //UserService repositoryMaster = new UserService();
+            //UserService repositorySlave = new UserService(new Slave());
+            //BllUser user_1 = new BllUser
             //{
-            //    var service = services[i];
-            //    Console.Write($"Service {i} : type = ");
-            //    Console.WriteLine("Current Domain: " + AppDomain.CurrentDomain.FriendlyName);
-            //    Console.WriteLine("IsProxy: " + RemotingServices.IsTransparentProxy(service));
-            //    RealProxy rp = RemotingServices.GetRealProxy(services[i]);
-            //    int id =(int)rp.GetType().GetField("_domainID", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(rp);
-            //    Console.WriteLine($"Id = {id}");
+            //    FirstName = "Mike",
+            //    LastName = "Jones",
+            //    Cards =
+            //    {
+            //        new BllVisaRecord { Country = "USA" },
+            //        new BllVisaRecord { Country = "China" }
+            //    }
+            //};
+            //BllUser user_2 = new BllUser { FirstName = "Mike", LastName = "Smith" };
+            //repositoryMaster.Add(user_1);
+            //repositoryMaster.Add(user_2);
+            //repositoryMaster.Save();
+            //repositorySlave.Load();
+            //foreach (var item in repositorySlave.GetAllUsers())
+            //{
+            //    Console.WriteLine(item);
             //}
-
-
         }
     }
 }
