@@ -13,7 +13,7 @@ namespace BLL.Interface
         int Add(BllUser user);
         int[] SearchForUsers(Func<BllUser, bool> criteria);
         void Delete(BllUser user);
-        IEnumerable<BllUser> GetAllUsers();
+        List<BllUser> GetAllUsers();
         void Save();
         void Load();
     }

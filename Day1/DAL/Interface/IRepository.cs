@@ -12,7 +12,7 @@ namespace DAL.Interface
         int Add(T entity);
         void Delete(T user);
         int[] GetByPredicate(Func<T, bool> predicate);
-        IEnumerable<T> GetAll();
+        List<T> GetAll();
         void Save();
         void Load();
     }

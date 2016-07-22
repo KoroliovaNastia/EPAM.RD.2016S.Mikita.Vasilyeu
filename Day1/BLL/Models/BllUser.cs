@@ -8,6 +8,7 @@ using DAL.DTO;
 
 namespace BLL.Models
 {
+    [Serializable]
     public class BllUser
     {
         public int Id { get; set; }

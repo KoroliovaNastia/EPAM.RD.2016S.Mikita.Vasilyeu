@@ -14,7 +14,7 @@ using System.Diagnostics;
 namespace DAL
 {
     [Serializable]
-    public class UserRepository : IUserRepository
+    public class UserRepository : MarshalByRefObject, IUserRepository
     {
         private static readonly Logger logger;
         private static readonly BooleanSwitch loggerSwitch;
@@ -84,7 +84,7 @@ namespace DAL
                 logger.Info($"User {user} Removed!");
         }
 
-        public IEnumerable<DalUser> GetAll()
+        public List<DalUser> GetAll()
         {
             return users.ToList();
         }

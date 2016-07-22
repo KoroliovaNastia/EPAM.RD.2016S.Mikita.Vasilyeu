@@ -19,7 +19,7 @@ using System.Diagnostics;
 namespace BLL
 {
     [Serializable]
-    public class UserService : IUserService
+    public class UserService : MarshalByRefObject, IUserService
     {
         private IUserRepository storage;
         private IMode mode;
@@ -74,9 +74,9 @@ namespace BLL
             storage.Delete(user.ToDalUser());
         }
 
-        public IEnumerable<BllUser> GetAllUsers()
+        public List<BllUser> GetAllUsers()
         {
-            return storage.GetAll().Select(user => user.ToBllUser());
+            return storage.GetAll().Select(user => user.ToBllUser()).ToList();
         }
 
         public int[] SearchForUsers(Func<BllUser, bool> criteria)

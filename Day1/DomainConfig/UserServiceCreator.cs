@@ -21,7 +21,8 @@ namespace DomainConfig
             Console.WriteLine("Creating service " + configuration.Name);
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"");
 
-            return loader.LoadService(path, configuration);
+            var service = loader.LoadService(path, configuration);
+            return service;
         }
     }
 }

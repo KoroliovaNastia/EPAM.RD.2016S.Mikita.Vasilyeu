@@ -8,6 +8,9 @@ using BLL.Models;
 using BLL.Modes;
 using System.Configuration;
 using DomainConfig;
+using System.Runtime.Remoting;
+using System.Runtime.Remoting.Proxies;
+using System.Reflection;
 
 namespace ConsoleTests
 {
@@ -41,6 +44,30 @@ namespace ConsoleTests
             foreach (var item in slave.GetAllUsers())
             {
                 Console.WriteLine(item);
+            }
+
+            for (int i = 0; i < services.Count; ++i)
+            {
+                var service = services[i];
+                Console.Write($"Service {i} : type = ");
+                //if (service is MasterUserService)
+                //    Console.WriteLine(" Master");
+                //else
+                //{
+                //    Console.WriteLine(" Slave");
+                //}
+                Console.WriteLine("Current Domain: " + AppDomain.CurrentDomain.FriendlyName);
+                Console.WriteLine("IsProxy: " + RemotingServices.IsTransparentProxy(service));
+                RealProxy rp = RemotingServices.GetRealProxy(services[i]);
+                int id =(int)rp.GetType().GetField("_domainID", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(rp);
+                Console.WriteLine($"Id = {id}");
+                //var predicates = new Func<User, bool>[] { p => p.LastName != null };
+                //Console.Write("User's IDs: ");
+                //foreach (var user in service.SearchForUsers(predicates))
+                //{
+                //    Console.Write(user + " ");
+                //}
+                //Console.WriteLine("\n" + string.Concat(Enumerable.Repeat("-", 20)));
             }
 
             //RegisterServices section =

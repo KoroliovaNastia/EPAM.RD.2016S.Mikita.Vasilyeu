@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Models
 {
+    [Serializable]
     public class BllVisaRecord
     {
         public string Country { get; set; }
