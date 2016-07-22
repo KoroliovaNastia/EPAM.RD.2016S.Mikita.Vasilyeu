@@ -22,7 +22,8 @@ namespace BLL
     public class UserService : MarshalByRefObject, IUserService
     {
         private IUserRepository storage;
-        private IMode mode;
+        //private IMode mode;
+        public IMode mode { get; set; }
 
         private static readonly Logger logger;
         private static readonly BooleanSwitch loggerSwitch;

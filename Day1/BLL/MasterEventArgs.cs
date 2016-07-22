@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
+    [Serializable]
     public class MasterEventArgs : EventArgs
     {
         public string Message { get; }

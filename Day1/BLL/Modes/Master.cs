@@ -9,7 +9,7 @@ using BLL.Interface;
 namespace BLL.Modes
 {
     [Serializable]
-    public class Master : IMode
+    public class Master : MarshalByRefObject, IMode
     {
         private static Master instance;
         private static object syncRoot = new object();
@@ -46,6 +46,8 @@ namespace BLL.Modes
 
         public void AddNotify()
         {
+            if (Added == null)
+                return;
             Added?.Invoke(this, new MasterEventArgs("Added!"));
         }
 

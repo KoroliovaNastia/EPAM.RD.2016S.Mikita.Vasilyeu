@@ -10,7 +10,7 @@ using System.Configuration;
 namespace BLL.Modes
 {
     [Serializable]
-    public class Slave : IMode
+    public class Slave : MarshalByRefObject, IMode
     {
         public static int Counter { get; private set; }
         public bool IsActivated { get; private set; }
@@ -19,9 +19,9 @@ namespace BLL.Modes
         {
             if (++Counter > int.Parse(ConfigurationManager.AppSettings["SlavesNumber"]))
                 throw new ArgumentException();
-            Master.Instance.Added += OnChange;
-            Master.Instance.Deleted += OnChange;
-            Master.Instance.Saved += OnChange;
+            //Master.Instance.Added += OnChange;
+            //Master.Instance.Deleted += OnChange;
+            //Master.Instance.Saved += OnChange;
             IsActivated = false;
         }
 
@@ -40,14 +40,21 @@ namespace BLL.Modes
             throw new NotImplementedException();
         }
 
-        private void OnChange(object sender, MasterEventArgs e)
+        public void Subscribe(Master master)
         {
-            Console.WriteLine(e.Message);
+            master.Added += OnChange;
+            master.Deleted += OnChange;
+            master.Saved += OnChange;
         }
 
         public void Activate()
         {
             IsActivated = true;
+        }
+
+        private void OnChange(object sender, MasterEventArgs e)
+        {
+            Console.WriteLine(e.Message);
         }
     }
 }

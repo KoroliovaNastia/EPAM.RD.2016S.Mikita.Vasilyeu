@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DomainConfig.CustomConfigSections;
 using System.Reflection;
+using BLL.Modes;
 
 namespace DomainConfig
 {
@@ -34,6 +35,11 @@ namespace DomainConfig
                 var loader = (DomainServiceLoader)domain.CreateInstanceAndUnwrap(Assembly.GetAssembly(type).FullName, type.FullName);
                 var service = loader.LoadService(serviceConfiguration.Value);
                 services.Add(service);
+            }
+
+            for (int i = 1; i < services.Count; ++i)
+            {
+                ((Slave)services[i].mode).Subscribe((Master)services[0].mode);
             }
 
             return services;
