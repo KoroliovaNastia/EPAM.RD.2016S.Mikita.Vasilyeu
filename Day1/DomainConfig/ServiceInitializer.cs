@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DomainConfig.CustomConfigSections;
+using System.Reflection;
 
 namespace DomainConfig
 {
@@ -14,55 +15,29 @@ namespace DomainConfig
     {
         public static IEnumerable<UserService> InitializeServices()
         {
-            var serviceConfigurations = ParseAppConfig();
-            IList<UserService> services = new List<UserService>();
-            foreach (var serviceConfiguration in serviceConfigurations)
-            {
-                var service = UserServiceCreator.CreateService(serviceConfiguration);
-                Console.WriteLine("-----Services has been created");
-                services.Add(service);
-            }
-            //var master = (MasterUserService)services.FirstOrDefault(s => s is MasterUserService);
-
-            //if (master == null)
-            //{
-            //    throw new ConfigurationErrorsException("Master is not exist");
-            //}
-
-            //var slaves = services.OfType<SlaveUserService>();
-            //SubscribeServices(master, slaves);
-            return services;
-        }
-
-        private static IEnumerable<ServiceConfiguration> ParseAppConfig()
-        {
-            var serviceSection = GetServiceSection();
-            IList<ServiceConfiguration> serviceConfigurations =
-                    new List<ServiceConfiguration>(serviceSection.ServicesItems.Count);
+            var serviceSection = RegisterServices.GetConfig();
+            Dictionary<string, string> serviceConfigurations = 
+                new Dictionary<string, string>(serviceSection.ServicesItems.Count);
 
             for (int i = 0; i < serviceSection.ServicesItems.Count; i++)
             {
                 var serviceType = serviceSection.ServicesItems[i].ServiceType;
-                ServiceType type = serviceType.ToLower() == "master" ? ServiceType.Master : ServiceType.Slave;
                 var serviceName = serviceSection.ServicesItems[i].ServiceName;
-                //string filePath = FileInitializer.GetXmlFilePath();
-                BooleanSwitch loggingSwitch = new BooleanSwitch("Data", "Switch in config file");
-
-                serviceConfigurations.Add(new ServiceConfiguration
-                {
-                    Name = serviceName,
-                    Type = type,
-                    //FilePath = filePath,
-                    LoggingEnabled = loggingSwitch.Enabled
-                });
+                serviceConfigurations[serviceName] = serviceType;
             }
 
-            return serviceConfigurations;
+            IList<UserService> services = new List<UserService>();
+            foreach (var serviceConfiguration in serviceConfigurations)
+            {
+                var domain = AppDomain.CreateDomain(serviceConfiguration.Key, null, null);
+                var type = typeof(DomainServiceLoader);
+                var loader = (DomainServiceLoader)domain.CreateInstanceAndUnwrap(Assembly.GetAssembly(type).FullName, type.FullName);
+                var service = loader.LoadService(serviceConfiguration.Value);
+                services.Add(service);
+            }
+
+            return services;
         }
 
-        private static RegisterServices GetServiceSection()
-        {
-            return (RegisterServices)ConfigurationManager.GetSection("RegisterServices");
-        }
     }
 }

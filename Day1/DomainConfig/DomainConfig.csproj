@@ -46,9 +46,7 @@
     <Compile Include="CustomConfigSections\ServiceElement.cs" />
     <Compile Include="DomainServiceLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceConfiguration.cs" />
     <Compile Include="ServiceInitializer.cs" />
-    <Compile Include="UserServiceCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
