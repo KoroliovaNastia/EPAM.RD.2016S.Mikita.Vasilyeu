@@ -1,0 +1,21 @@
+14:50:59 (INFO): User 0 Mike Jones Added!
+14:50:59 (ERROR): mode can be activate only once
+14:51:08 (INFO): User 0 Mike Jones Added!
+14:51:08 (ERROR): Value cannot be null.
+Parameter name: user is null
+14:51:08 (ERROR): user is invalid
+14:51:08 (INFO): User 0 Mike Jones Added!
+14:51:08 (INFO): User 0 Mike Jones Removed!
+14:51:08 (ERROR): Value cannot be null.
+Parameter name: user is null
+14:51:08 (INFO): User 0 Mike Jones Added!
+14:51:08 (INFO): User 0 Mike Jones Added!
+14:51:08 (INFO): User 0 Mike Jones Added!
+14:51:08 (INFO): User 2 Mike Smith Added!
+14:51:08 (INFO): User 0 Mike Jones Added!
+14:51:08 (INFO): User 2 Mike Smith Added!
+14:51:08 (INFO): User storage saved to XML!
+14:51:08 (INFO): User 0 Mike Jones Added!
+14:51:08 (INFO): User 2 Mike Smith Added!
+14:51:08 (INFO): User storage saved to XML!
+14:51:08 (INFO): User storage loaded from XML!

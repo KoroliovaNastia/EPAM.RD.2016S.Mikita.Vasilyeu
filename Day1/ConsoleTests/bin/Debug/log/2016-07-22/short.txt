@@ -50,3 +50,17 @@
 14:21:44 (INFO): User 2 Mike Smith Added!
 14:21:44 (INFO): User storage saved to XML!
 14:21:44 (INFO): User storage loaded from XML!
+14:39:06 (INFO): User 0 Mike Jones Added!
+14:39:06 (INFO): User 2 Mike Smith Added!
+14:39:07 (INFO): User storage saved to XML!
+14:39:07 (INFO): User storage loaded from XML!
+14:41:01 (INFO): User 0 Mike Jones Added!
+14:41:01 (INFO): User 2 Mike Smith Added!
+14:41:01 (INFO): User storage saved to XML!
+14:41:01 (INFO): User storage loaded from XML!
+14:41:31 (INFO): User 0 Mike Jones Added!
+14:42:36 (INFO): User 0 Mike Jones Added!
+14:42:36 (INFO): User 2 Mike Smith Added!
+14:42:36 (INFO): User storage saved to XML!
+14:42:36 (INFO): User storage loaded from XML!
+14:42:46 (INFO): User 0 Mike Jones Added!
