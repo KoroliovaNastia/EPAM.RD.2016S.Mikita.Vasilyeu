@@ -1,0 +1,4 @@
+11:39:16 (INFO): User 0 Mike Jones Added!
+11:39:16 (INFO): User 2 Mike Smith Added!
+11:39:16 (INFO): User storage saved to XML!
+11:39:16 (INFO): User storage loaded from XML!

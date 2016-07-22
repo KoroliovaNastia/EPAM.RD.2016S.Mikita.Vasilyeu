@@ -9,6 +9,7 @@ using System.Configuration;
 
 namespace BLL.Modes
 {
+    [Serializable]
     public class Slave : IMode
     {
         public static int Counter { get; private set; }

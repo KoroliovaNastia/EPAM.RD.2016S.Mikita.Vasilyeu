@@ -13,6 +13,7 @@ using System.Diagnostics;
 
 namespace DAL
 {
+    [Serializable]
     public class UserRepository : IUserRepository
     {
         private static readonly Logger logger;

@@ -44,7 +44,21 @@
     <Compile Include="CustomConfigSections\RegisterServices.cs" />
     <Compile Include="CustomConfigSections\ServiceCollection.cs" />
     <Compile Include="CustomConfigSections\ServiceElement.cs" />
+    <Compile Include="DomainServiceLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceConfiguration.cs" />
+    <Compile Include="ServiceInitializer.cs" />
+    <Compile Include="UserServiceCreator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{2fc8eb7d-0f5d-4189-b671-28db490f67e8}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{87489762-440a-4a6e-87fc-07888f0296c4}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

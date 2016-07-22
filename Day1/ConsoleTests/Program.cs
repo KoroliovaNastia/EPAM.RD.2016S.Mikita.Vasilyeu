@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BLL.Models;
 using BLL.Modes;
 using System.Configuration;
+using DomainConfig;
 
 namespace ConsoleTests
 {
@@ -14,33 +15,33 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
-            //BllUser user_1 = new BllUser
-            //{
-            //    FirstName = "Mike",
-            //    LastName = "Jones",
-            //    Cards =
-            //    {
-            //        new BllVisaRecord { Country = "USA" },
-            //        new BllVisaRecord { Country = "China" }
-            //    }
-            //};
-            //BllUser user_2 = new BllUser
-            //{
-            //    FirstName = "Mike",
-            //    LastName = "Smith"
-            //};
+            BllUser user_1 = new BllUser
+            {
+                FirstName = "Mike",
+                LastName = "Jones",
+                Cards =
+                {
+                    new BllVisaRecord { Country = "USA" },
+                    new BllVisaRecord { Country = "China" }
+                }
+            };
+            BllUser user_2 = new BllUser
+            {
+                FirstName = "Mike",
+                LastName = "Smith"
+            };
 
-            //IList<UserService> services = ServiceInitializer.InitializeServices().ToList();
-            //var master = services[0];
-            //var slave = services[1];
-            //master.Add(user_1);
-            //master.Add(user_2);
-            //master.Save();
-            //slave.Load();
-            //foreach (var item in slave.GetAllUsers())
-            //{
-            //    Console.WriteLine(item);
-            //}
+            IList<UserService> services = ServiceInitializer.InitializeServices().ToList();
+            var master = services[0];
+            var slave = services[1];
+            master.Add(user_1);
+            master.Add(user_2);
+            master.Save();
+            slave.Load();
+            foreach (var item in slave.GetAllUsers())
+            {
+                Console.WriteLine(item);
+            }
 
             //RegisterServices section =
             //    RegisterServices.GetConfig();

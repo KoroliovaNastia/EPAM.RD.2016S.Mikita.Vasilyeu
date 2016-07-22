@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
+    [Serializable]
     public class EvenEnumerator : ICustomerEnumerator
     {
         private int next;

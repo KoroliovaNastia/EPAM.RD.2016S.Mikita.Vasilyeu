@@ -8,6 +8,7 @@ using BLL.Interface;
 
 namespace BLL.Modes
 {
+    [Serializable]
     public class Master : IMode
     {
         private static Master instance;

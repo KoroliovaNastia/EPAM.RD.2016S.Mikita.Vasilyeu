@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
+    [Serializable]
     public class SimpleUserValidator : IUserValidator
     {
         public bool Validate(DalUser user)

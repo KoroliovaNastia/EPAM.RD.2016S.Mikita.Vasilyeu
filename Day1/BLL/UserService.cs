@@ -18,6 +18,7 @@ using System.Diagnostics;
 
 namespace BLL
 {
+    [Serializable]
     public class UserService : IUserService
     {
         private IUserRepository storage;
