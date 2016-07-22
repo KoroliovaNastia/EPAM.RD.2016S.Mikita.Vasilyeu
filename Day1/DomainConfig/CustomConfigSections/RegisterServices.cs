@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Config
+namespace DomainConfig.CustomConfigSections
 {
     public class RegisterServices : ConfigurationSection
     {

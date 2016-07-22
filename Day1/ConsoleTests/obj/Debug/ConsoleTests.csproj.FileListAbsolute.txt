@@ -24,3 +24,5 @@ C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\b
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\obj\Debug\ConsoleTests.csprojResolveAssemblyReference.cache
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\BLL.dll
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\BLL.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\DomainConfig.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\DomainConfig.pdb

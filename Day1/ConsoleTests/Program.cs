@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using BLL.Models;
 using BLL.Modes;
-using BLL.Config;
 using System.Configuration;
 
 namespace ConsoleTests
@@ -15,14 +14,42 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
-            RegisterServices section =
-                RegisterServices.GetConfig();
+            //BllUser user_1 = new BllUser
+            //{
+            //    FirstName = "Mike",
+            //    LastName = "Jones",
+            //    Cards =
+            //    {
+            //        new BllVisaRecord { Country = "USA" },
+            //        new BllVisaRecord { Country = "China" }
+            //    }
+            //};
+            //BllUser user_2 = new BllUser
+            //{
+            //    FirstName = "Mike",
+            //    LastName = "Smith"
+            //};
 
-            if (section != null)
-            {
-                Console.WriteLine(section.ServicesItems[0].ServiceType);
-                Console.WriteLine(section.ServicesItems[0].Path);
-            }
+            //IList<UserService> services = ServiceInitializer.InitializeServices().ToList();
+            //var master = services[0];
+            //var slave = services[1];
+            //master.Add(user_1);
+            //master.Add(user_2);
+            //master.Save();
+            //slave.Load();
+            //foreach (var item in slave.GetAllUsers())
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //RegisterServices section =
+            //    RegisterServices.GetConfig();
+
+            //if (section != null)
+            //{
+            //    Console.WriteLine(section.ServicesItems[0].ServiceType);
+            //    Console.WriteLine(section.ServicesItems[0].Path);
+            //}
 
             //AppDomain ad = AppDomain.CreateDomain("New domain");
             //UserService repositoryMaster =

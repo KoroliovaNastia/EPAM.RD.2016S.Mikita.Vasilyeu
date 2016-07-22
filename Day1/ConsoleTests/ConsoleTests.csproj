@@ -57,6 +57,10 @@
       <Project>{2fc8eb7d-0f5d-4189-b671-28db490f67e8}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DomainConfig\DomainConfig.csproj">
+      <Project>{c5b988a1-d8da-45b3-a0fb-e709d6da3db9}</Project>
+      <Name>DomainConfig</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

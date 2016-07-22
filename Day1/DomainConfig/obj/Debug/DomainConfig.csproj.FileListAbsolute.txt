@@ -1,0 +1,4 @@
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\DomainConfig\bin\Debug\DomainConfig.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\DomainConfig\bin\Debug\DomainConfig.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\DomainConfig\obj\Debug\DomainConfig.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\DomainConfig\obj\Debug\DomainConfig.pdb
