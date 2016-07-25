@@ -11,6 +11,30 @@ namespace BLL.Modes
     [Serializable]
     public class Master : MarshalByRefObject, IMode
     {
+        public event EventHandler<UserDataApdatedEventArgs> NewDeleted;
+        public event EventHandler<UserDataApdatedEventArgs> NewAdded;
+        public UserServiceCommunicator Communicator { get; set; }
+
+        public void AddCommunicator(UserServiceCommunicator communicator)
+        {
+            if (communicator == null)
+                return;
+            Communicator = communicator;
+        }
+
+        protected virtual void OnUserDeleted(object sender, UserDataApdatedEventArgs args)
+        {
+            Communicator?.SendDelete(args);
+            NewDeleted?.Invoke(sender, args);
+        }
+
+        protected virtual void OnUserAdded(object sender, UserDataApdatedEventArgs args)
+        {
+            Communicator?.SendAdd(args);
+            NewAdded?.Invoke(sender, args);
+        }
+
+
         private static Master instance;
         private static readonly object syncRoot = new object();
 

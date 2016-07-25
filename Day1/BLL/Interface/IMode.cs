@@ -14,5 +14,7 @@ namespace BLL.Interface
         void SaveNotify();
         void Activate();
         void Subscribe(IMode mode);
+        UserServiceCommunicator Communicator { get; set; }
+        void AddCommunicator(UserServiceCommunicator communicator);
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{E4FBFE85-1BF0-4960-9F9F-986E9F305322}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{2FC8EB7D-0F5D-4189-B671-28DB490F67E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainConfig", "DomainConfig\DomainConfig.csproj", "{C5B988A1-D8DA-45B3-A0FB-E709D6DA3DB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkConfig", "NetworkConfig\NetworkConfig.csproj", "{C5C0D30D-DB89-49E6-987A-929C0BC1E941}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C5B988A1-D8DA-45B3-A0FB-E709D6DA3DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5B988A1-D8DA-45B3-A0FB-E709D6DA3DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5B988A1-D8DA-45B3-A0FB-E709D6DA3DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C0D30D-DB89-49E6-987A-929C0BC1E941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C0D30D-DB89-49E6-987A-929C0BC1E941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C0D30D-DB89-49E6-987A-929C0BC1E941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C0D30D-DB89-49E6-987A-929C0BC1E941}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

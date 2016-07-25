@@ -14,13 +14,15 @@ C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debu
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\Tests.dll
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\Tests.pdb
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\DAL.dll
-C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\Storage.dll
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\NLog.dll
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\DAL.pdb
-C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\Storage.pdb
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\NLog.xml
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\obj\Debug\Tests.dll
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\obj\Debug\Tests.pdb
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\BLL.dll
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\BLL.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\BLL.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\BLL.pdb
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\NetworkConfig.dll
+C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\Tests\bin\Debug\NetworkConfig.pdb

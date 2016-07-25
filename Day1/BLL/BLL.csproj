@@ -55,12 +55,18 @@
     <Compile Include="Modes\Master.cs" />
     <Compile Include="Modes\Slave.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserDataApdatedEventArgs.cs" />
     <Compile Include="UserService.cs" />
+    <Compile Include="UserServiceCommunicator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{87489762-440a-4a6e-87fc-07888f0296c4}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetworkConfig\NetworkConfig.csproj">
+      <Project>{c5c0d30d-db89-49e6-987a-929c0bc1e941}</Project>
+      <Name>NetworkConfig</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
