@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace BLL
 {
     [Serializable]
-    public class UserServiceCommunicator : MarshalByRefObject, IDisposable
+    public class UserServiceCommunicator :  IDisposable
     {
         public event EventHandler<UserDataApdatedEventArgs> UserAdded;
         public event EventHandler<UserDataApdatedEventArgs> UserDeleted;
@@ -38,6 +38,8 @@ namespace BLL
 
         public void Connect(IEnumerable<IPEndPoint> endPoints)
         {
+            if (_sender == null)
+                return;
             _sender.Connect(endPoints);
         }
 

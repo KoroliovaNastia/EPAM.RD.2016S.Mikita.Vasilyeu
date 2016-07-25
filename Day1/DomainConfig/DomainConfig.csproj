@@ -49,6 +49,7 @@
     <Compile Include="ServiceConfigInfo.cs" />
     <Compile Include="ServiceInitializer.cs" />
     <Compile Include="ThreadInitializer.cs" />
+    <Compile Include="UserServiceCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

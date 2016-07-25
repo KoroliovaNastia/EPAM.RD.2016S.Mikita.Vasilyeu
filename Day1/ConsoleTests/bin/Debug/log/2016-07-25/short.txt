@@ -1,0 +1,9 @@
+23:01:03 (INFO): User 2 Mike Jones Added!
+23:01:03 (INFO): User 0 Ivan Ivanov Added!
+23:01:03 (INFO): User 4 Mike Smith Added!
+23:01:03 (INFO): User storage saved to XML!
+23:01:04 (INFO): User storage loaded from XML!
+23:01:53 (INFO): User 0 Ivan Ivanov Added!
+23:02:59 (INFO): User 0 Ivan Ivanov Added!
+23:03:00 (INFO): User 2 Mike Jones Added!
+23:03:00 (INFO): User 4 Mike Smith Added!
