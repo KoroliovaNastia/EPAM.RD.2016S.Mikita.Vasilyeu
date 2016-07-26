@@ -33,12 +33,12 @@ namespace BLL.Service
             throw new NotSupportedException();
         }
 
-        private void OnAdded(object sender, UserDataApdatedEventArgs args)
+        private void OnAdded(object sender, UserEventArgs args)
         {
             storage.Add(args.User.ToDalUser());
         }
 
-        private void OnDeleted(object sender, UserDataApdatedEventArgs args)
+        private void OnDeleted(object sender, UserEventArgs args)
         {
             storage.Delete(args.User.ToDalUser());
         }

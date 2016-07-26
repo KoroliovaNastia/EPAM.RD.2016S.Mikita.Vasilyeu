@@ -27,13 +27,13 @@ namespace BLL.Modes
             Communicator.UserDeleted += OnDeleted;
         }
 
-        private void OnAdded(object sender, UserDataApdatedEventArgs args)
+        private void OnAdded(object sender, UserEventArgs args)
         {
             Repository.Add(args.User.ToDalUser());
             //LastGeneratedId = args.User.Id;
         }
 
-        private void OnDeleted(object sender, UserDataApdatedEventArgs args)
+        private void OnDeleted(object sender, UserEventArgs args)
         {
             Repository.Delete(args.User.ToDalUser());
         }

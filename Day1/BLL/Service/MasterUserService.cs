@@ -11,8 +11,8 @@ namespace BLL.Service
 {
     public class MasterUserService : BaseUserService
     {
-        public event EventHandler<UserDataApdatedEventArgs> Deleted;
-        public event EventHandler<UserDataApdatedEventArgs> Added;
+        public event EventHandler<UserEventArgs> Deleted;
+        public event EventHandler<UserEventArgs> Added;
 
         public MasterUserService(IUserRepository repository) : base(repository) { }
         public MasterUserService() : this(new UserRepository()) { }
@@ -21,14 +21,14 @@ namespace BLL.Service
         protected override int NotifyAdd(BllUser user)
         {
             storage.Add(user.ToDalUser());
-            OnUserAdded(this, new UserDataApdatedEventArgs { User = user });
+            OnUserAdded(this, new UserEventArgs { User = user });
             return user.Id;
         }
 
         protected override void NotifyDelete(BllUser user)
         {
             storage.Delete(user.ToDalUser());
-            OnUserDeleted(this, new UserDataApdatedEventArgs { User = user });
+            OnUserDeleted(this, new UserEventArgs { User = user });
         }
 
         public override void Save()
@@ -41,13 +41,13 @@ namespace BLL.Service
             storage.Load();
         }
 
-        protected virtual void OnUserDeleted(object sender, UserDataApdatedEventArgs args)
+        protected virtual void OnUserDeleted(object sender, UserEventArgs args)
         {
             Communicator?.SendDelete(args);
             Deleted?.Invoke(sender, args);
         }
 
-        protected virtual void OnUserAdded(object sender, UserDataApdatedEventArgs args)
+        protected virtual void OnUserAdded(object sender, UserEventArgs args)
         {
             Communicator?.SendAdd(args);
             Added?.Invoke(sender, args);

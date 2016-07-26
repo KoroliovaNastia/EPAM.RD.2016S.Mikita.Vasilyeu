@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BLL
 {
     [Serializable]
-    public class UserDataApdatedEventArgs : EventArgs
+    public class UserEventArgs : EventArgs
     {
         public BllUser User { get; set; }
     }

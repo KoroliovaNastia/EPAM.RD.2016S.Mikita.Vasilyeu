@@ -13,8 +13,8 @@ namespace BLL
     [Serializable]
     public class UserServiceCommunicator :  IDisposable
     {
-        public event EventHandler<UserDataApdatedEventArgs> UserAdded;
-        public event EventHandler<UserDataApdatedEventArgs> UserDeleted;
+        public event EventHandler<UserEventArgs> UserAdded;
+        public event EventHandler<UserEventArgs> UserDeleted;
         private Sender<BllUser> _sender;
         private Task recieverTask;
         private CancellationTokenSource tokenSource;
@@ -57,7 +57,7 @@ namespace BLL
             {
                 if (tokenSource.IsCancellationRequested) return;
                 var message = _receiver.Receive();
-                var args = new UserDataApdatedEventArgs
+                var args = new UserEventArgs
                 {
                     User = message.Entity
                 };
@@ -69,7 +69,7 @@ namespace BLL
             }
         }
 
-        public void SendAdd(UserDataApdatedEventArgs args)
+        public void SendAdd(UserEventArgs args)
         {
             if (_sender == null) return;
 
@@ -79,7 +79,7 @@ namespace BLL
                 MessageType = MessageType.Add
             });
         }
-        public void SendDelete(UserDataApdatedEventArgs args)
+        public void SendDelete(UserEventArgs args)
         {
             if (_sender == null) return;
 
@@ -95,12 +95,12 @@ namespace BLL
             _sender.Send(message);
         }
 
-        protected virtual void OnUserDeleted(object sender, UserDataApdatedEventArgs args)
+        protected virtual void OnUserDeleted(object sender, UserEventArgs args)
         {
             UserDeleted?.Invoke(sender, args);
         }
 
-        protected virtual void OnUserAdded(object sender, UserDataApdatedEventArgs args)
+        protected virtual void OnUserAdded(object sender, UserEventArgs args)
         {
             UserAdded?.Invoke(sender, args);
         }

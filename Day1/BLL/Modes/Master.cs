@@ -14,8 +14,8 @@ namespace BLL.Modes
     {
         public IUserRepository Repository { get; set; }
 
-        public event EventHandler<UserDataApdatedEventArgs> NewDeleted;
-        public event EventHandler<UserDataApdatedEventArgs> NewAdded;
+        public event EventHandler<UserEventArgs> NewDeleted;
+        public event EventHandler<UserEventArgs> NewAdded;
         public UserServiceCommunicator Communicator { get; set; }
 
         public void AddCommunicator(UserServiceCommunicator communicator)
@@ -25,13 +25,13 @@ namespace BLL.Modes
             Communicator = communicator;
         }
 
-        protected virtual void OnUserDeleted(object sender, UserDataApdatedEventArgs args)
+        protected virtual void OnUserDeleted(object sender, UserEventArgs args)
         {
             Communicator?.SendDelete(args);
             NewDeleted?.Invoke(sender, args);
         }
 
-        protected virtual void OnUserAdded(object sender, UserDataApdatedEventArgs args)
+        protected virtual void OnUserAdded(object sender, UserEventArgs args)
         {
             Communicator?.SendAdd(args);
             NewAdded?.Invoke(sender, args);

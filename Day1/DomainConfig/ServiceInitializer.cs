@@ -19,41 +19,15 @@ namespace DomainConfig
     {
         public static IEnumerable<BaseUserService> InitializeServices()
         {
-            var serviceConfigurations = ParseAppConfig();
-            //IList<UserService> services = new List<UserService>();
-            IList<BaseUserService> services = new List<BaseUserService>();
-            var configurations = serviceConfigurations as ServiceConfigInfo[] ?? serviceConfigurations.ToArray();
-            //services = UserServiceCreator.CreateServices(configurations).ToList();
-            services = UserServiceCreator.CreateServices(configurations).ToList();
-
-            //var master = services.FirstOrDefault(s => s.Mode is Master);
-
-            //if (master == null)
-            //{
-            //    throw new ConfigurationErrorsException("Master is not exist");
-            //}
-
-            //var slaves = services.Where(s => s.Mode is Slave);
-            //foreach (var slave in slaves)
-            //{
-            //    slave.Mode.Subscribe(master.Mode);
-            //}
-            //ThreadInitializer.InitializeThreads(master, slaves);
-            //return services;
-
-            var master = (MasterUserService)services.FirstOrDefault(s => s is MasterUserService);
-
-            if (master == null)
-            {
-                throw new ConfigurationErrorsException("Master is not exist");
-            }
+            var serviceConfigurations = GetAppConfig().ToArray();
+            var services = UserServiceCreator.CreateServices(serviceConfigurations).ToList();
+            var master = services.OfType<MasterUserService>().Single();
             var slaves = services.OfType<SlaveUserService>().ToList();
-            //SubscribeServices(master, slaves);
             ThreadInitializer.InitializeThreads(master, slaves);
             return services;
         }
 
-        private static IEnumerable<ServiceConfigInfo> ParseAppConfig()
+        private static IEnumerable<ServiceConfigInfo> GetAppConfig()
         {
             var serviceSection = RegisterServices.GetConfig();
             IList<ServiceConfigInfo> serviceConfigurations =
