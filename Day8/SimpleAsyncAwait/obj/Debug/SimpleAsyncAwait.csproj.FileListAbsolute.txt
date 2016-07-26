@@ -1,0 +1,6 @@
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day8\SimpleAsyncAwait\bin\Debug\SimpleAsyncAwait.exe.config
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day8\SimpleAsyncAwait\bin\Debug\SimpleAsyncAwait.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day8\SimpleAsyncAwait\bin\Debug\SimpleAsyncAwait.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day8\SimpleAsyncAwait\obj\Debug\SimpleAsyncAwait.csprojResolveAssemblyReference.cache
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day8\SimpleAsyncAwait\obj\Debug\SimpleAsyncAwait.exe
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day8\SimpleAsyncAwait\obj\Debug\SimpleAsyncAwait.pdb

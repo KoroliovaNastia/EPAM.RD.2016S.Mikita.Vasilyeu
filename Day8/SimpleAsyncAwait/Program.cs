@@ -20,11 +20,12 @@ namespace SimpleAsyncAwait
         private static void DoInAsyncWay()
         {
             Console.WriteLine("Waiting for task to complete.");
+            AsyncHelper.RunSync(DoSomeWork);
             // TODO: AsyncHelper.RunSync(DoSomeWork);
             Console.WriteLine("Task is completed. Press any key to continue.");
         }
 
-        private static void DoSomeWork()
+        private async static Task DoSomeWork()
         {
             Console.WriteLine("Press any key to do the work.");
             Console.ReadKey();
@@ -35,9 +36,9 @@ namespace SimpleAsyncAwait
             WebClient webClient = new WebClient();
             stopwatch.Start();
             // TODO: use async/await here to run those tasks in asynchronous style.
-            webClient.DownloadString(string.Format(searchRequest, "pokemon"));
-            webClient.DownloadString(string.Format(searchRequest, "epam"));
-            webClient.DownloadString(string.Format(searchRequest, "minsk"));
+            var result1 = await webClient.DownloadStringTaskAsync(string.Format(searchRequest, "pokemon"));
+            var result2 = webClient.DownloadStringTaskAsync(string.Format(searchRequest, "epam"));
+            var result3 = webClient.DownloadStringTaskAsync(string.Format(searchRequest, "minsk"));
             stopwatch.Stop();
             Console.WriteLine(string.Format("Total time is {0}ms.", stopwatch.ElapsedMilliseconds));
         }
@@ -57,7 +58,6 @@ namespace SimpleAsyncAwait
             foreach (var q in query)
             {
                 // TODO: use factory to create tasks and run them in a parallel style.
-
                 var webClient = new WebClient();
                 webClient.DownloadString(string.Format(searchRequest, q));
             }
