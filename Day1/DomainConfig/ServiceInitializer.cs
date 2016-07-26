@@ -11,6 +11,7 @@ using System.Reflection;
 using BLL.Modes;
 using System.Net;
 using BLL.Interface;
+using BLL.Service;
 
 namespace DomainConfig
 {

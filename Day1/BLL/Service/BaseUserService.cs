@@ -12,24 +12,21 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 
-namespace BLL
+namespace BLL.Service
 {
     public abstract class BaseUserService : MarshalByRefObject
     {
-        public UserServiceCommunicator Communicator { get; set; }
+        public UserServiceCommunicator Communicator { get; set ; }
         protected IUserRepository storage;
-        private static readonly Logger logger;
-        private static readonly BooleanSwitch loggerSwitch;
+        protected static readonly Logger logger;
+        protected static readonly BooleanSwitch loggerSwitch;
 
         static BaseUserService()
         {
             logger = LogManager.GetCurrentClassLogger();
             loggerSwitch = new BooleanSwitch("Data", "DataAccess module");
         }
-        protected BaseUserService() : this(new UserRepository())
-        {
-
-        }
+        protected BaseUserService() : this(new UserRepository()) { }
 
         protected BaseUserService(IUserRepository storage)
         {
@@ -41,43 +38,55 @@ namespace BLL
                 throw exeption;
             }
             this.storage = storage;
-
         }
 
         public int Add(BllUser user)
         {
-            return AddStrategy(user);
+            if (ReferenceEquals(user, null))
+            {
+                ArgumentNullException exeption = new ArgumentNullException(nameof(user) + " is null");
+                if (loggerSwitch.Enabled)
+                    logger.Error(exeption.Message);
+                throw exeption;
+            }
+            return NotifyAdd(user);
         }
 
         public void Delete(BllUser user)
         {
-
-            DeleteStrategy(user);
+            if (ReferenceEquals(user, null))
+            {
+                ArgumentNullException exeption = new ArgumentNullException(nameof(user) + " is null");
+                if (loggerSwitch.Enabled)
+                    logger.Error(exeption.Message);
+                throw exeption;
+            }
+            NotifyDelete(user);
         }
-
-        protected abstract int AddStrategy(BllUser user);
-        protected abstract void DeleteStrategy(BllUser user);
 
         public virtual List<int> SearchForUsers(Func<BllUser, bool> criteria)
         {
+            if (ReferenceEquals(criteria, null))
+            {
+                ArgumentNullException exeption = new ArgumentNullException(nameof(criteria) + " is null");
+                if (loggerSwitch.Enabled)
+                    logger.Error(exeption.Message);
+                throw exeption;
+            }
             Func<DalUser, bool> predicate = user => criteria.Invoke(user.ToBllUser());
             return storage.GetByPredicate(predicate).ToList();
-            //Func<DalUser, bool>[] predicate = new Func<DalUser, bool>[criteria.Length];
-            //for (int i = 0; i< predicate.Length; ++i)
-            //{
-            //    int k = i;
-            //    predicate[k] = user => criteria[k].Invoke(user.ToBllUser());
-            //}
-            //return storage.GetByPredicate(predicate).ToList();
         }
 
         public virtual void AddCommunicator(UserServiceCommunicator communicator)
         {
-            if (communicator == null) return;
+            if (communicator == null)
+                return;
             Communicator = communicator;
         }
 
+        protected abstract int NotifyAdd(BllUser user);
+        protected abstract void NotifyDelete(BllUser user);
         public abstract void Save();
-        public abstract void Initialize(); // get collection from xml file and get last generated Id
+        public abstract void Load();
     }
 }

@@ -12,6 +12,7 @@ using System.Runtime.Remoting;
 using System.Runtime.Remoting.Proxies;
 using System.Reflection;
 using System.Threading;
+using BLL.Service;
 
 namespace ConsoleTests
 {

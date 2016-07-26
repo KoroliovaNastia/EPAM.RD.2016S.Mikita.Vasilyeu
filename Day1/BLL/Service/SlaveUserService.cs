@@ -6,25 +6,19 @@ using DAL.Interface;
 using System;
 using System.Diagnostics;
 
-namespace BLL
+namespace BLL.Service
 {
     public class SlaveUserService : BaseUserService
     {
-        public SlaveUserService(IUserRepository repository) 
-            : base(repository)
-        {
-        }
-        public SlaveUserService() 
-                        : this(new UserRepository())
-        {
+        public SlaveUserService(IUserRepository repository) : base(repository) { }
+        public SlaveUserService() : this(new UserRepository()) { }
 
-        }
-        protected override int AddStrategy(BllUser user)
+        protected override int NotifyAdd(BllUser user)
         {
             throw new NotSupportedException();
         }
 
-        protected override void DeleteStrategy(BllUser user)
+        protected override void NotifyDelete(BllUser user)
         {
             throw new NotSupportedException();
         }
@@ -34,17 +28,14 @@ namespace BLL
             throw new NotSupportedException();
         }
 
-        public override void Initialize()
+        public override void Load()
         {
             throw new NotSupportedException();
         }
 
         private void OnAdded(object sender, UserDataApdatedEventArgs args)
         {
-
-                //Debug.WriteLine("On Added! " + AppDomain.CurrentDomain.FriendlyName);
-                storage.Add(args.User.ToDalUser());
-                //LastGeneratedId = args.User.Id;
+            storage.Add(args.User.ToDalUser());
         }
 
         private void OnDeleted(object sender, UserDataApdatedEventArgs args)
@@ -54,14 +45,13 @@ namespace BLL
 
         public void Subscribe(MasterUserService master)
         {
-            master.Deleted += OnDeleted;
             master.Added += OnAdded;
+            master.Deleted += OnDeleted;
         }
 
         public override void AddCommunicator(UserServiceCommunicator communicator)
         {
             base.AddCommunicator(communicator);
-
             Communicator.UserAdded += OnAdded;
             Communicator.UserDeleted += OnDeleted;
         }

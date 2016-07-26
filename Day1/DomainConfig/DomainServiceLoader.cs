@@ -12,6 +12,7 @@ using BLL.Models;
 using System.Threading.Tasks;
 using System.Linq;
 using DAL;
+using BLL.Service;
 
 namespace DomainConfig
 {
