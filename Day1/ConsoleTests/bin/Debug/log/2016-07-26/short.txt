@@ -48,3 +48,12 @@
 12:06:29 (INFO): User 2 Petr Petrov Added!
 12:06:29 (INFO): User 2 Petr Petrov Added!
 12:06:29 (INFO): User 2 Petr Petrov Added!
+14:14:14 (INFO): User 0 Ivan Ivanov Added!
+14:14:14 (INFO): User 0 Ivan Ivanov Added!
+14:14:14 (INFO): User 0 Ivan Ivanov Added!
+14:14:26 (INFO): User 2 Petr Petrov Added!
+14:14:26 (INFO): User 2 Petr Petrov Added!
+14:14:26 (INFO): User 2 Petr Petrov Added!
+14:14:32 (INFO): User 0 Ivan Ivanov Removed!
+14:14:32 (INFO): User 0 Ivan Ivanov Removed!
+14:14:32 (INFO): User 0 Ivan Ivanov Removed!

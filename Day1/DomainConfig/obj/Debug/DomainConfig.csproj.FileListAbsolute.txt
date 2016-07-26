@@ -24,3 +24,5 @@ C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\DomainConfig\b
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\DomainConfig\bin\Debug\DAL.pdb
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\DomainConfig\bin\Debug\NetworkConfig.pdb
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\DomainConfig\bin\Debug\NLog.xml
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\DomainConfig\bin\Debug\NetworkConfig.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\DomainConfig\bin\Debug\NetworkConfig.pdb

@@ -11,7 +11,7 @@ namespace DAL.Interface
     {
         int Add(T entity);
         void Delete(T user);
-        int[] GetByPredicate(Func<T, bool>[] predicate);
+        int[] GetByPredicate(Func<T, bool> predicate);
         List<T> GetAll();
         void Save();
         void Load();

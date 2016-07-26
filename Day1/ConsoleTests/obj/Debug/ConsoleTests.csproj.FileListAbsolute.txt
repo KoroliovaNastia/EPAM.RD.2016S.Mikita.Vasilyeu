@@ -30,3 +30,5 @@ C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\b
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\DomainConfig.pdb
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\NetworkConfig.dll
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\NetworkConfig.pdb
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\NetworkConfig.dll
+D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\ConsoleTests\bin\Debug\NetworkConfig.pdb

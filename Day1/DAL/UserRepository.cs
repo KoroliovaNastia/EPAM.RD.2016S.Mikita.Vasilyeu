@@ -89,9 +89,10 @@ namespace DAL
             return users.ToList();
         }
 
-        public int[] GetByPredicate(Func<DalUser, bool>[] predicates)
+        public int[] GetByPredicate(Func<DalUser, bool> predicate)
         {
-            return users.Where(p => predicates.Any(pr => pr(p))).Select(u => u.Id).ToArray();
+            return users.Where(predicate).Select(u => u.Id).ToArray();
+            //return users.Where(p => predicates.Any(pr => pr(p))).Select(u => u.Id).ToArray();
             //if (predicate == null)
             //{
             //    ArgumentNullException exeption = new ArgumentNullException(nameof(predicate) + " is null");

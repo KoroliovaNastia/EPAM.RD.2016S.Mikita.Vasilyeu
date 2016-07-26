@@ -34,10 +34,11 @@ namespace ConsoleTests
                 //}
                 Console.WriteLine("Current Domain: " + AppDomain.CurrentDomain.FriendlyName);
                 Console.WriteLine("IsProxy: " + RemotingServices.IsTransparentProxy(service));
-                var predicates = new Func<BllUser, bool>[] { p => p.LastName != null };
+                //var predicates = new Func<BllUser, bool>[] { p => p.LastName != null };
+                var predicate = new Func<BllUser, bool>(p => p.LastName != null);
                 Console.Write("User's IDs: ");
-                if (service.SearchForUsers(predicates) != null)
-                    foreach (var user in service.SearchForUsers(predicates))
+                if (service.SearchForUsers(predicate) != null)
+                    foreach (var user in service.SearchForUsers(predicate))
                     {
                         Console.Write(user + " ");
                     }

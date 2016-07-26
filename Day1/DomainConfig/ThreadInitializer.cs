@@ -44,7 +44,8 @@ namespace DomainConfig
             }
         };
 
-        private static readonly Func<BllUser, bool>[] _searchFoAllUserPredicate = { u => u.FirstName != String.Empty };
+        //private static readonly Func<BllUser, bool>[] _searchFoAllUserPredicate = { u => u.FirstName != String.Empty };
+        private static readonly Func<BllUser, bool> _searchFoAllUserPredicate = u => u.FirstName != String.Empty;
         private static string lines { get; } = String.Join("", Enumerable.Repeat("-", 30));
 
         public static IEnumerable<Thread> InitializeThreads(MasterUserService master, IEnumerable<SlaveUserService> slaves)

@@ -58,17 +58,17 @@ namespace BLL
         protected abstract int AddStrategy(BllUser user);
         protected abstract void DeleteStrategy(BllUser user);
 
-        public virtual List<int> SearchForUsers(Func<BllUser, bool>[] criteria)
+        public virtual List<int> SearchForUsers(Func<BllUser, bool> criteria)
         {
-            //Func<DalUser, bool> predicate = user => criteria.Invoke(user.ToBllUser());
-            //return storage.GetByPredicate(predicate).ToList();
-            Func<DalUser, bool>[] predicate = new Func<DalUser, bool>[criteria.Length];
-            for (int i = 0; i< predicate.Length; ++i)
-            {
-                int k = i;
-                predicate[k] = user => criteria[k].Invoke(user.ToBllUser());
-            }
+            Func<DalUser, bool> predicate = user => criteria.Invoke(user.ToBllUser());
             return storage.GetByPredicate(predicate).ToList();
+            //Func<DalUser, bool>[] predicate = new Func<DalUser, bool>[criteria.Length];
+            //for (int i = 0; i< predicate.Length; ++i)
+            //{
+            //    int k = i;
+            //    predicate[k] = user => criteria[k].Invoke(user.ToBllUser());
+            //}
+            //return storage.GetByPredicate(predicate).ToList();
         }
 
         public virtual void AddCommunicator(UserServiceCommunicator communicator)
