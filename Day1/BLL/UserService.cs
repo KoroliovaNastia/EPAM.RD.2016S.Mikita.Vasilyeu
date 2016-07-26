@@ -98,15 +98,16 @@ namespace BLL
 
         public int[] SearchForUsers(Func<BllUser, bool> criteria)
         {
-            if (ReferenceEquals(criteria, null))
-            {
-                ArgumentNullException exeption = new ArgumentNullException(nameof(criteria) + " is null");
-                if (loggerSwitch.Enabled)
-                    logger.Error(exeption.Message);
-                throw exeption;
-            }
-            Func<DalUser, bool> predicate = user => criteria.Invoke(user.ToBllUser());
-            return storage.GetByPredicate(predicate);
+            //if (ReferenceEquals(criteria, null))
+            //{
+            //    ArgumentNullException exeption = new ArgumentNullException(nameof(criteria) + " is null");
+            //    if (loggerSwitch.Enabled)
+            //        logger.Error(exeption.Message);
+            //    throw exeption;
+            //}
+            //Func<DalUser, bool> predicate = user => criteria.Invoke(user.ToBllUser());
+            //return storage.GetByPredicate(predicate);
+            return null;
         }
 
         public void Save()

@@ -11,11 +11,12 @@ namespace DomainConfig
 {
     public static class UserServiceCreator
     {
-        public static IEnumerable<UserService> CreateServices(IEnumerable<ServiceConfigInfo> configurations)
+        public static IEnumerable<BaseUserService> CreateServices(IEnumerable<ServiceConfigInfo> configurations)
         {
             var serviceConfigurations = configurations as ServiceConfigInfo[] ?? configurations.ToArray();
-            var services = new List<UserService>();
-            UserService master = null;
+            var services = new List<BaseUserService>();
+            //UserService master = null;
+            MasterUserService master = null;
             DomainServiceLoader masterLoader = null;
 
             foreach (var serviceConfiguration in serviceConfigurations)
@@ -23,12 +24,21 @@ namespace DomainConfig
                 var domain = AppDomain.CreateDomain(serviceConfiguration.Name, null, null);
                 var type = typeof(DomainServiceLoader);
                 var loader = (DomainServiceLoader)domain.CreateInstanceAndUnwrap(Assembly.GetAssembly(type).FullName, type.FullName);
-                var service = loader.LoadService(serviceConfiguration); // create service
-                if (service.Mode is Master)
+                var service = loader.LoadService(serviceConfiguration);
+
+                var userService = service as MasterUserService;
+                if (userService != null)
                 {
-                    master = service;
+                    master = userService;
                     masterLoader = loader;
                 }
+                // create service
+                //if (service.Mode is Master)
+                //{
+                //    master = service;
+                //    masterLoader = loader;
+                //}
+
 
                 services.Add(service);
             }

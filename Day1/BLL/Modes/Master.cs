@@ -5,12 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.Interface;
+using DAL.Interface;
 
 namespace BLL.Modes
 {
     [Serializable]
     public class Master : MarshalByRefObject, IMode
     {
+        public IUserRepository Repository { get; set; }
+
         public event EventHandler<UserDataApdatedEventArgs> NewDeleted;
         public event EventHandler<UserDataApdatedEventArgs> NewAdded;
         public UserServiceCommunicator Communicator { get; set; }

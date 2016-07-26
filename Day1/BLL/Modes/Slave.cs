@@ -6,12 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using BLL.Interface;
 using System.Configuration;
+using DAL.Interface;
+using BLL.Mappers;
 
 namespace BLL.Modes
 {
     [Serializable]
     public class Slave : MarshalByRefObject, IMode
     {
+        public IUserRepository Repository { get; set; }
+
         public UserServiceCommunicator Communicator { get; set; }
         public void AddCommunicator(UserServiceCommunicator communicator)
         {
@@ -25,15 +29,13 @@ namespace BLL.Modes
 
         private void OnAdded(object sender, UserDataApdatedEventArgs args)
         {
-
-            //Debug.WriteLine("On Added! " + AppDomain.CurrentDomain.FriendlyName);
-            //Repository.Add(args.User);
+            Repository.Add(args.User.ToDalUser());
             //LastGeneratedId = args.User.Id;
         }
 
         private void OnDeleted(object sender, UserDataApdatedEventArgs args)
         {
-            //Repository.Delete(args.User);
+            Repository.Delete(args.User.ToDalUser());
         }
 
         public void Subscribe(IMode mode)
@@ -48,8 +50,6 @@ namespace BLL.Modes
             master.NewAdded += OnAdded;
             master.NewDeleted += OnDeleted;
         }
-
-
 
         public bool IsActivated { get; private set; }
 

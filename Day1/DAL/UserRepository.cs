@@ -89,26 +89,27 @@ namespace DAL
             return users.ToList();
         }
 
-        public int[] GetByPredicate(Func<DalUser, bool> predicate)
+        public int[] GetByPredicate(Func<DalUser, bool>[] predicates)
         {
-            if (predicate == null)
-            {
-                ArgumentNullException exeption = new ArgumentNullException(nameof(predicate) + " is null");
-                if (loggerSwitch.Enabled)
-                    logger.Error(exeption.Message);
-                throw exeption;
-            }
-            List<DalUser> foundUsers = users.Where(predicate).ToList();
-            int[] ids = null;
-            if (foundUsers.Count != 0)
-            {
-                ids = new int[foundUsers.Count];
-                for (int i = 0; i < ids.Length; i++)
-                {
-                    ids[i] = foundUsers[i].Id;
-                }
-            }
-            return ids;
+            return users.Where(p => predicates.Any(pr => pr(p))).Select(u => u.Id).ToArray();
+            //if (predicate == null)
+            //{
+            //    ArgumentNullException exeption = new ArgumentNullException(nameof(predicate) + " is null");
+            //    if (loggerSwitch.Enabled)
+            //        logger.Error(exeption.Message);
+            //    throw exeption;
+            //}
+            //List<DalUser> foundUsers = users.Where(predicate).ToList();
+            //int[] ids = null;
+            //if (foundUsers.Count != 0)
+            //{
+            //    ids = new int[foundUsers.Count];
+            //    for (int i = 0; i < ids.Length; i++)
+            //    {
+            //        ids[i] = foundUsers[i].Id;
+            //    }
+            //}
+            //return ids;
         }
 
         public void Save()

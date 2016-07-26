@@ -44,10 +44,10 @@ namespace DomainConfig
             }
         };
 
-        private static readonly Func<BllUser, bool> _searchFoAllUserPredicate = u => u.FirstName != String.Empty;
+        private static readonly Func<BllUser, bool>[] _searchFoAllUserPredicate = { u => u.FirstName != String.Empty };
         private static string lines { get; } = String.Join("", Enumerable.Repeat("-", 30));
 
-        public static IEnumerable<Thread> InitializeThreads(UserService master, IEnumerable<UserService> slaves)
+        public static IEnumerable<Thread> InitializeThreads(MasterUserService master, IEnumerable<SlaveUserService> slaves)
         {
             IList<Thread> threads = new List<Thread>();
             var masterThread = new Thread(() =>
@@ -89,6 +89,7 @@ namespace DomainConfig
                         var userIds = slave.SearchForUsers(_searchFoAllUserPredicate);
                         Console.WriteLine(lines);
                         //Console.Write(slave.Name + " User's IDs: ");
+                        if(userIds!=null)
                         foreach (var user in userIds)
                         {
                             Console.Write(user + " ");

@@ -54,6 +54,9 @@
     <Compile Include="Models\BllVisaRecord.cs" />
     <Compile Include="Modes\Master.cs" />
     <Compile Include="Modes\Slave.cs" />
+    <Compile Include="New\MasterUserService.cs" />
+    <Compile Include="New\SlaveUserService.cs" />
+    <Compile Include="New\BaseUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDataApdatedEventArgs.cs" />
     <Compile Include="UserService.cs" />

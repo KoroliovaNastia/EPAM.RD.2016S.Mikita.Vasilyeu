@@ -10,26 +10,43 @@ using DomainConfig.CustomConfigSections;
 using System.Reflection;
 using BLL.Modes;
 using System.Net;
+using BLL.Interface;
 
 namespace DomainConfig
 {
     public static class ServiceInitializer
     {
-        public static IEnumerable<UserService> InitializeServices()
+        public static IEnumerable<BaseUserService> InitializeServices()
         {
-            var serviceConfigurations = ParseAppConfig();       
-            IList<UserService> services = new List<UserService>();
+            var serviceConfigurations = ParseAppConfig();
+            //IList<UserService> services = new List<UserService>();
+            IList<BaseUserService> services = new List<BaseUserService>();
             var configurations = serviceConfigurations as ServiceConfigInfo[] ?? serviceConfigurations.ToArray();
+            //services = UserServiceCreator.CreateServices(configurations).ToList();
             services = UserServiceCreator.CreateServices(configurations).ToList();
 
-            var master = services.FirstOrDefault(s => s.Mode is Master);
+            //var master = services.FirstOrDefault(s => s.Mode is Master);
+
+            //if (master == null)
+            //{
+            //    throw new ConfigurationErrorsException("Master is not exist");
+            //}
+
+            //var slaves = services.Where(s => s.Mode is Slave);
+            //foreach (var slave in slaves)
+            //{
+            //    slave.Mode.Subscribe(master.Mode);
+            //}
+            //ThreadInitializer.InitializeThreads(master, slaves);
+            //return services;
+
+            var master = (MasterUserService)services.FirstOrDefault(s => s is MasterUserService);
 
             if (master == null)
             {
                 throw new ConfigurationErrorsException("Master is not exist");
             }
-
-            var slaves = services.Where(s => s.Mode is Slave);
+            var slaves = services.OfType<SlaveUserService>().ToList();
             //SubscribeServices(master, slaves);
             ThreadInitializer.InitializeThreads(master, slaves);
             return services;

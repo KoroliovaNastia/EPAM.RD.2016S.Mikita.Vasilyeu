@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,6 @@ namespace BLL.Interface
         void Subscribe(IMode mode);
         UserServiceCommunicator Communicator { get; set; }
         void AddCommunicator(UserServiceCommunicator communicator);
+        IUserRepository Repository { get; set; }
     }
 }
