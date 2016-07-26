@@ -21,6 +21,7 @@ namespace ConsoleTests
         {
             IList<BaseUserService> services = ServiceFactory.InitializeServices().ToList();
 
+            while(true)
             for (int i = 0; i < services.Count; i++)
             {
                 var service = services[i];

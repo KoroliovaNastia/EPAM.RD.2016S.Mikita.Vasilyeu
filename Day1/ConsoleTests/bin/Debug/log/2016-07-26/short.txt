@@ -115,3 +115,35 @@
 16:24:12 (INFO): User 2 Mike Smith Added!
 16:24:12 (INFO): User 2 Mike Smith Added!
 16:24:12 (INFO): User 2 Mike Smith Added!
+16:29:58 (INFO): User 0 Mike Jones Added!
+16:29:58 (INFO): User 0 Mike Jones Added!
+16:29:58 (INFO): User 0 Mike Jones Added!
+16:30:08 (INFO): User 2 Mike Smith Added!
+16:30:08 (INFO): User 2 Mike Smith Added!
+16:30:08 (INFO): User 2 Mike Smith Added!
+16:31:07 (INFO): User 0 Mike Jones Added!
+16:31:07 (INFO): User 0 Mike Jones Added!
+16:31:07 (INFO): User 0 Mike Jones Added!
+16:31:17 (INFO): User 2 Mike Smith Added!
+16:31:17 (INFO): User 2 Mike Smith Added!
+16:31:17 (INFO): User 2 Mike Smith Added!
+16:31:22 (INFO): User 0 Mike Jones Removed!
+16:31:22 (INFO): User 0 Mike Jones Removed!
+16:31:22 (INFO): User 0 Mike Jones Removed!
+16:31:27 (INFO): User 4 Kelly Mitchell Added!
+16:31:27 (INFO): User 4 Kelly Mitchell Added!
+16:31:27 (INFO): User 4 Kelly Mitchell Added!
+16:31:32 (ERROR): user doesn't exist
+16:31:51 (INFO): User 0 Mike Jones Added!
+16:31:51 (INFO): User 0 Mike Jones Added!
+16:31:51 (INFO): User 0 Mike Jones Added!
+16:32:01 (INFO): User 2 Mike Smith Added!
+16:32:01 (INFO): User 2 Mike Smith Added!
+16:32:01 (INFO): User 2 Mike Smith Added!
+16:32:06 (INFO): User 0 Mike Jones Removed!
+16:32:06 (INFO): User 0 Mike Jones Removed!
+16:32:06 (INFO): User 0 Mike Jones Removed!
+16:32:11 (INFO): User 4 Kelly Mitchell Added!
+16:32:11 (INFO): User 4 Kelly Mitchell Added!
+16:32:11 (INFO): User 4 Kelly Mitchell Added!
+16:32:16 (ERROR): user doesn't exist

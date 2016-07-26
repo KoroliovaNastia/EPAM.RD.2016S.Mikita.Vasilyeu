@@ -49,18 +49,6 @@ namespace NetworkConfig
             return message;
         }
 
-        //public void RunReceiver()
-        //{
-        //    var message = Receive();
-        //    switch (message.MessageType)
-        //    {
-        //        case MessageType.Add: OnUserAdded(this, message); break;
-        //        case MessageType.Delete: OnUserDeleted(this, message); break;
-
-        //    }
-
-        //}
-
         public void Dispose()
         {
             reciever.Close();
