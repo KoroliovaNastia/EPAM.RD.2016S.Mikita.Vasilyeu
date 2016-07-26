@@ -47,9 +47,7 @@
     <Compile Include="DomainServiceLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceConfigInfo.cs" />
-    <Compile Include="ServiceInitializer.cs" />
-    <Compile Include="ThreadInitializer.cs" />
-    <Compile Include="UserServiceCreator.cs" />
+    <Compile Include="ServiceFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
