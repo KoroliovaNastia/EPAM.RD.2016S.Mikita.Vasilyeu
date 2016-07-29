@@ -1,7 +1,7 @@
 ﻿using BLL.Service;
 using DomainConfig;
-using DomainConfig.CustomConfigSections;
-using DomainConfig.DependenciesConfigSections;
+using DomainConfig.CustomSections.DependencyConfig;
+using DomainConfig.CustomSections.ServiceConfig;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -43,13 +43,13 @@ namespace ServiceConfigurator
 
         public static IEnumerable<ServiceConfigInfo> ParseServiceConfigSection()
         {
-            var serviceSection = RegisterServices.GetConfig();
+            var serviceSection = ServiceConfigSection.GetConfig();
             var serviceConfigurations = new List<ServiceConfigInfo>(serviceSection.ServicesItems.Count);
 
             for (int i = 0; i < serviceSection.ServicesItems.Count; i++)
             {
                 var serviceType = serviceSection.ServicesItems[i].ServiceType;
-                ServiceType type = serviceType.ToLower() == "master" ? ServiceType.Master : ServiceType.Slave;
+                var type = serviceType.ToLower() == "master" ? ServiceType.Master : ServiceType.Slave;
                 var serviceName = serviceSection.ServicesItems[i].ServiceName;
                 var address = serviceSection.ServicesItems[i].IpAddress;
                 int port = serviceSection.ServicesItems[i].Port;
@@ -60,6 +60,7 @@ namespace ServiceConfigurator
                 {
                     endPoint = new IPEndPoint(IPAddress.Parse(address), port);
                 }
+                //IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(address), port);
 
                 serviceConfigurations.Add(new ServiceConfigInfo
                 {
@@ -84,13 +85,10 @@ namespace ServiceConfigurator
             for (int i = 0; i < dependencyCount; i++)
             {
                 var dependency = section.MasterServices[i];
-                IPAddress address;
-                bool parsed = IPAddress.TryParse(dependency.IpAddress, out address);
-                if (!parsed)
-                    throw new ArgumentException("Address is not valid");
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(dependency.IpAddress), dependency.Port);
                 var slaveConfig = new ServiceConfigInfo
                 {
-                    IpEndPoint = new IPEndPoint(address, dependency.Port),
+                    IpEndPoint = endPoint,
                     Name = dependency.ServiceName
                 };
                 config.SlaveConfigurations.Add(slaveConfig);

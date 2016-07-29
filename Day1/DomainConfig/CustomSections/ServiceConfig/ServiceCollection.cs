@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainConfig.CustomConfigSections
+namespace DomainConfig.CustomSections.ServiceConfig
 {
     [ConfigurationCollection(typeof(ServiceElement))]
     public class ServiceCollection : ConfigurationElementCollection

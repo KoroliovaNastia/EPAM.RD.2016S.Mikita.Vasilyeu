@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainConfig.CustomConfigSections
+namespace DomainConfig.CustomSections.ServiceConfig
 {
     public class ServiceElement : ConfigurationElement
     {

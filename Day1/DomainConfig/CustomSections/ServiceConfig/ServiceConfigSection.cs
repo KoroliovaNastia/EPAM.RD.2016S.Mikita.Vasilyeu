@@ -6,16 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainConfig.CustomConfigSections
+namespace DomainConfig.CustomSections.ServiceConfig
 {
-    public class RegisterServices : ConfigurationSection
+    public class ServiceConfigSection : ConfigurationSection
     {
         [ConfigurationProperty("Services")]
         public ServiceCollection ServicesItems => ((ServiceCollection)(base["Services"]));
 
-        public static RegisterServices GetConfig()
+        public static ServiceConfigSection GetConfig()
         {
-            return (RegisterServices)ConfigurationManager.GetSection("RegisterServices") ?? new RegisterServices();
+            return (ServiceConfigSection)ConfigurationManager.GetSection("RegisterServices") ?? new ServiceConfigSection();
         }
     }
 }

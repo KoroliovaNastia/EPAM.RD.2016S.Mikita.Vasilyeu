@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomConfigSections\RegisterServices.cs" />
-    <Compile Include="CustomConfigSections\ServiceCollection.cs" />
-    <Compile Include="CustomConfigSections\ServiceElement.cs" />
-    <Compile Include="DependenciesConfigSections\DependencyConfigSection.cs" />
-    <Compile Include="DependenciesConfigSections\DependencyElement.cs" />
-    <Compile Include="DependenciesConfigSections\MasterServiceCollection.cs" />
+    <Compile Include="CustomSections\ServiceConfig\ServiceConfigSection.cs" />
+    <Compile Include="CustomSections\ServiceConfig\ServiceCollection.cs" />
+    <Compile Include="CustomSections\ServiceConfig\ServiceElement.cs" />
+    <Compile Include="CustomSections\DependencyConfig\DependencyConfigSection.cs" />
+    <Compile Include="CustomSections\DependencyConfig\DependencyElement.cs" />
+    <Compile Include="CustomSections\DependencyConfig\MasterServiceCollection.cs" />
     <Compile Include="Models\DependencyConfiguration.cs" />
     <Compile Include="DomainServiceLoader.cs" />
     <Compile Include="ServiceFactory.cs" />

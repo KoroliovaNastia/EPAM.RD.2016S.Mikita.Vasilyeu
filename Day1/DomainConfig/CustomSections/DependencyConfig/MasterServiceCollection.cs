@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace DomainConfig.DependenciesConfigSections
+namespace DomainConfig.CustomSections.DependencyConfig
 {
     public class MasterServiceCollection : ConfigurationElementCollection
     {

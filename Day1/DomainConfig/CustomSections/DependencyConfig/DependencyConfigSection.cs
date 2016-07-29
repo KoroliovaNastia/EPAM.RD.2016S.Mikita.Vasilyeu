@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainConfig.DependenciesConfigSections
+namespace DomainConfig.CustomSections.DependencyConfig
 {
     public class DependencyConfigSection : ConfigurationSection
     {
