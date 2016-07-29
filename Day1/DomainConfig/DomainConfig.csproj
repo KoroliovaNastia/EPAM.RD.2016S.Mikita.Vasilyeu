@@ -47,16 +47,11 @@
     <Compile Include="DependenciesConfigSections\DependencyConfigSection.cs" />
     <Compile Include="DependenciesConfigSections\DependencyElement.cs" />
     <Compile Include="DependenciesConfigSections\MasterServiceCollection.cs" />
-    <Compile Include="DependencyConfiguration.cs" />
+    <Compile Include="Models\DependencyConfiguration.cs" />
     <Compile Include="DomainServiceLoader.cs" />
-    <Compile Include="New\ConfigParser.cs" />
-    <Compile Include="New\DependencyInitializer.cs" />
-    <Compile Include="New\ThreadInitializer.cs" />
-    <Compile Include="New\UserServiceCreator.cs" />
-    <Compile Include="New\UserServiceInitializer.cs" />
+    <Compile Include="ServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceConfigInfo.cs" />
-    <Compile Include="Old\ServiceFactory.cs" />
+    <Compile Include="Models\ServiceConfigInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

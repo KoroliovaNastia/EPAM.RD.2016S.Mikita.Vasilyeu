@@ -22,6 +22,7 @@ namespace ConsoleTests
         {
             IList<BaseUserService> services = UserServiceInitializer.InitializeServices().ToList();
             ShowServicesInfo(services);
+            Console.WriteLine("\nPress enter to start: ");
             Console.ReadLine();
             var master = (MasterUserService)services.Single(s => s is MasterUserService);
             var slaves = services.Where(s => s is SlaveUserService).Select(s => (SlaveUserService)s);

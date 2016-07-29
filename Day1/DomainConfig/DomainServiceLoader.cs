@@ -26,7 +26,7 @@ namespace DomainConfig
             //    Console.WriteLine(assembly.FullName);
             //}
 
-            BaseUserService result;
+            BaseUserService service;
             UserServiceCommunicator communicator;
             IUserRepository rep = new UserRepository();
             switch (configInfo.Type)
@@ -35,7 +35,7 @@ namespace DomainConfig
                     {
                         Sender<BllUser> sender = new Sender<BllUser>();
                         communicator = new UserServiceCommunicator(sender);
-                        result = new MasterUserService(rep);
+                        service = new MasterUserService(rep);
                     }
                     break;
                 case ServiceType.Slave:
@@ -43,7 +43,7 @@ namespace DomainConfig
                         Receiver<BllUser> receiver = 
                             new Receiver<BllUser>(configInfo.IpEndPoint.Address, configInfo.IpEndPoint.Port);
                         communicator = new UserServiceCommunicator(receiver);
-                        result = new SlaveUserService(rep);
+                        service = new SlaveUserService(rep);
                         //Task task = receiver.AcceptConnection();
                         //task.ContinueWith((t) => communicator.RunReceiver());
                     }
@@ -51,9 +51,9 @@ namespace DomainConfig
                 default:
                     throw new ArgumentException("Unknown ServiceType!");
             }
-            result.AddCommunicator(communicator);
+            service.AddCommunicator(communicator);
 
-            return result;
+            return service;
         }
 
         public void ConnectMaster(MasterUserService master, IEnumerable<ServiceConfigInfo> slaveConfigurations)

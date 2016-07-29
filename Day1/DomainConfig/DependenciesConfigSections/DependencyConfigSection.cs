@@ -11,6 +11,13 @@ namespace DomainConfig.DependenciesConfigSections
     {
         [ConfigurationProperty("MasterService")]
         public MasterServiceCollection MasterServices => (MasterServiceCollection) base["MasterService"];
+
+        public static DependencyConfigSection GetDependencySection()
+        {
+            return (DependencyConfigSection)ConfigurationManager.GetSection("MasterDependencies");
+        }
     }
+
+
     
 }
