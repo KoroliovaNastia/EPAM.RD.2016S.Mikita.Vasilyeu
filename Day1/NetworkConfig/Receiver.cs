@@ -46,13 +46,14 @@ namespace NetworkConfig
                 message = (NetworkMessage<T>)formatter.Deserialize(networkStream);
             }
             //Console.WriteLine("Message received!");
+            Console.WriteLine($"User {message.Entity} {message.MessageType}!");
             return message;
         }
 
         public void Dispose()
         {
-            reciever.Close();
-            listener.Close();
+            reciever?.Close();
+            listener?.Close();
         }
     }
 }

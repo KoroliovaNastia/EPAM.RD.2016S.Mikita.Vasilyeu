@@ -16,7 +16,7 @@ namespace NetworkConfig
     [Serializable]
     public enum MessageType
     {
-        Add = 0,
-        Delete = 1
+        Added = 0,
+        Deleted = 1
     }
 }

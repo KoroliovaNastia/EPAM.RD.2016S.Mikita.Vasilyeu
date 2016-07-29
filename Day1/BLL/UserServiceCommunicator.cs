@@ -64,8 +64,8 @@ namespace BLL
                 };
                 switch (message.MessageType)
                 {
-                    case MessageType.Add: OnUserAdded(this, args); break;
-                    case MessageType.Delete: OnUserDeleted(this, args); break;
+                    case MessageType.Added: OnUserAdded(this, args); break;
+                    case MessageType.Deleted: OnUserDeleted(this, args); break;
                 }
             }
         }
@@ -77,7 +77,7 @@ namespace BLL
             Send(new NetworkMessage<BllUser>
             {
                 Entity = args.User,
-                MessageType = MessageType.Add
+                MessageType = MessageType.Added
             });
         }
         public void SendDelete(UserEventArgs args)
@@ -87,7 +87,7 @@ namespace BLL
             Send(new NetworkMessage<BllUser>
             {
                 Entity = args.User,
-                MessageType = MessageType.Delete
+                MessageType = MessageType.Deleted
             });
         }
 

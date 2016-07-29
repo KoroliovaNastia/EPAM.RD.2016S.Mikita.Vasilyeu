@@ -11,8 +11,8 @@ namespace BLL.Service
 {
     public class MasterUserService : BaseUserService
     {
-        public event EventHandler<UserEventArgs> Deleted;
-        public event EventHandler<UserEventArgs> Added;
+        //public event EventHandler<UserEventArgs> Deleted;
+        //public event EventHandler<UserEventArgs> Added;
 
         public MasterUserService(IUserRepository repository) : base(repository) { }
         public MasterUserService() : this(new UserRepository()) { }
@@ -44,13 +44,13 @@ namespace BLL.Service
         protected virtual void OnUserDeleted(object sender, UserEventArgs args)
         {
             Communicator?.SendDelete(args);
-            Deleted?.Invoke(sender, args);
+            //Deleted?.Invoke(sender, args);
         }
 
         protected virtual void OnUserAdded(object sender, UserEventArgs args)
         {
             Communicator?.SendAdd(args);
-            Added?.Invoke(sender, args);
+            //Added?.Invoke(sender, args);
         }
 
     }

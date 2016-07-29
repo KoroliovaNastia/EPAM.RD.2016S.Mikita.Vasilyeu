@@ -19,13 +19,6 @@ namespace DomainConfig
     {
         public BaseUserService LoadService(ServiceConfigInfo configInfo)
         {
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            //Console.WriteLine("Assemblies: ");
-            //foreach (var assembly in assemblies)
-            //{
-            //    Console.WriteLine(assembly.FullName);
-            //}
-
             BaseUserService service;
             UserServiceCommunicator communicator;
             IUserRepository rep = new UserRepository();
@@ -44,8 +37,6 @@ namespace DomainConfig
                             new Receiver<BllUser>(configInfo.IpEndPoint.Address, configInfo.IpEndPoint.Port);
                         communicator = new UserServiceCommunicator(receiver);
                         service = new SlaveUserService(rep);
-                        //Task task = receiver.AcceptConnection();
-                        //task.ContinueWith((t) => communicator.RunReceiver());
                     }
                     break;
                 default:
@@ -54,12 +45,6 @@ namespace DomainConfig
             service.AddCommunicator(communicator);
 
             return service;
-        }
-
-        public void ConnectMaster(MasterUserService master, IEnumerable<ServiceConfigInfo> slaveConfigurations)
-        {
-            master.Communicator.Connect(slaveConfigurations.Where(c => c.IpEndPoint != null)
-                                                           .Select(c => c.IpEndPoint));
         }
 
     }

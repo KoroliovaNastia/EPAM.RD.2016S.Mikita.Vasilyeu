@@ -61,8 +61,8 @@ namespace BLL.Service
 
         public void Subscribe(MasterUserService master)
         {
-            master.Added += OnAdded;
-            master.Deleted += OnDeleted;
+            //master.Added += OnAdded;
+            //master.Deleted += OnDeleted;
         }
 
         public override void AddCommunicator(UserServiceCommunicator communicator)

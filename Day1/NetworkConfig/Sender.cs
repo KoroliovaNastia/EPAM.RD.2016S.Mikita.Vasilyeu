@@ -49,8 +49,8 @@ namespace NetworkConfig
         {
             foreach (var socket in sockets)
             {
-                socket.Shutdown(SocketShutdown.Both);
-                socket.Close();
+                socket?.Shutdown(SocketShutdown.Both);
+                socket?.Close();
             }
         }
     }

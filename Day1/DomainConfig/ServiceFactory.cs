@@ -101,38 +101,16 @@ namespace ServiceConfigurator
 
         public static IEnumerable<BaseUserService> CreateServices(IEnumerable<ServiceConfigInfo> configurations)
         {
-            var serviceConfigurations = configurations as ServiceConfigInfo[] ?? configurations.ToArray();
+            var services = new List<BaseUserService>();
+            foreach (var configuration in configurations)
+            {
+                var domain = AppDomain.CreateDomain(configuration.Name, null, null);
+                var type = typeof(DomainServiceLoader);
+                var loader = (DomainServiceLoader)domain.CreateInstanceAndUnwrap(Assembly.GetAssembly(type).FullName, type.FullName);
+                services.Add(loader.LoadService(configuration));
+            }
 
-            bool namesAreUnique = CheckUniqueName(serviceConfigurations);
-            if (!namesAreUnique)
-                throw new ConfigurationErrorsException("Service's names must be unique!");
-
-            bool validNetworkConfiguration = CheckNetworkConfiguration(serviceConfigurations);
-            if (!validNetworkConfiguration)
-                throw new ConfigurationErrorsException("Some of services don't have ip Address");
-
-            return serviceConfigurations.Select(CreateService).ToList();
-        }
-
-        private static BaseUserService CreateService(ServiceConfigInfo configuration)
-        {
-            var domain = AppDomain.CreateDomain(configuration.Name, null, null);
-            var type = typeof(DomainServiceLoader);
-            var loader = (DomainServiceLoader)domain.CreateInstanceAndUnwrap(Assembly.GetAssembly(type).FullName, type.FullName);
-            return loader.LoadService(configuration);
-        }
-
-        private static bool CheckNetworkConfiguration(IEnumerable<ServiceConfigInfo> configuration)
-        {
-            var slavesConfig = configuration.Where(c => c.Type == ServiceType.Slave).ToList();
-            return slavesConfig.All(serviceConfiguration => serviceConfiguration.IpEndPoint?.Address != null);
-        }
-
-        private static bool CheckUniqueName(IEnumerable<ServiceConfigInfo> configurations)
-        {
-            var configurationNames = configurations.Select(c => c.Name).ToList();
-
-            return configurationNames.Distinct().Count() == configurationNames.Count;
+            return services;
         }
     }
 }
