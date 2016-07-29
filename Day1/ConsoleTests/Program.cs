@@ -21,117 +21,115 @@ namespace ConsoleTests
         static void Main(string[] args)
         {
             IList<BaseUserService> services = UserServiceInitializer.InitializeServices().ToList();
-            Console.Clear();
-            Console.WriteLine("=========== Welcome to Console App ===========");
-            //master.Initialize();
-            var master = services.FirstOrDefault(s => s is MasterUserService);
-            if (master != null)
+            ShowServicesInfo(services);
+            Console.ReadLine();
+            var master = (MasterUserService)services.Single(s => s is MasterUserService);
+            var slaves = services.Where(s => s is SlaveUserService).Select(s => (SlaveUserService)s);
+            RunSlaves(slaves);
+            RunMaster(master);
+            while (true)
             {
-                AddSomeMasterThreads((MasterUserService)master);
-            }
-            string cmd = String.Empty;
-            int requiredNumber = 0;
-            while (cmd != "exit")
-            {
-                PrintServiceList(services);
-                Console.WriteLine("Enter word 'service' and than type number'(service 1)");
-                cmd = Console.ReadLine();
-                var words = cmd.Split();
-                bool parsed = false;
-
-                if (cmd == "exit")
-                {
-
-                    return;
-                    //master.Add(AnotherUser);
-                }
-                if (cmd == "stop")
-                {
-                    var slave = services.First(s => s is SlaveUserService);
-                    slave.Communicator.StopReceiver();
-                }
-                //if (words.Length > 1)
-                //{
-                //    parsed = Int32.TryParse(words.Skip(1).First(), out requiredNumber);
-                //}
-                //if (parsed)
-                //{
-                //    //here must be some awesome code
-                //}
+                var quit = Console.ReadKey();
+                if (quit.Key == ConsoleKey.Escape)
+                    break;
             }
         }
 
-        private static void AddSomeMasterThreads(MasterUserService master)
+        private static void RunMaster(MasterUserService master)
         {
             Random rand = new Random();
+
             ThreadStart masterSearch = () =>
             {
-
                 while (true)
                 {
-                    var serachresult = master.SearchForUsers(new Func<BllUser, bool>(u => u.FirstName != null));
-                    Console.Write("Another master thread search result: ");
+                    var serachresult = master.SearchForUsers(u => u.FirstName != null);
+                    Console.Write("Master search results: ");
                     foreach (var result in serachresult)
-                    {
                         Console.Write(result + " ");
-                    }
                     Console.WriteLine();
-                    Thread.Sleep((int)(rand.NextDouble() * 5000));
+                    Thread.Sleep(rand.Next(1000, 5000));
                 }
-
             };
-            ThreadStart masterAdd = () =>
-            {
-                var uniqueUser = new BllUser
-                {
-                    LastName = "Smith",
-                    FirstName = "Bob",
-                    BirthDate = DateTime.Now
 
+            ThreadStart masterAddDelete = () =>
+            {
+                var users = new List<BllUser>
+                {
+                    new BllUser { FirstName = "Bob", LastName = "Smith"},
+                    new BllUser { FirstName = "Jack", LastName = "Jackson"},
                 };
+                BllUser userToDelete = null;
+
                 while (true)
                 {
-                    master.Add(uniqueUser);
-                    Thread.Sleep((int)(rand.NextDouble() * 5000));
-                    master.Delete(uniqueUser);
-                    Thread.Sleep((int)(rand.NextDouble() * 5000));
+                    foreach (var user in users)
+                    {
+                        int addChance = rand.Next(0, 3);
+                        if (addChance == 0)
+                            master.Add(user);
+
+                        Thread.Sleep(rand.Next(1000, 5000));
+                        if (userToDelete != null)
+                        {
+                            int deleteChance = rand.Next(0, 3);
+                            if (deleteChance == 0)
+                                master.Delete(userToDelete);
+                        }
+                        userToDelete = user;
+                        Thread.Sleep(rand.Next(1000, 5000));
+                        Console.WriteLine();
+                    }
                 }
             };
-            Thread masterSearchThread = new Thread(masterSearch);
-            Thread masterSearchThread2 = new Thread(masterSearch);
-            Thread masterAddThread = new Thread(masterAdd) { IsBackground = true };
-            masterSearchThread.IsBackground = true;
-            masterSearchThread2.IsBackground = true;
+
+            Thread masterSearchThread = new Thread(masterSearch) { IsBackground = true };
+            Thread masterAddThread = new Thread(masterAddDelete) { IsBackground = true };
             masterAddThread.Start();
             masterSearchThread.Start();
-            masterSearchThread2.Start();
-
         }
 
-        private static void PrintServiceList(IEnumerable<BaseUserService> services)
+        private static void RunSlaves(IEnumerable<SlaveUserService> slaves)
         {
-            var userServices = services as IList<BaseUserService> ?? services.ToList();
-            int serviceCount = userServices.Count();
-            Console.WriteLine("\n======== Service List ========");
-            for (int i = 0; i < serviceCount; i++)
+            Random rand = new Random();
+
+            foreach (var slave in slaves)
             {
-                var service = userServices[i];
+                var slaveThread = new Thread(() =>
+                {
+                    while (true)
+                    {
+                        var userIds = slave.SearchForUsers(u => !string.IsNullOrWhiteSpace(u.FirstName));
+                        Console.Write("Slave search results: ");
+                        foreach (var user in userIds)
+                            Console.Write(user + " ");
+                        Console.WriteLine();
+                        Thread.Sleep((int)(rand.NextDouble() * 5000));
+                    }
+
+                });
+                slaveThread.IsBackground = true;
+                slaveThread.Start();
+            }
+        }
+
+        private static void ShowServicesInfo(IEnumerable<BaseUserService> services)
+        {
+            var servicesList = services.ToList();
+            Console.WriteLine("SERVICES INFO: \n");
+            for (int i = 0; i < servicesList.Count; i++)
+            {
+                var service = servicesList[i];
                 Console.Write($"Service {i} : type = ");
                 if (service is MasterUserService)
-                    Console.WriteLine(" Master");
+                    Console.Write(" Master; ");
                 else
                 {
-                    Console.WriteLine(" Slave");
+                    Console.Write(" Slave; ");
                 }
-                Console.WriteLine("Current Domain: " + AppDomain.CurrentDomain.FriendlyName);
-                Console.WriteLine("IsProxy: " + RemotingServices.IsTransparentProxy(service));
-                var predicates = new Func<BllUser, bool>(p => p.LastName != null);
-                Console.Write("User's IDs: ");
-                foreach (var user in service.SearchForUsers(predicates))
-                {
-                    Console.Write(user + " ");
-                }
-                Console.WriteLine("\n" + string.Concat(Enumerable.Repeat("-", 20)));
+                Console.Write("Current Domain: " + AppDomain.CurrentDomain.FriendlyName + "; ");
+                Console.Write("IsProxy: " + RemotingServices.IsTransparentProxy(service) + "; ");
+                Console.WriteLine();
             }
         }
     }

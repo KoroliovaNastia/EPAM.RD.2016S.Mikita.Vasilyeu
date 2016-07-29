@@ -20,11 +20,11 @@ namespace DomainConfig
         public BaseUserService LoadService(ServiceConfigInfo configInfo)
         {
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            Console.WriteLine("Assemblies: ");
-            foreach (var assembly in assemblies)
-            {
-                Console.WriteLine(assembly.FullName);
-            }
+            //Console.WriteLine("Assemblies: ");
+            //foreach (var assembly in assemblies)
+            //{
+            //    Console.WriteLine(assembly.FullName);
+            //}
 
             BaseUserService result;
             UserServiceCommunicator communicator;

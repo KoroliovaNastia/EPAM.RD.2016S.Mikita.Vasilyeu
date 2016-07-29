@@ -28,9 +28,9 @@ namespace NetworkConfig
         {
             return Task.Run(() =>
             {
-                Console.WriteLine("Wait Connection");
+                //Console.WriteLine("Wait Connection");
                 reciever = listener.Accept();
-                Console.WriteLine("Connection accepted");
+                //Console.WriteLine("Connection accepted");
             });
 
         }
@@ -45,7 +45,7 @@ namespace NetworkConfig
 
                 message = (NetworkMessage<T>)formatter.Deserialize(networkStream);
             }
-            Console.WriteLine("Message received!");
+            //Console.WriteLine("Message received!");
             return message;
         }
 

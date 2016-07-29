@@ -37,14 +37,14 @@ namespace ServiceConfigurator
             var domain = AppDomain.CreateDomain(configuration.Name, null, null);
             var type = typeof(DomainServiceLoader);
             var loader = (DomainServiceLoader)domain.CreateInstanceAndUnwrap(Assembly.GetAssembly(type).FullName, type.FullName);
-            Console.WriteLine("Creating service " + configuration.Name);
+           // Console.WriteLine("Creating service " + configuration.Name);
             var assemblies = domain.GetAssemblies();
-            Console.WriteLine("Assemblies: ");
-            foreach (var assembly in assemblies)
-            {
-                Console.WriteLine(assembly.FullName);
-            }
-            Console.WriteLine(RemotingServices.IsTransparentProxy(loader));
+            //Console.WriteLine("Assemblies: ");
+            //foreach (var assembly in assemblies)
+            //{
+            //    Console.WriteLine(assembly.FullName);
+            //}
+            //Console.WriteLine(RemotingServices.IsTransparentProxy(loader));
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Task1.StorageSystem.dll");
             return loader.LoadService(configuration);
         }

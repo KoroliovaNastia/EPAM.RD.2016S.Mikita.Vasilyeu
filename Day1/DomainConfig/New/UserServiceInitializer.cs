@@ -57,7 +57,7 @@ namespace ServiceConfigurator
             }
 
             //SubscribeServices(master, slaves);
-            ThreadInitializer.InitializeThreads(master, slaves);
+            //ThreadInitializer.InitializeThreads(master, slaves);
         }
         private static void SubscribeServices(MasterUserService master, IEnumerable<SlaveUserService> slaves)
         {
