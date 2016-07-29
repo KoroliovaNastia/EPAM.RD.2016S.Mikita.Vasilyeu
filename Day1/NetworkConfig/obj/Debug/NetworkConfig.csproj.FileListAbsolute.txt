@@ -2,7 +2,6 @@ C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\NetworkConfig\
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\NetworkConfig\bin\Debug\NetworkConfig.pdb
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\NetworkConfig\obj\Debug\NetworkConfig.dll
 C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\NetworkConfig\obj\Debug\NetworkConfig.pdb
-C:\Users\1111\Documents\GitHub\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\NetworkConfig\obj\Debug\NetworkConfig.csprojResolveAssemblyReference.cache
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\NetworkConfig\bin\Debug\NetworkConfig.dll
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\NetworkConfig\bin\Debug\NetworkConfig.pdb
 D:\Mikita_Vasilyeu\EPAM.RD.2016S.Mikita.Vasilyeu\Day1\NetworkConfig\obj\Debug\NetworkConfig.csprojResolveAssemblyReference.cache

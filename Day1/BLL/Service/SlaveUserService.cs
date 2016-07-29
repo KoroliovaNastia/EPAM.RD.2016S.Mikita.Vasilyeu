@@ -35,12 +35,28 @@ namespace BLL.Service
 
         private void OnAdded(object sender, UserEventArgs args)
         {
-            storage.Add(args.User.ToDalUser());
+            storageLock.EnterWriteLock();
+            try
+            {
+                storage.Add(args.User.ToDalUser());
+            }
+            finally
+            {
+                storageLock.ExitWriteLock();
+            }
         }
 
         private void OnDeleted(object sender, UserEventArgs args)
         {
-            storage.Delete(args.User.ToDalUser());
+            storageLock.EnterWriteLock();
+            try
+            {
+                storage.Delete(args.User.ToDalUser());
+            }
+            finally
+            {
+                storageLock.ExitWriteLock();
+            }
         }
 
         public void Subscribe(MasterUserService master)

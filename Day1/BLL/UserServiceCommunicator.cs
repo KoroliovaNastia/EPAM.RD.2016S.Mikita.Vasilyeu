@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace BLL
 {
     [Serializable]
-    public class UserServiceCommunicator :  IDisposable
+    public class UserServiceCommunicator : MarshalByRefObject, IDisposable
     {
         public event EventHandler<UserEventArgs> UserAdded;
         public event EventHandler<UserEventArgs> UserDeleted;
@@ -29,8 +29,9 @@ namespace BLL
         public UserServiceCommunicator(Sender<BllUser> sender) : this(sender, null) { }
         public UserServiceCommunicator(Receiver<BllUser> receiver) : this(null, receiver) { }
 
-        public void RunReceiver()
+        public async void RunReceiver()
         {
+            await _receiver.AcceptConnection();
             if (_receiver == null) return;
             tokenSource = new CancellationTokenSource();
             recieverTask = Task.Run((Action)ReceiveMessages, tokenSource.Token);

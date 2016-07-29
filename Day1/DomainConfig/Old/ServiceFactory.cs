@@ -12,6 +12,7 @@ using System.Net;
 using BLL.Service;
 using System.Threading;
 using BLL.Models;
+using DomainConfig.DependenciesConfigSections;
 
 namespace DomainConfig
 {
@@ -85,6 +86,38 @@ namespace DomainConfig
                 masterLoader.ConnectMaster(master, serviceConfigurations.Where(s => s.Type == ServiceType.Slave).ToList());
 
             return services;
+        }
+
+        public static DependencyConfiguration ParseDependencyConfiguration()
+        {
+            var section = GetDependencySection();
+            var config = new DependencyConfiguration
+            {
+                MasterName = section.MasterServices.MasterServiceName
+            };
+            int dependencyCount = section.MasterServices.Count;
+            config.SlaveConfigurations = new List<ServiceConfigInfo>(dependencyCount);
+            for (int i = 0; i < dependencyCount; i++)
+            {
+                var dependency = section.MasterServices[i];
+                IPAddress address;
+                bool parsed = IPAddress.TryParse(dependency.IpAddress, out address);
+                if (!parsed)
+                    throw new ArgumentException("Address is not valid");
+                var slaveConfig = new ServiceConfigInfo
+                {
+                    IpEndPoint = new IPEndPoint(address, dependency.Port),
+                    Name = dependency.ServiceName
+                };
+                config.SlaveConfigurations.Add(slaveConfig);
+            }
+
+            return config;
+        }
+
+        private static DependencyConfigSection GetDependencySection()
+        {
+            return (DependencyConfigSection)ConfigurationManager.GetSection("MasterDependencies");
         }
 
         private static void InitializeThreads(MasterUserService master, IEnumerable<SlaveUserService> slaves)

@@ -71,15 +71,16 @@ namespace DAL
                     logger.Error(exeption.Message);
                 throw exeption;
             }
-            DalUser userToDelete = users.SingleOrDefault(u => u.Id == user.Id);
-            if (userToDelete == null)
-            {
-                ArgumentException exeption = new ArgumentException(nameof(user) + " doesn't exist");
-                if (loggerSwitch.Enabled)
-                    logger.Error(exeption.Message);
-                throw exeption;
-            }
-            users.Remove(userToDelete);
+            //DalUser userToDelete = users.SingleOrDefault(u => u.Id == user.Id);
+            //if (userToDelete == null)
+            //{
+            //    ArgumentException exeption = new ArgumentException(nameof(user) + " doesn't exist");
+            //    if (loggerSwitch.Enabled)
+            //        logger.Error(exeption.Message);
+            //    throw exeption;
+            //}
+            //users.Remove(userToDelete);
+            users.Remove(user);
             if (loggerSwitch.Enabled)
                 logger.Info($"User {user} Removed!");
         }

@@ -20,6 +20,7 @@ namespace BLL.Service
         protected IUserRepository storage;
         protected static readonly Logger logger;
         protected static readonly BooleanSwitch loggerSwitch;
+        protected ReaderWriterLockSlim storageLock = new ReaderWriterLockSlim();
 
         static BaseUserService()
         {
@@ -42,39 +43,66 @@ namespace BLL.Service
 
         public int Add(BllUser user)
         {
-            if (ReferenceEquals(user, null))
+            storageLock.EnterWriteLock();
+            try
             {
-                ArgumentNullException exeption = new ArgumentNullException(nameof(user) + " is null");
-                if (loggerSwitch.Enabled)
-                    logger.Error(exeption.Message);
-                throw exeption;
+                if (ReferenceEquals(user, null))
+                {
+                    ArgumentNullException exeption = new ArgumentNullException(nameof(user) + " is null");
+                    if (loggerSwitch.Enabled)
+                        logger.Error(exeption.Message);
+                    throw exeption;
+                }
+                return NotifyAdd(user);
             }
-            return NotifyAdd(user);
+            finally
+            {
+                storageLock.ExitWriteLock();
+            }
+
         }
 
         public void Delete(BllUser user)
         {
-            if (ReferenceEquals(user, null))
+            storageLock.EnterWriteLock();
+            try
             {
-                ArgumentNullException exeption = new ArgumentNullException(nameof(user) + " is null");
-                if (loggerSwitch.Enabled)
-                    logger.Error(exeption.Message);
-                throw exeption;
+                if (ReferenceEquals(user, null))
+                {
+                    ArgumentNullException exeption = new ArgumentNullException(nameof(user) + " is null");
+                    if (loggerSwitch.Enabled)
+                        logger.Error(exeption.Message);
+                    throw exeption;
+                }
+                NotifyDelete(user);
             }
-            NotifyDelete(user);
+            finally
+            {
+                storageLock.ExitWriteLock();
+            }
+
         }
 
         public virtual List<int> SearchForUsers(Func<BllUser, bool> criteria)
         {
-            if (ReferenceEquals(criteria, null))
+            storageLock.EnterReadLock();
+            try
             {
-                ArgumentNullException exeption = new ArgumentNullException(nameof(criteria) + " is null");
-                if (loggerSwitch.Enabled)
-                    logger.Error(exeption.Message);
-                throw exeption;
+                if (ReferenceEquals(criteria, null))
+                {
+                    ArgumentNullException exeption = new ArgumentNullException(nameof(criteria) + " is null");
+                    if (loggerSwitch.Enabled)
+                        logger.Error(exeption.Message);
+                    throw exeption;
+                }
+                Func<DalUser, bool> predicate = user => criteria.Invoke(user.ToBllUser());
+                return storage.GetByPredicate(predicate).ToList();
             }
-            Func<DalUser, bool> predicate = user => criteria.Invoke(user.ToBllUser());
-            return storage.GetByPredicate(predicate).ToList();
+            finally
+            {
+                storageLock.ExitReadLock();
+            }
+
         }
 
         public virtual void AddCommunicator(UserServiceCommunicator communicator)
