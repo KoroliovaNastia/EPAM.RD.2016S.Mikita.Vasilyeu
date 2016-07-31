@@ -93,25 +93,6 @@ namespace DAL
         public int[] GetByPredicate(Func<DalUser, bool> predicate)
         {
             return users.Where(predicate).Select(u => u.Id).ToArray();
-            //return users.Where(p => predicates.Any(pr => pr(p))).Select(u => u.Id).ToArray();
-            //if (predicate == null)
-            //{
-            //    ArgumentNullException exeption = new ArgumentNullException(nameof(predicate) + " is null");
-            //    if (loggerSwitch.Enabled)
-            //        logger.Error(exeption.Message);
-            //    throw exeption;
-            //}
-            //List<DalUser> foundUsers = users.Where(predicate).ToList();
-            //int[] ids = null;
-            //if (foundUsers.Count != 0)
-            //{
-            //    ids = new int[foundUsers.Count];
-            //    for (int i = 0; i < ids.Length; i++)
-            //    {
-            //        ids[i] = foundUsers[i].Id;
-            //    }
-            //}
-            //return ids;
         }
 
         public void Save()
@@ -136,8 +117,9 @@ namespace DAL
                 logger.Info($"User storage saved to XML!");
         }
 
-        public void Load()
+        public List<DalUser> LoadUsers()
         {
+            List<DalUser> users;
             XmlSerializer formatter = new XmlSerializer(typeof(List<DalUser>));
             string path;
             try
@@ -152,16 +134,40 @@ namespace DAL
             }
             using (StreamReader sr = new StreamReader(path))
             {
-                List<DalUser> users = (List<DalUser>)formatter.Deserialize(sr);
-                foreach (var user in users)
-                {
-                    this.users.Add(user);
-                }
-                iterator.SetCurrent(users.Last().Id);
+                users = (List<DalUser>)formatter.Deserialize(sr);
             }
             if (loggerSwitch.Enabled)
                 logger.Info($"User storage loaded from XML!");
+
+            return users;
         }
+
+        //public void Load()
+        //{
+        //    XmlSerializer formatter = new XmlSerializer(typeof(List<DalUser>));
+        //    string path;
+        //    try
+        //    {
+        //        path = ConfigurationManager.AppSettings["Path"];
+        //    }
+        //    catch (ConfigurationErrorsException ex)
+        //    {
+        //        if (loggerSwitch.Enabled)
+        //            logger.Error($"App.Config exception! " + ex.Message);
+        //        throw;
+        //    }
+        //    using (StreamReader sr = new StreamReader(path))
+        //    {
+        //        List<DalUser> users = (List<DalUser>)formatter.Deserialize(sr);
+        //        foreach (var user in users)
+        //        {
+        //            this.users.Add(user);
+        //        }
+        //        iterator.SetCurrent(users.Last().Id);
+        //    }
+        //    if (loggerSwitch.Enabled)
+        //        logger.Info($"User storage loaded from XML!");
+        //}
 
 
         private void InitializeRepository(ICustomerEnumerator iterator, IUserValidator validator)

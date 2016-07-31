@@ -21,9 +21,6 @@ namespace ConsoleTests
         static void Main(string[] args)
         {
             IList<BaseUserService> services = UserServiceInitializer.InitializeServices().ToList();
-            ShowServicesInfo(services);
-            Console.WriteLine("\nPress enter to start: ");
-            Console.ReadLine();
             var master = (MasterUserService)services.Single(s => s is MasterUserService);
             var slaves = services.Where(s => s is SlaveUserService).Select(s => (SlaveUserService)s);
             RunSlaves(slaves);
@@ -34,6 +31,7 @@ namespace ConsoleTests
                 if (quit.Key == ConsoleKey.Escape)
                     break;
             }
+            master.Save();
         }
 
         private static void RunMaster(MasterUserService master)
@@ -111,26 +109,6 @@ namespace ConsoleTests
                 });
                 slaveThread.IsBackground = true;
                 slaveThread.Start();
-            }
-        }
-
-        private static void ShowServicesInfo(IEnumerable<BaseUserService> services)
-        {
-            var servicesList = services.ToList();
-            Console.WriteLine("SERVICES INFO: \n");
-            for (int i = 0; i < servicesList.Count; i++)
-            {
-                var service = servicesList[i];
-                Console.Write($"Service {i} : type = ");
-                if (service is MasterUserService)
-                    Console.Write(" Master; ");
-                else
-                {
-                    Console.Write(" Slave; ");
-                }
-                Console.Write("Current Domain: " + AppDomain.CurrentDomain.FriendlyName + "; ");
-                Console.Write("IsProxy: " + RemotingServices.IsTransparentProxy(service) + "; ");
-                Console.WriteLine();
             }
         }
     }

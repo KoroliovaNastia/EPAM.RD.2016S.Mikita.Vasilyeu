@@ -38,6 +38,25 @@ namespace ServiceConfigurator
                 //slave.Subscribe(master);
             }
 
+            //Console.WriteLine("SERVICES INFO: \n");
+            //for (int i = 0; i < services.Count; i++)
+            //{
+            //    var service = services[i];
+            //    Console.Write($"Service {i} : type = ");
+            //    if (service is MasterUserService)
+            //        Console.Write(" Master; ");
+            //    else
+            //    {
+            //        Console.Write(" Slave; ");
+            //    }
+            //    Console.Write("Current Domain: " + AppDomain.CurrentDomain.FriendlyName + "; ");
+            //    Console.Write("IsProxy: " + RemotingServices.IsTransparentProxy(service) + "; ");
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine("\nPress enter to start: ");
+            //Console.ReadLine();
+            master.Load();
+
             return services;
         }
 

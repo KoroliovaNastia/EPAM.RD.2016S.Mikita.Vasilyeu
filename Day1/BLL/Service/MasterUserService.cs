@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using BLL.Models;
 using BLL.Mappers;
+using System.Collections.Generic;
 
 namespace BLL.Service
 {
@@ -38,7 +39,11 @@ namespace BLL.Service
 
         public override void Load()
         {
-            storage.Load();
+            //storage.Load();
+            List<BllUser> users = storage.LoadUsers().Select(user => user.ToBllUser()).ToList();
+            foreach (var user in users)
+                NotifyAdd(user);
+
         }
 
         protected virtual void OnUserDeleted(object sender, UserEventArgs args)
@@ -52,6 +57,5 @@ namespace BLL.Service
             Communicator?.SendAdd(args);
             //Added?.Invoke(sender, args);
         }
-
     }
 }

@@ -14,6 +14,7 @@ namespace DAL.Interface
         int[] GetByPredicate(Func<T, bool> predicate);
         List<T> GetAll();
         void Save();
-        void Load();
+        //void Load();
+        List<T> LoadUsers();
     }
 }

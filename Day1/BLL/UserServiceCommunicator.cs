@@ -89,6 +89,7 @@ namespace BLL
                 MessageType = MessageType.Added
             });
         }
+
         public void SendDelete(UserEventArgs args)
         {
             if (_sender == null) return;
