@@ -99,7 +99,7 @@ namespace ConsoleTests
                     while (true)
                     {
                         var userIds = slave.SearchForUsers(u => !string.IsNullOrWhiteSpace(u.FirstName));
-                        Console.Write("Slave search results: ");
+                        Console.Write(" Slave search results: ");
                         foreach (var user in userIds)
                             Console.Write(user + " ");
                         Console.WriteLine();
