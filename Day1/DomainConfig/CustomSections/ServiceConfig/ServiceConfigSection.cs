@@ -5,16 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainConfig.CustomSections.DependencyConfig
+namespace DomainConfig.CustomSections.ServiceConfig
 {
-    public class DependencyConfigSection : ConfigurationSection
+    public class ServiceConfigSection : ConfigurationSection
     {
         [ConfigurationProperty("MasterService")]
         public MasterServiceCollection MasterServices => (MasterServiceCollection) base["MasterService"];
 
-        public static DependencyConfigSection GetDependencySection()
+        public static ServiceConfigSection GetSection()
         {
-            return (DependencyConfigSection)ConfigurationManager.GetSection("MasterDependencies");
+            return (ServiceConfigSection)ConfigurationManager.GetSection("ServiceConfigSection");
         }
     }
 }

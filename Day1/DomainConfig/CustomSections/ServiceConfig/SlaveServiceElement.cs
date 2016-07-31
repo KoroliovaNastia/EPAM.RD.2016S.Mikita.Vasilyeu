@@ -1,8 +1,8 @@
 ﻿using System.Configuration;
 
-namespace DomainConfig.CustomSections.DependencyConfig
+namespace DomainConfig.CustomSections.ServiceConfig
 {
-    public class DependencyElement : ConfigurationElement
+    public class SlaveServiceElement : ConfigurationElement
     {
         [ConfigurationProperty("type", DefaultValue = "", IsKey = true, IsRequired = true)]
         public string ServiceType

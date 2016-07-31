@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomSections\DependencyConfig\DependencyConfigSection.cs" />
-    <Compile Include="CustomSections\DependencyConfig\DependencyElement.cs" />
-    <Compile Include="CustomSections\DependencyConfig\MasterServiceCollection.cs" />
+    <Compile Include="CustomSections\ServiceConfig\ServiceConfigSection.cs" />
+    <Compile Include="CustomSections\ServiceConfig\SlaveServiceElement.cs" />
+    <Compile Include="CustomSections\ServiceConfig\MasterServiceCollection.cs" />
     <Compile Include="Models\DependencyConfigInfo.cs" />
     <Compile Include="DomainServiceLoader.cs" />
     <Compile Include="ServiceFactory.cs" />

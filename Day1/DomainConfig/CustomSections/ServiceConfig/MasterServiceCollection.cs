@@ -1,17 +1,17 @@
 ﻿using System.Configuration;
 
-namespace DomainConfig.CustomSections.DependencyConfig
+namespace DomainConfig.CustomSections.ServiceConfig
 {
     public class MasterServiceCollection : ConfigurationElementCollection
     {
         protected override ConfigurationElement CreateNewElement()
         {
-            return new DependencyElement();
+            return new SlaveServiceElement();
         }
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return ((DependencyElement)element).ServiceName;
+            return ((SlaveServiceElement)element).ServiceName;
         }
 
         [ConfigurationProperty("name", DefaultValue = "", IsKey = true, IsRequired = true)]
@@ -28,6 +28,6 @@ namespace DomainConfig.CustomSections.DependencyConfig
             set { base["type"] = value; }
         }
 
-        public DependencyElement this[int idx] => (DependencyElement)BaseGet(idx);
+        public SlaveServiceElement this[int idx] => (SlaveServiceElement)BaseGet(idx);
     }
 }
