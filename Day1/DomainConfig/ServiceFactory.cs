@@ -1,7 +1,6 @@
 ﻿using BLL.Service;
 using DomainConfig;
 using DomainConfig.CustomSections.DependencyConfig;
-using DomainConfig.CustomSections.ServiceConfig;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -58,10 +57,10 @@ namespace ServiceConfigurator
             return services;
         }
 
-        public static DependencyConfiguration ParseServiceConfigSection()
+        public static DependencyConfigInfo ParseServiceConfigSection()
         {
             var section = DependencyConfigSection.GetDependencySection();
-            var config = new DependencyConfiguration
+            var config = new DependencyConfigInfo
             {
                 MasterConfiguration = new ServiceConfigInfo
                 {

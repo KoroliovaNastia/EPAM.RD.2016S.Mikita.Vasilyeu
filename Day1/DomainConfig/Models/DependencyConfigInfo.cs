@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainConfig
 {
-    public class DependencyConfiguration
+    public class DependencyConfigInfo
     {
         public ServiceConfigInfo MasterConfiguration { get; set; }
         public IList<ServiceConfigInfo> SlaveConfigurations { get; set; }

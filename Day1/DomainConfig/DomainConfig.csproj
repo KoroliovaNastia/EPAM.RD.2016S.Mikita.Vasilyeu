@@ -41,13 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomSections\ServiceConfig\ServiceConfigSection.cs" />
-    <Compile Include="CustomSections\ServiceConfig\ServiceCollection.cs" />
-    <Compile Include="CustomSections\ServiceConfig\ServiceElement.cs" />
     <Compile Include="CustomSections\DependencyConfig\DependencyConfigSection.cs" />
     <Compile Include="CustomSections\DependencyConfig\DependencyElement.cs" />
     <Compile Include="CustomSections\DependencyConfig\MasterServiceCollection.cs" />
-    <Compile Include="Models\DependencyConfiguration.cs" />
+    <Compile Include="Models\DependencyConfigInfo.cs" />
     <Compile Include="DomainServiceLoader.cs" />
     <Compile Include="ServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
