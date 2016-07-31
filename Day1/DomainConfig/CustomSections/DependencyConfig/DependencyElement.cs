@@ -4,6 +4,13 @@ namespace DomainConfig.CustomSections.DependencyConfig
 {
     public class DependencyElement : ConfigurationElement
     {
+        [ConfigurationProperty("type", DefaultValue = "", IsKey = true, IsRequired = true)]
+        public string ServiceType
+        {
+            get { return (string)base["type"]; }
+            set { base["type"] = value; }
+        }
+
         [ConfigurationProperty("name", DefaultValue = "", IsKey = true, IsRequired = true)]
         public string ServiceName
         {

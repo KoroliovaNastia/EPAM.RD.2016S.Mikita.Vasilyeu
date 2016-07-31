@@ -36,6 +36,14 @@
     <Cards />
   </DalUser>
   <DalUser>
+    <Id>6</Id>
+    <FirstName>Bob</FirstName>
+    <LastName>Smith</LastName>
+    <BirthDate>0001-01-01T00:00:00</BirthDate>
+    <Gender>None</Gender>
+    <Cards />
+  </DalUser>
+  <DalUser>
     <Id>8</Id>
     <FirstName>Bob</FirstName>
     <LastName>Smith</LastName>
@@ -53,8 +61,8 @@
   </DalUser>
   <DalUser>
     <Id>12</Id>
-    <FirstName>Bob</FirstName>
-    <LastName>Smith</LastName>
+    <FirstName>Jack</FirstName>
+    <LastName>Jackson</LastName>
     <BirthDate>0001-01-01T00:00:00</BirthDate>
     <Gender>None</Gender>
     <Cards />

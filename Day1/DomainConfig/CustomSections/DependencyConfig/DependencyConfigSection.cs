@@ -17,7 +17,4 @@ namespace DomainConfig.CustomSections.DependencyConfig
             return (DependencyConfigSection)ConfigurationManager.GetSection("MasterDependencies");
         }
     }
-
-
-    
 }

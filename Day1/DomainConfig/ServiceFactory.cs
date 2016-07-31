@@ -22,15 +22,22 @@ namespace ServiceConfigurator
     {
         public static IEnumerable<BaseUserService> InitializeServices()
         {
-            var serviceConfigurations = ParseServiceConfigSection();
-            var dependencyConfiguration = ParseDependencyConfiguration();
-            var services = CreateServices(serviceConfigurations).ToList();
+            var conf = Parse();
+            //var serviceConfigurations = ParseServiceConfigSection();
+            var configs = new List<ServiceConfigInfo>();
+            configs.Add(conf.MasterConfiguration);
+            configs.AddRange(conf.SlaveConfigurations);
+            //var dependencyConfiguration = ParseDependencyConfiguration();
+            //var services = CreateServices(serviceConfigurations).ToList();
+            var services = CreateServices(configs).ToList();
 
             var master = (MasterUserService)services.FirstOrDefault(s => s is MasterUserService);
             var slaves = services.OfType<SlaveUserService>().ToList();
 
-            if (master != null && dependencyConfiguration.SlaveConfigurations.Count != 0)
-                master.Communicator.Connect(dependencyConfiguration.SlaveConfigurations.Select(c => c.IpEndPoint).ToList());
+            //if (master != null && dependencyConfiguration.SlaveConfigurations.Count != 0)
+            //    master.Communicator.Connect(dependencyConfiguration.SlaveConfigurations.Select(c => c.IpEndPoint).ToList());
+            //master.Communicator.Connect(serviceConfigurations.Select(c => c.IpEndPoint).ToList());
+            master.Communicator.Connect(conf.SlaveConfigurations.Select(c => c.IpEndPoint).ToList());
 
             foreach (var slave in slaves)
             {
@@ -58,6 +65,36 @@ namespace ServiceConfigurator
             master.Load();
 
             return services;
+        }
+
+        public static DependencyConfiguration Parse()
+        {
+            var section = DependencyConfigSection.GetDependencySection();
+            var config = new DependencyConfiguration
+            {
+                MasterName = section.MasterServices.MasterServiceName,
+                MasterConfiguration = new ServiceConfigInfo
+                {
+                    Name = section.MasterServices.MasterServiceName,
+                    Type = (ServiceType)Enum.Parse(typeof(ServiceType), section.MasterServices.MasterServiceType)
+                }
+            };
+            int dependencyCount = section.MasterServices.Count;
+            config.SlaveConfigurations = new List<ServiceConfigInfo>(dependencyCount);
+            for (int i = 0; i < dependencyCount; i++)
+            {
+                var dependency = section.MasterServices[i];
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(dependency.IpAddress), dependency.Port);
+                var slaveConfig = new ServiceConfigInfo
+                {
+                    IpEndPoint = endPoint,
+                    Type = (ServiceType)Enum.Parse(typeof(ServiceType), dependency.ServiceType),
+                    Name = dependency.ServiceName
+                };
+                config.SlaveConfigurations.Add(slaveConfig);
+            }
+
+            return config;
         }
 
         public static IEnumerable<ServiceConfigInfo> ParseServiceConfigSection()
