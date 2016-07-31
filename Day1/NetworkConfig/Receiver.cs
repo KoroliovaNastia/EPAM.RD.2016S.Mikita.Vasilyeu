@@ -24,16 +24,23 @@ namespace NetworkConfig
             listener.Listen(1);
         }
 
-        public Task AcceptConnection()
+        public void AcceptConnection()
         {
-            return Task.Run(() =>
-            {
-                //Console.WriteLine("Wait Connection");
-                reciever = listener.Accept();
-                //Console.WriteLine("Connection accepted");
-            });
-
+            //Console.WriteLine("Wait Connection");
+            reciever = listener.Accept();
+            //Console.WriteLine("Connection accepted");
         }
+
+        //public Task AcceptConnection()
+        //{
+        //    return Task.Run(() =>
+        //    {
+        //        //Console.WriteLine("Wait Connection");
+        //        reciever = listener.Accept();
+        //        //Console.WriteLine("Connection accepted");
+        //    });
+
+        //}
 
         public NetworkMessage<T> Receive()
         {

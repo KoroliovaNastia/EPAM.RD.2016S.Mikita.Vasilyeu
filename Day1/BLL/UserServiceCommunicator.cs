@@ -29,13 +29,22 @@ namespace BLL
         public UserServiceCommunicator(Sender<BllUser> sender) : this(sender, null) { }
         public UserServiceCommunicator(Receiver<BllUser> receiver) : this(null, receiver) { }
 
-        public async void RunReceiver()
+        public void RunReceiver()
         {
-            await _receiver.AcceptConnection();
+            _receiver.AcceptConnection();
             if (_receiver == null) return;
             tokenSource = new CancellationTokenSource();
             recieverTask = Task.Run((Action)ReceiveMessages, tokenSource.Token);
+
         }
+
+        //public async void RunReceiver()
+        //{
+        //    await _receiver.AcceptConnection();
+        //    if (_receiver == null) return;
+        //    tokenSource = new CancellationTokenSource();
+        //    recieverTask = Task.Run((Action)ReceiveMessages, tokenSource.Token);
+        //}
 
         public void Connect(IEnumerable<IPEndPoint> endPoints)
         {
